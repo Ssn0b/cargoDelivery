@@ -17,25 +17,25 @@ import java.sql.SQLException;
 public class RegistrationServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String uname = request.getParameter("name");
-        String uemail = request.getParameter("email");
-        String upwd = request.getParameter("pass");
-        String umobile = request.getParameter("contact");
-        String ucity = request.getParameter("city");
+        String uName = request.getParameter("name");
+        //System.out.println(uName);
+        String uEmail = request.getParameter("email");
+        String uPwd = request.getParameter("pass");
+        String uMobile = request.getParameter("contact");
         RequestDispatcher dispatcher = null;
         Connection con = null;
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-                con = DriverManager.getConnection("jdbc:mysql://localhost:3306/cargodelivery?useSSL=false","root","vladgo!2003");
-            PreparedStatement pst = con.prepareStatement("insert into authorizedUser(name, email, password,telephoneNUmber,city) values (?,?,?,?,?)");
-            pst.setString(1,uname);
-            pst.setString(2,uemail);
-            pst.setString(3,upwd);
-            pst.setString(4,umobile);
-            pst.setString(5,ucity);
+                con = DriverManager.getConnection("jdbc:mysql://localhost:3306/cargo_delivery?useSSL=false","root","vladgo!2003");
+            PreparedStatement pst = con.prepareStatement("insert into user(username, email, password,roleId,telNumber) values (?,?,?,?,?)");
+            pst.setString(1,uName);
+            pst.setString(2,uEmail);
+            pst.setString(3,uPwd);
+            pst.setInt(4,1);
+            pst.setString(5,uMobile);
 
             int rowCount = pst.executeUpdate();
-            dispatcher =request.getRequestDispatcher("registration.jsp");
+            dispatcher = request.getRequestDispatcher("registration.jsp");
             if(rowCount>0){
                 request.setAttribute("status","success");
 
@@ -54,5 +54,10 @@ public class RegistrationServlet extends HttpServlet {
                 throw new RuntimeException(e);
             }
         }
+    }
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        ServletUtil.forward("registration.jsp",request,response);
+       // doPost(request,response);
     }
 }
