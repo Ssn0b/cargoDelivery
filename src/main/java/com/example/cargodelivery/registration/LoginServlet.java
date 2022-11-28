@@ -28,15 +28,13 @@ public class LoginServlet extends HttpServlet {
 
             if(rs.next()){
                 session.setAttribute("name",rs.getString("username"));
-                dispatcher = request.getRequestDispatcher("index.jsp");
+                dispatcher = request.getRequestDispatcher("/jsp/index.jsp");
             }else{
                 request.setAttribute("status","failed");
-                dispatcher = request.getRequestDispatcher("login.jsp");
+                dispatcher = request.getRequestDispatcher("/jsp/login.jsp");
             }
             dispatcher.forward(request,response);
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        } catch (SQLException e) {
+        } catch (ClassNotFoundException | SQLException e) {
             throw new RuntimeException(e);
         }
     }
@@ -51,6 +49,6 @@ public class LoginServlet extends HttpServlet {
         }catch (Exception e){
             e.printStackTrace();
         }
-        ServletUtil.forward("login.jsp", request,response);
+        ServletUtil.forward("/jsp/login.jsp", request,response);
     }
 }

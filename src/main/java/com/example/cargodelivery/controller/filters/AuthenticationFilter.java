@@ -1,4 +1,4 @@
-package com.example.cargodelivery.controller.Filter;
+package com.example.cargodelivery.controller.filters;
 
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.*;

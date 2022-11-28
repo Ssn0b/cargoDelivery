@@ -6,7 +6,7 @@
   <meta name="description" content="">
   <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
   <meta name="generator" content="Hugo 0.104.2">
-  <title>Headers · Bootstrap v5.2</title>
+  <title>CargoDelivery</title>
 
   <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/headers/">
 
@@ -132,7 +132,7 @@
 
 
   <!-- Custom styles for this template -->
-  <link href="${pageContext.request.contextPath}/css/index.css" rel="stylesheet">
+  <link href="/css/index.css" rel="stylesheet">
 
 
 
@@ -193,6 +193,4 @@
     </div>
   </div>
 </header>
-
-
 </html>

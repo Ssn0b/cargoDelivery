@@ -1,5 +1,6 @@
 package com.example.cargodelivery.registration;
 
+import com.example.cargodelivery.db.DBUtil;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -25,39 +26,42 @@ public class RegistrationServlet extends HttpServlet {
         RequestDispatcher dispatcher = null;
         Connection con = null;
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-                con = DriverManager.getConnection("jdbc:mysql://localhost:3306/cargo_delivery?useSSL=false","root","vladgo!2003");
+            //Class.forName("com.mysql.cj.jdbc.Driver");
+            con = DBUtil.getDataSource().getConnection();
+            //con = DriverManager.getConnection("jdbc:mysql://localhost:3306/cargo_delivery?useSSL=false","root","vladgo!2003");
             PreparedStatement pst = con.prepareStatement("insert into user(username, email, password,roleId,telNumber) values (?,?,?,?,?)");
-            pst.setString(1,uName);
-            pst.setString(2,uEmail);
-            pst.setString(3,uPwd);
-            pst.setInt(4,1);
-            pst.setString(5,uMobile);
+            pst.setString(1, uName);
+            pst.setString(2, uEmail);
+            pst.setString(3, uPwd);
+            pst.setInt(4, 1);
+            pst.setString(5, uMobile);
 
             int rowCount = pst.executeUpdate();
-            dispatcher = request.getRequestDispatcher("registration.jsp");
-            if(rowCount>0){
-                request.setAttribute("status","success");
+            dispatcher = request.getRequestDispatcher("/jsp/registration.jsp");
+            if (rowCount > 0) {
+                request.setAttribute("status", "success");
 
-            }else{
-                request.setAttribute("status","failed");
+            } else {
+                request.setAttribute("status", "failed");
             }
-            dispatcher.forward(request,response);
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
+            dispatcher.forward(request, response);
+       /* } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);*/
         } catch (SQLException e) {
             throw new RuntimeException(e);
-        }finally {
-            try {
-                con.close();
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
+        } finally {
+            //  try {
+            //con.close();
+            // } catch (SQLException e) {
+            //   throw new RuntimeException(e);
+            //}
+            //}
         }
     }
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-        ServletUtil.forward("registration.jsp",request,response);
+        ServletUtil.forward("/jsp/registration.jsp",request,response);
        // doPost(request,response);
     }
 }
