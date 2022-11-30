@@ -18,18 +18,18 @@ import java.sql.SQLException;
 public class RegistrationServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String SQLquery = "insert into user(username, email, password,roleId,telNumber) values (?,?,?,?,?)";
         String uName = request.getParameter("name");
-        //System.out.println(uName);
         String uEmail = request.getParameter("email");
         String uPwd = request.getParameter("pass");
         String uMobile = request.getParameter("contact");
         RequestDispatcher dispatcher = null;
-        Connection con = null;
-        try {
+        try (Connection con = DBUtil.getConnection();
+             PreparedStatement pst = con.prepareStatement(SQLquery);){
             //Class.forName("com.mysql.cj.jdbc.Driver");
-            con = DBUtil.getDataSource().getConnection();
+
             //con = DriverManager.getConnection("jdbc:mysql://localhost:3306/cargo_delivery?useSSL=false","root","vladgo!2003");
-            PreparedStatement pst = con.prepareStatement("insert into user(username, email, password,roleId,telNumber) values (?,?,?,?,?)");
+
             pst.setString(1, uName);
             pst.setString(2, uEmail);
             pst.setString(3, uPwd);

@@ -14,7 +14,7 @@ public class RegisterCommand extends Command{
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException, SQLException {
 
-        String forward = Path.PAGE_REGISTER;
+        String forward;
         String name = request.getParameter("name");
         String email = request.getParameter("email");
         String password = request.getParameter("pass");

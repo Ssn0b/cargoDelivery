@@ -1,46 +1,34 @@
 package com.example.cargodelivery.db;
 
-import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.Properties;
+import java.util.*;
+import java.io.*;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 
-import javax.sql.DataSource;
-
+import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 
 public class DBUtil {
-    private static final String DB_USERNAME="username";
-    private static final String DB_PASSWORD="password";
-    private static final String DB_URL ="url";
-    private static final String DB_DRIVER_CLASS="driver";
-    private static ResourceBundle rb = null;
-    private static HikariDataSource dataSource;
+    private static final HikariConfig config = new HikariConfig();
+    private static final HikariDataSource dataSource;
     static{
-        try {
-            rb = ResourceBundle.getBundle("database");
-
-            dataSource = new HikariDataSource();
-            dataSource.setDriverClassName(rb.getString(DB_DRIVER_CLASS));
-
-            dataSource.setJdbcUrl(rb.getString(DB_URL));
-            dataSource.setUsername(rb.getString(DB_USERNAME));
-            dataSource.setPassword(rb.getString(DB_PASSWORD));
-
-            dataSource.setMinimumIdle(100);
-            dataSource.setMaximumPoolSize(2000);
-            dataSource.setAutoCommit(false);
-            dataSource.setLoginTimeout(3);
-
-        } catch ( SQLException e) {
-            e.printStackTrace();
-        }
+        ResourceBundle rb = ResourceBundle.getBundle("database");
+        config.setDriverClassName(rb.getString("driver"));
+        config.setJdbcUrl(rb.getString("url"));
+        config.setUsername(rb.getString("username"));
+        config.setPassword(rb.getString("password"));
+        config.addDataSourceProperty( "cachePrepStmts" , "true" );
+        config.addDataSourceProperty( "prepStmtCacheSize" , "250" );
+        config.addDataSourceProperty( "prepStmtCacheSqlLimit" , "2048" );
+        dataSource = new HikariDataSource(config);
     }
-
-    public static DataSource getDataSource(){
-        return dataSource;
+    private DBUtil()  {}
+    public static Connection getConnection() throws SQLException{
+        return dataSource.getConnection();
     }
 
 }

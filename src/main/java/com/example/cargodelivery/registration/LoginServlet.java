@@ -1,5 +1,6 @@
 package com.example.cargodelivery.registration;
 
+import com.example.cargodelivery.db.DBUtil;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
@@ -18,8 +19,9 @@ public class LoginServlet extends HttpServlet {
         HttpSession session = request.getSession();
         RequestDispatcher dispatcher = null;
         try{
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/cargo_delivery?useSSL=false","root","vladgo!2003");
+            Connection con = DBUtil.getConnection();
+            //Class.forName("com.mysql.jdbc.Driver");
+            //Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/cargo_delivery?useSSL=false","root","vladgo!2003");
                 PreparedStatement pst = con.prepareStatement("select * from user where email = ? and password = ?");
             pst.setString(1,uEmail);
             pst.setString(2,uPwd);
@@ -34,7 +36,7 @@ public class LoginServlet extends HttpServlet {
                 dispatcher = request.getRequestDispatcher("/jsp/login.jsp");
             }
             dispatcher.forward(request,response);
-        } catch (ClassNotFoundException | SQLException e) {
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }

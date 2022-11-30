@@ -4,7 +4,7 @@
 
 <main class="form-signin w-100 m-auto">
 	<h1 class="h3 mb-3 fw-normal">Sign up</h1>
-	<form method="post" action="register" class="register-form"
+	<form method="post" action="controller?action=register" class="register-form"
 		  id="login-form">
 		<div class="form-floating">
 			<input type="text" class="form-control" id="name" name="name" placeholder="name@example.com"/>

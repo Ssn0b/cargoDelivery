@@ -9,14 +9,14 @@ import java.sql.SQLException;
 
 public class UserDao {
     public void insert(User user) throws SQLException {
-        Connection connection = DBUtil.getDataSource().getConnection();
         String query = "insert into user(username, email, password,roleId,telNumber) values (?,?,?,?,?)";
-        try (PreparedStatement ps = connection.prepareStatement(query)) {
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            connection.close();
-        }
+        Connection con = DBUtil.getConnection();
+        PreparedStatement pst = con.prepareStatement(query);
+        pst.setString(1, user.getUsername());
+        pst.setString(2, user.getEmail());
+        pst.setString(3, user.getPassword());
+        pst.setInt(4, 1);
+        pst.setString(5, user.getNumber());
+        pst.executeUpdate();
     }
 }
