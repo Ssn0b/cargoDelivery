@@ -137,7 +137,12 @@
 
 
 </head>
-<%String userSession = (String)session.getAttribute("name");%>
+
+<%
+  Integer userSession = null;
+  if(session.getAttribute("role") != null)
+    userSession = Integer.parseInt(session.getAttribute("role").toString());
+%>
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
   <symbol id="bootstrap" viewBox="0 0 118 94">
     <title>Bootstrap</title>
@@ -181,12 +186,12 @@
       <div class="text-end">
         <div class="text-end">
           <%if(userSession == null) {%>
-          <a href="login"><button type="button" class="btn btn-outline-light me-2" >Login</button></a>
+          <a href="controller?action=loginpage"><button type="button" class="btn btn-outline-light me-2" >Login</button></a>
           <%}else {%>
-          <a href="login<%="?operation=logout" %>"><button type="button" class="btn btn-outline-light me-2" >Logout</button></a>
+          <a href="controller?action=logout"><button type="button" class="btn btn-outline-light me-2" >Logout</button></a>
           <%}%>
 
-          <a href="register"><button type="button" class="btn btn-outline-light me-2" >Sign-up</button></a>
+          <a href="controller?action=registerpage"><button type="button" class="btn btn-outline-light me-2" >Sign-up</button></a>
         </div>
 
       </div>

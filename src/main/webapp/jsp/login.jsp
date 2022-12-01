@@ -5,11 +5,11 @@
 <main class="form-signin w-100 m-auto">
 
 	<h1 class="h3 mb-3 fw-normal">Please sign in</h1>
-		<form method="post" action="login" class="register-form"
+		<form method="post" action="controller?action=login" class="register-form"
 		  id="login-form">
 		<div class="form-floating">
-			<input type="text" class="form-control" id="username" name="username" placeholder="name@example.com"/>
-			<label for="username">Email address</label>
+			<input type="text" class="form-control" id="email" name="email" placeholder="name@example.com"/>
+			<label for="email">Email address</label>
 		</div>
 		<div class="form-floating">
 			<input type="password" class="form-control" name="password" id="password" placeholder="Password">
