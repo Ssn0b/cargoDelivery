@@ -16,12 +16,14 @@ public class RegisterCommand extends Command{
 
         String forward;
         String name = request.getParameter("name");
+        String lastName = request.getParameter("lastName");
         String email = request.getParameter("email");
         String password = request.getParameter("pass");
         String number = request.getParameter("contact");
 
         User user = User.builder()
-                .username(name)
+                .name(name)
+                .lastname(lastName)
                 .email(email)
                 .password(password)
                 .number(number)
@@ -29,6 +31,9 @@ public class RegisterCommand extends Command{
                 .build();
 
         UserDao userDao = new UserDao();
+
+
+
         userDao.insert(user);
         forward = Path.PAGE_REGISTER;
 

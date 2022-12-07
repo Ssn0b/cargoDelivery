@@ -7,6 +7,7 @@ import lombok.Data;
 @Builder
 public class Cargo {
     private int id;
+    private int type;
     private double length;
     private double width;
     private double heigth;

@@ -24,6 +24,9 @@ public class DBUtil {
         config.addDataSourceProperty( "cachePrepStmts" , "true" );
         config.addDataSourceProperty( "prepStmtCacheSize" , "250" );
         config.addDataSourceProperty( "prepStmtCacheSqlLimit" , "2048" );
+        config.addDataSourceProperty("idleTimeout",600000);
+        config.addDataSourceProperty("maximumPoolSize",250);
+        config.addDataSourceProperty("minimumIdle",3);
         dataSource = new HikariDataSource(config);
     }
     private DBUtil()  {}

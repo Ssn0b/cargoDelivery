@@ -11,6 +11,10 @@
 			<label for="name">Name</label>
 		</div>
 		<div class="form-floating">
+			<input type="text" class="form-control" id="lastName" name="lastName" placeholder="name@example.com"/>
+			<label for="lastName">Last name</label>
+		</div>
+		<div class="form-floating">
 			<input type="email" class="form-control" id="email" name="email" placeholder="Email"/>
 			<label for="email">Email address</label>
 		</div>

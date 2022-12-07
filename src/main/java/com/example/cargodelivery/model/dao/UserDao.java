@@ -10,14 +10,15 @@ import java.sql.SQLException;
 
 public class UserDao {
     public void insert(User user) throws SQLException {
-        String query = "insert into user(username, email, password,roleId,telNumber) values (?,?,?,?,?)";
+        String query = "insert into user(name,lastname, email, password,roleId,telNumber) values (?,?,?,?,?,?)";
         Connection con = DBUtil.getConnection();
         PreparedStatement pst = con.prepareStatement(query);
-        pst.setString(1, user.getUsername());
-        pst.setString(2, user.getEmail());
-        pst.setString(3, user.getPassword());
-        pst.setInt(4, 1);
-        pst.setString(5, user.getNumber());
+        pst.setString(1, user.getName());
+        pst.setString(2,user.getLastname());
+        pst.setString(3, user.getEmail());
+        pst.setString(4, user.getPassword());
+        pst.setInt(5, 1);
+        pst.setString(6, user.getNumber());
         pst.executeUpdate();
     }
 
@@ -33,7 +34,8 @@ public class UserDao {
         if(rs.next()){
             newUser = User.builder()
                     .id(rs.getInt("id"))
-                    .username(rs.getString("username"))
+                    .name(rs.getString("name"))
+                    .lastname(rs.getString("lastName"))
                     .email(rs.getString("email"))
                     .password(rs.getString("password"))
                     .roleId(rs.getInt("roleId"))
