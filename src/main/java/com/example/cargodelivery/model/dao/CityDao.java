@@ -30,4 +30,22 @@ public class CityDao{
 
         return list;
     }
+
+    public City findCity(City city) throws SQLException{
+        String query = "select * from city where name = ?";
+        City newCity = null;
+        Connection con = DBUtil.getConnection();
+        PreparedStatement pst = con.prepareStatement(query);
+        pst.setString(1,city.getName());
+        ResultSet rs = pst.executeQuery();
+
+        if(rs.next()){
+            newCity = City.builder()
+                    .id(rs.getInt("id"))
+                    .name(rs.getString("name"))
+                    .idRegion(rs.getInt("idRegion"))
+                    .build();
+        }
+        return newCity;
+    }
 }

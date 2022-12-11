@@ -1,6 +1,3 @@
-        <%@ page import="javax.script.ScriptEngine" %>
-<%@ page import="javax.script.ScriptEngineManager" %>
-<%@ page import="javax.script.ScriptException" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 
 <%@ include file="header.jsp"%>
@@ -11,13 +8,15 @@
 <!-- Demo CSS -->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/demo.css">
 
+<body>
+
 <main>
-    <article>
         <h2> Delivery cost </h2>
-        <form id="skyform" action="controller?action=pricePage&type=${param.flexRadioDefault}&pack=${param.cargoPack}&citySender=${param.selectName1}&cityReciever=${param.selectName2}" method="post">
+    <br>
+        <form method="post" id="countPriceForm" action="controller?action=myOrders" class="register-form">
             <h5 style="display: inline-block; margin-right: 50px">Route:</h5>
             <p style="display: inline-block; margin-right: 3px">City sender:</p>
-            <input list="encodings1" value="" name="selectName1" id="code1" class="col-sm-2    custom-select custom-select-sm" <%--oninvalid="this.setCustomValidity('Please select city')" required--%>>
+            <input list="encodings1" value="" name="sender" id="sender" class="col-sm-2    custom-select custom-select-sm">
             <datalist id="encodings1">
                 <option selected>To..</option>
                 <c:forEach items="${listCategory}" var ="city">
@@ -25,20 +24,16 @@
                 </c:forEach>
             </datalist>
 
-
-            </div>
-            <p style="display: inline-block; margin-right: 3px">City receiver:</p>
-            <input list="encodings" value="" name="selectName2" id="code2" class="col-sm-2    custom-select custom-select-sm" <%--oninvalid="this.setCustomValidity('Please select city')" required--%>>
+            <p style="display: inline-block; margin-right: 3px; margin-left: 25px">City receiver:</p>
+            <input list="encodings" value="" name="receiver" id="receiver" class="col-sm-2    custom-select custom-select-sm">
             <datalist id="encodings">
                 <option selected>To..</option>
                 <c:forEach items="${listCategory}" var ="city">
                     <option id="${city.idRegion}" value="${city.name}"></option>
                 </c:forEach>
             </datalist>
-            </div>
 
-
-        </div>
+<br><br>
             <h5 style="display:inline-flex; margin-right: 160px">Type:</h5>
             <div class="form-check" style="display: inline-block; margin-right: 30px">
                 <label class="form-check-label" for="flexRadioDefault1">
@@ -59,22 +54,27 @@
                 </label>
             </div>
             <br><br>
-            <div id="dvWidth" style="display: none;margin-right: 20px; margin-left: 10px">
-                Width:
-                <input type="text" id="txtWidth"   size="8" style = "margin-right: 6px"/>
-            </div>
             <div id="dvWeight" style="display: none;  margin-right: 10px">
                 Weight:
-                <input type="text" id="txtWeight"  size="8" style = "margin-right: 6px" required/>
+                <input type="text" name="weight" id="txtWeight"  size="8" style = "margin-right: 6px" />
+            </div>
+            <div id="dvWidth" style="display: none;margin-right: 20px; margin-left: 10px">
+                Width:
+                <input type="text" name="width" id="txtWidth" size="8" style = "margin-right: 6px"/>
             </div>
             <div id="dvHeight" style="display: none;margin-right: 10px">
                 Height:
-                <input type="text" id="txtHeight"  size="8" style = "margin-right: 6px"/>
+                <input type="text" name="height" id="txtHeight"  size="8" style = "margin-right: 6px"/>
             </div>
             <div id="dvLength" style="display: none; margin-right: 10px">
                 Length:
-                <input type="text" id="txtLength"  size="8"/>
+                <input type="text" name="length" id="txtLength"  size="8"/>
             </div>
+
+
+            <input  type="hidden" id="priceId" name="priceName">
+
+
             <br><br>
             <div class="form-check" id="check1" style="text-align: center;">
                 <input class="form-check-input" name="cargoPack" type="checkbox" value="packed" id="packUp"/>
@@ -82,18 +82,21 @@
             </div>
             <br>
             <div style="display: inline-block" >
-                <button type="button" class="btn btn-dark" style="size: 50px" onclick="countThePrice()">Count the price</button>
+                <button type="button" name="buttonCountPrice" class="btn btn-dark" style="size: 50px" onclick="countThePrice()">Count the price</button>
             </div>
             <div style="display: inline-block; margin-left: 15px" >
                 <label style="size: 50px; font-style: italic" id="yourPrice"></label>
             </div>
-            <div style="display: inline-block; float: right" >
-                <input type="submit" value="submit" style="size: 50px" class="btn btn-primary"/>
-            </div>
-        </form>
 
-    </article>
+
+            <%if(userSession == null) {%>
+            <a href="controller?action=login"><button style="float: right" type="button" class="btn btn-primary" >Make order</button></a>
+            <%}else {%>
+            <input style="float: right" type="submit" class="btn btn-primary" value="Make order"/>
+            <%}%>
+        </form>
 </main>
+</body>
 
 <!-- jQuery -->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -103,52 +106,54 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha256-CjSoeELFOcH0/uxWu6mC/Vlrc1AARqbm/jiiImDGV3s=" crossorigin="anonymous"></script>
 <!-- Hierarchy Select Js -->
 <script src="${pageContext.request.contextPath}/js/hierarchy-select.js"></script>
-        <script>
-            function countThePrice() {
-                var g = $('#code1').val();
-                var idSender = $('#encodings1 option[value=' + g +']').attr('id');
-                var q = $('#code2').val();
-                var idReceiver = $('#encodings option[value=' + q +']').attr('id');
 
-                var weight = document.getElementById('txtWeight').value;
-                var height = document.getElementById('txtHeight').value;
-                var length = document.getElementById('txtLength').value;
-                var width = document.getElementById('txtWidth').value;
-                var volume = height*width&length;
+<script>
+    function countThePrice() {
+        var g = $('#sender').val();
+        var idSender = $('#encodings1 option[value=' + g +']').attr('id');
+        var q = $('#receiver').val();
+        var idReceiver = $('#encodings option[value=' + q +']').attr('id');
 
-                var price = 0;
-                if (flexRadioDefault2.checked){ // Document
-                    price+=5;
-                    price*=coefficient(idSender,idReceiver);
-                    if(packUp.checked)price+=1;
-                }
-                else if(flexRadioDefault3.checked){
-                    price+=10;
-                    price*=coefficient(idSender,idReceiver);
-                    price+=0.1*weight;
-                    price+=0.0015*volume;
-                    if(packUp.checked)price+=2;
-                }
-                else if(flexRadioDefault1.checked){
-                    price+=20;
-                    price*=coefficient(idSender,idReceiver);
-                    price+=0.1*weight;
-                    price+=0.0015*volume;
-                    if(packUp.checked)price+=5;
-                }
-                document.getElementById("yourPrice").innerHTML = "Your price: " + price.toFixed(2);
-            }
+        var weight = document.getElementById('txtWeight').value;
+        var height = document.getElementById('txtHeight').value;
+        var length = document.getElementById('txtLength').value;
+        var width = document.getElementById('txtWidth').value;
+        var volume = height*width&length;
 
-            function coefficient(idSender,idReceiver){
-                if (Math.abs(idSender - idReceiver) === 2){
-                   return 1.6;
-                }
-                else if(Math.abs(idSender - idReceiver) === 1){
-                    return 1.35;
-                }
-                else return 1;
-            }
-        </script>
+        var price = 0;
+        if (flexRadioDefault2.checked){ // Document
+            price+=5;
+            price*=coefficient(idSender,idReceiver);
+            if(packUp.checked)price+=1;
+        }
+        else if(flexRadioDefault3.checked){
+            price+=10;
+            price*=coefficient(idSender,idReceiver);
+            price+=0.1*weight;
+            price+=0.0015*volume;
+            if(packUp.checked)price+=2;
+        }
+        else if(flexRadioDefault1.checked){
+            price+=20;
+            price*=coefficient(idSender,idReceiver);
+            price+=0.1*weight;
+            price+=0.0015*volume;
+            if(packUp.checked)price+=5;
+        }
+        document.getElementById("yourPrice").innerHTML = "Your price: " + price.toFixed(2);
+        document.getElementById("priceId").value = price.toFixed(2);
+    }
+
+    function coefficient(idSender,idReceiver){
+        if (Math.abs(idSender - idReceiver) === 2){
+            return 1.6;
+        }
+        else if(Math.abs(idSender - idReceiver) === 1 || Math.abs(idSender - idReceiver) === 3){
+            return 1.35;
+        }
+        else return 1;
+    }
+</script>
 <script>
     $(document).ready(function(){
         $('#example').hierarchySelect({
@@ -178,4 +183,5 @@
         dvLength.style.display = (flexRadioDefault1.checked || flexRadioDefault3.checked) ? "inline-block" : "none";
     }
 </script>
+
 </html>

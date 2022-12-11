@@ -4,6 +4,8 @@ import com.example.cargodelivery.controller.command.PageCommands.HomeCommand;
 import com.example.cargodelivery.controller.command.PageCommands.LoginPageCommand;
 import com.example.cargodelivery.controller.command.PageCommands.RegisterPageCommand;
 import com.example.cargodelivery.controller.command.UserCommands.CountThePriceCommand;
+import com.example.cargodelivery.controller.command.UserCommands.MakeOrderCommand;
+import com.example.cargodelivery.controller.command.UserCommands.MyOrdersCommand;
 
 import java.util.Map;
 import java.util.TreeMap;
@@ -19,6 +21,8 @@ public class CommandContainer {
         commands.put("logout", new LogoutCommand());
         commands.put("loginpage",new LoginPageCommand());
         commands.put("pricePage", new CountThePriceCommand());
+        commands.put("myOrders",new MakeOrderCommand());
+        commands.put("myOrdersPage",new MyOrdersCommand());
     }
 
     public static Command get(String commandName) {

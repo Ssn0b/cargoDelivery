@@ -7,6 +7,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import jakarta.websocket.Session;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -32,6 +33,7 @@ public class LoginCommand extends Command{
         if(newUser == null){
             return Path.PAGE_LOGIN;
         }else {
+            session.setAttribute("currentUserId",newUser.getId());
             session.setAttribute("role",newUser.getRoleId());
             return "redirect:controller?action=home";
         }
