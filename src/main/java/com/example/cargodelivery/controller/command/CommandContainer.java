@@ -1,11 +1,10 @@
 package com.example.cargodelivery.controller.command;
 
-import com.example.cargodelivery.controller.command.PageCommands.HomeCommand;
-import com.example.cargodelivery.controller.command.PageCommands.LoginPageCommand;
-import com.example.cargodelivery.controller.command.PageCommands.RegisterPageCommand;
+import com.example.cargodelivery.controller.command.PageCommands.*;
 import com.example.cargodelivery.controller.command.UserCommands.CountThePriceCommand;
 import com.example.cargodelivery.controller.command.UserCommands.MakeOrderCommand;
 import com.example.cargodelivery.controller.command.UserCommands.MyOrdersCommand;
+import com.example.cargodelivery.controller.command.UserCommands.PayCommand;
 
 import java.util.Map;
 import java.util.TreeMap;
@@ -23,6 +22,9 @@ public class CommandContainer {
         commands.put("pricePage", new CountThePriceCommand());
         commands.put("myOrders",new MakeOrderCommand());
         commands.put("myOrdersPage",new MyOrdersCommand());
+        commands.put("pay",new PayCommand());
+        commands.put("payPage",new PayCommandPage());
+        commands.put("reportPage",new ReceiveReportsPage());
     }
 
     public static Command get(String commandName) {

@@ -24,26 +24,36 @@ public class OrderDao {
         pst.executeUpdate();
     }
 
-    public List<Order> listSelect() throws SQLException {
-        String query = "SELECT * FROM orders";
+    public List<Order> listSelect(int userId) throws SQLException {
+        String query = "SELECT o.id,o.dateOfRegister,o.price,o.orderStatusId, c.name,c1.name as name1, os.name as orderName\n" +
+                "FROM orders o, city c, city c1, order_status os\n" +
+                "where userId = ? and (c.id = o.senderCityId and c1.id = o.receiverCityId) and orderStatusId = os.id;";
         ArrayList<Order> list = new ArrayList<>();
         Order newOrder = null;
         Connection con = DBUtil.getConnection();
         PreparedStatement pst = con.prepareStatement(query);
+        pst.setInt(1,userId);
         ResultSet rs= pst.executeQuery();
         while (rs.next()) {
             newOrder = Order.builder()
                     .id(rs.getInt("id"))
-                    .cargoId(rs.getInt("cargoId"))
-                    .userId(rs.getInt("userId"))
-                    .senderCityId(rs.getInt("senderCityId"))
-                    .receiverCityId(rs.getInt("receiverCityId"))
-                    .orderStatusId(rs.getInt("orderStatusId"))
+                    .senderCityName(rs.getString("name"))
+                    .senderReceiverName(rs.getString("name1"))
+                    .orderStatusName(rs.getString("orderName"))
                     .dateOfRegister(rs.getTimestamp("dateOfRegister"))
+                    .price(rs.getDouble("price"))
                     .build();
             list.add(newOrder);
         }
-
         return list;
+    }
+
+    public void update(int orderId) throws SQLException {
+        String query = "update orders set orderStatusId = 3 where id = ?";
+        Connection con = DBUtil.getConnection();
+        PreparedStatement pst = con.prepareStatement(query);
+        pst.setInt(1,orderId);
+
+        pst.executeUpdate();
     }
 }

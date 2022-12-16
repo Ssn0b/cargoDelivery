@@ -1,4 +1,5 @@
 <%@ include file="header.jsp"%>
+
 <body class="text-center">
 <input type="hidden" id ="status" value="<%=request.getAttribute("status")%>">
 
@@ -26,6 +27,7 @@
 			<input type="text" class="form-control" name="contact" id="contact" placeholder="Contact number">
 			<label for="contact">Contact number</label>
 		</div>
+<br>
 		<div class="form-group form-button">
 			<input type="submit" name="signup" id="signup"
 				   class="w-100 btn btn-lg btn-primary" value="Register" />

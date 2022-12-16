@@ -82,8 +82,8 @@
     }
 
     .form-signin {
-      max-width: 330px;
-      padding: 15px;
+      max-width: 500px;
+      padding: 50px;
     }
 
     .form-signin .form-floating:focus-within {
@@ -132,8 +132,10 @@
 
 
   <!-- Custom styles for this template -->
-  <link href="/css/index.css" rel="stylesheet">
-
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/styleForIndex.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 
 
 </head>
@@ -177,7 +179,7 @@
       </a>
 
       <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-        <li><a href="controller?action=home" class="nav-link px-2 text-secondary">Home</a></li>
+        <li><a href="controller?action=home" class="nav-link px-2 text-white">Home</a></li>
         <li><a href="#" class="nav-link px-2 text-white">Coverage</a></li>
         <li><a href="controller?action=pricePage" class="nav-link px-2 text-white">Count the price</a></li>
         <li><a href="#" class="nav-link px-2 text-white">About company</a></li>
@@ -188,6 +190,10 @@
           <%if(userSession == null) {%>
           <a href="controller?action=loginpage"><button type="button" class="btn btn-outline-light me-2" >Login</button></a>
           <a href="controller?action=registerpage"><button type="button" class="btn btn-outline-light me-2" >Sign-up</button></a>
+          <%}else if(userSession == 2){%>
+          <a href="#"><button type="button" class="btn btn-outline-light me-2" >Process orders</button></a>
+          <a href="controller?action=reportPage"><button type="button" class="btn btn-outline-light me-2" >Receive reports</button></a>
+          <a href="controller?action=logout"><button type="button" class="btn btn-outline-light me-2" >Logout</button></a>
           <%}else {%>
           <a href="controller?action=myOrdersPage"><button type="button" class="btn btn-outline-light me-2" >My orders</button></a>
           <a href="controller?action=logout"><button type="button" class="btn btn-outline-light me-2" >Logout</button></a>

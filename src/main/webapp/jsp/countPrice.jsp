@@ -1,22 +1,20 @@
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 
 <%@ include file="header.jsp"%>
+
 <!-- Bootstrap CSS -->
 <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
-<!-- Hierarchy Select CSS -->
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/hierarchy-select.min.css">
-<!-- Demo CSS -->
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/demo.css">
 
-<body>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/styleForIndex.css">
+<br><br><br>
 
-<main>
-        <h2> Delivery cost </h2>
-    <br>
+<div class="container" style="background-color: #F8F8FF; padding: 20px; width: 950px; border: 3px solid #000000;">
+<h1 style="font-size: 50px"> Delivery cost </h1>
+    <br><br>
         <form method="post" id="countPriceForm" action="controller?action=myOrders" class="register-form">
-            <h5 style="display: inline-block; margin-right: 50px">Route:</h5>
-            <p style="display: inline-block; margin-right: 3px">City sender:</p>
-            <input list="encodings1" value="" name="sender" id="sender" class="col-sm-2    custom-select custom-select-sm">
+            <h3 style="display: inline-block; margin-right: 105px">Route:</h3>
+            <p style="display: inline-block; margin-right: 3px; font-size: 20px">City sender:</p>
+            <input list="encodings1" value="" name="sender" id="sender" class="col-2   custom-select">
             <datalist id="encodings1">
                 <option selected>To..</option>
                 <c:forEach items="${listCategory}" var ="city">
@@ -24,8 +22,8 @@
                 </c:forEach>
             </datalist>
 
-            <p style="display: inline-block; margin-right: 3px; margin-left: 25px">City receiver:</p>
-            <input list="encodings" value="" name="receiver" id="receiver" class="col-sm-2    custom-select custom-select-sm">
+            <p style="display: inline-block; margin-right: 3px; margin-left: 25px;font-size: 20px">City receiver:</p>
+            <input list="encodings" value="" name="receiver" id="receiver" class="col-2    custom-select ">
             <datalist id="encodings">
                 <option selected>To..</option>
                 <c:forEach items="${listCategory}" var ="city">
@@ -34,31 +32,34 @@
             </datalist>
 
 <br><br>
-            <h5 style="display:inline-flex; margin-right: 160px">Type:</h5>
-            <div class="form-check" style="display: inline-block; margin-right: 30px">
+            <h3 style="display: inline-flex;margin-right: 200px">Type:</h3>
+            <div class="form-check" style="display: inline-block; margin-right: 35px">
                 <label class="form-check-label" for="flexRadioDefault1">
-                    <input class="form-check-input" type="radio"  name="flexRadioDefault" id="flexRadioDefault1" value="Cargo" onclick="ShowHideDiv();ShowHideDiv2()" />
-                    Cargo
+                    <input class="form-check-input" type="radio"  name="flexRadioDefault" style="width: 20px;height: 20px" id="flexRadioDefault1" value="Cargo" onclick="ShowHideDiv();" />
+                    <p style="font-size: 20px">Cargo</p>
                 </label>
             </div>
-            <div class="form-check" style="display: inline-block; margin-right: 30px" >
+            <div class="form-check" style="display: inline-block; margin-right: 35px" >
                 <label class="form-check-label" for="flexRadioDefault2">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="Document" onclick="ShowHideDiv();ShowHideDiv2()" />
-                    Document
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" style="width: 20px;height: 20px" id="flexRadioDefault2" value="Document" onclick="ShowHideDiv();" />
+                    <p style="font-size: 20px">Document</p>
                 </label>
             </div>
             <div class="form-check" style="display: inline-block">
                 <label class="form-check-label" for="flexRadioDefault2">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" value="Parcel" onclick="ShowHideDiv();ShowHideDiv2()" />
-                    Parcel
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" style="width: 20px;height: 20px" id="flexRadioDefault3" value="Parcel" onclick="ShowHideDiv();" />
+                    <p style="font-size: 20px">Parcel</p>
                 </label>
             </div>
             <br><br>
+            <div id="dvParameters" style="display: none; ">
+                <h3 style="display: inline-flex;margin-right: 30px">Parameters:</h3>
+            </div>
             <div id="dvWeight" style="display: none;  margin-right: 10px">
                 Weight:
                 <input type="text" name="weight" id="txtWeight"  size="8" style = "margin-right: 6px" />
             </div>
-            <div id="dvWidth" style="display: none;margin-right: 20px; margin-left: 10px">
+            <div id="dvWidth" style="display: none;margin-right: 10px;">
                 Width:
                 <input type="text" name="width" id="txtWidth" size="8" style = "margin-right: 6px"/>
             </div>
@@ -71,23 +72,19 @@
                 <input type="text" name="length" id="txtLength"  size="8"/>
             </div>
 
-
             <input  type="hidden" id="priceId" name="priceName">
 
-
             <br><br>
-            <div class="form-check" id="check1" style="text-align: center;">
-                <input class="form-check-input" name="cargoPack" type="checkbox" value="packed" id="packUp"/>
-                <label class="form-check-label" for="packUp"> Pack up </label>
+            <h3 style="display: inline-flex;margin-right: 300px">Packing:</h3>
+            <div class="form-check" id="check1" style="display: inline-block" >
+                <input class="form-check-input" name="cargoPack" type="checkbox" value="packed" style="width: 20px;height: 20px" id="packUp"/>
+                <p style="font-size: 20px">Pack up</p>
             </div>
             <br>
             <div style="display: inline-block" >
-                <button type="button" name="buttonCountPrice" class="btn btn-dark" style="size: 50px" onclick="countThePrice()">Count the price</button>
+                <button type="button" name="buttonCountPrice" id="buttonCountPriceId" class="btn btn-dark" style="size: 50px;" onclick="countThePrice()">Count the price</button>
+                <label for="buttonCountPriceId" style="font-size: 20px;font-style: italic" id="yourPrice"></label>
             </div>
-            <div style="display: inline-block; margin-left: 15px" >
-                <label style="size: 50px; font-style: italic" id="yourPrice"></label>
-            </div>
-
 
             <%if(userSession == null) {%>
             <a href="controller?action=login"><button style="float: right" type="button" class="btn btn-primary" >Make order</button></a>
@@ -95,17 +92,14 @@
             <input style="float: right" type="submit" class="btn btn-primary" value="Make order"/>
             <%}%>
         </form>
-</main>
-</body>
+</div>
 
-<!-- jQuery -->
+
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <!-- Popper Js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <!-- Bootstrap JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha256-CjSoeELFOcH0/uxWu6mC/Vlrc1AARqbm/jiiImDGV3s=" crossorigin="anonymous"></script>
-<!-- Hierarchy Select Js -->
-<script src="${pageContext.request.contextPath}/js/hierarchy-select.js"></script>
 
 <script>
     function countThePrice() {
@@ -154,29 +148,16 @@
         else return 1;
     }
 </script>
-<script>
-    $(document).ready(function(){
-        $('#example').hierarchySelect({
-            hierarchy: false,
-            width: 'auto'
-        });
-    });
-
-    $(document).ready(function(){
-        $('#example1').hierarchySelect({
-            hierarchy: false,
-            width: 'auto'
-        });
-    });
-</script>
 
 <script type="text/javascript">
     function ShowHideDiv() {
         var chkYes = document.getElementById(flexRadioDefault1);
+        var dvParameters = document.getElementById("dvParameters");
         var dvWidth = document.getElementById("dvWidth");
         var dvWeight = document.getElementById("dvWeight");
         var dvHeight=document.getElementById("dvHeight");
         var dvLength=document.getElementById("dvLength");
+        dvParameters.style.display = (flexRadioDefault1.checked || flexRadioDefault3.checked) ? "inline-block" : "none";
         dvWidth.style.display = (flexRadioDefault1.checked || flexRadioDefault3.checked) ? "inline-block" : "none";
         dvWeight.style.display = (flexRadioDefault1.checked || flexRadioDefault3.checked) ? "inline-block" : "none";
         dvHeight.style.display = (flexRadioDefault1.checked || flexRadioDefault3.checked) ? "inline-block" : "none";

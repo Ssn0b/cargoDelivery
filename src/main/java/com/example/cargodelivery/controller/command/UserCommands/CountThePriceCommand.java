@@ -16,8 +16,8 @@ public class CountThePriceCommand extends Command {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException, SQLException {
         CityDao cityDao = new CityDao();
-        List<City> listCatagory = cityDao.listSelect();
-        request.setAttribute("listCategory", listCatagory );
+        List<City> listCategory = cityDao.listSelect();
+        request.setAttribute("listCategory", listCategory);
         return Path.PAGE_PRICE;
     }
 }

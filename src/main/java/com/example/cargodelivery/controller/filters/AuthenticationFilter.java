@@ -1,3 +1,4 @@
+/*
 package com.example.cargodelivery.controller.filters;
 
 import jakarta.servlet.*;
@@ -18,3 +19,4 @@ public class AuthenticationFilter implements Filter {
         chain.doFilter(request, response);
     }
 }
+*/

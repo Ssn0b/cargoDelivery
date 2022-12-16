@@ -31,6 +31,22 @@ public class CityDao{
         return list;
     }
 
+    public  List<City> listSelectSenderCity(int userId) throws SQLException {
+        String query = "SELECT city.name FROM city, orders where city.id = orders.senderCityId and orders.userId = 1;";
+        ArrayList<City> list = new ArrayList<>();
+        City newCity = null;
+        Connection con = DBUtil.getConnection();
+        PreparedStatement pst = con.prepareStatement(query);
+        ResultSet rs= pst.executeQuery();
+        while (rs.next()) {
+            newCity = City.builder()
+                    .name(rs.getString("name"))
+                    .build();
+            list.add(newCity);
+        }
+        return list;
+    }
+
     public City findCity(City city) throws SQLException{
         String query = "select * from city where name = ?";
         City newCity = null;
