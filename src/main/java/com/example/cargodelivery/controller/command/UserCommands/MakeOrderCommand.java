@@ -28,6 +28,7 @@ public class MakeOrderCommand extends Command {
         HttpSession session = request.getSession();
 
         double price = Double.parseDouble(request.getParameter("priceName"));
+        System.out.println(request.getParameter("priceName"));
         String citySender = request.getParameter("sender");
         String cityReceiver = request.getParameter("receiver");
         String cargoType = request.getParameter("flexRadioDefault");

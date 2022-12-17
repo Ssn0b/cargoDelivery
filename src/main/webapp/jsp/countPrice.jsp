@@ -82,13 +82,14 @@
             </div>
             <br>
             <div style="display: inline-block" >
-                <button type="button" name="buttonCountPrice" id="buttonCountPriceId" class="btn btn-dark" style="size: 50px;" onclick="countThePrice()">Count the price</button>
+                <button type="button" name="buttonCountPrice" id="buttonCountPriceId" class="btn btn-dark" style="size: 50px;" onclick="setYourPrice()">Count the price</button>
                 <label for="buttonCountPriceId" style="font-size: 20px;font-style: italic" id="yourPrice"></label>
             </div>
 
             <%if(userSession == null) {%>
             <a href="controller?action=login"><button style="float: right" type="button" class="btn btn-primary" >Make order</button></a>
             <%}else {%>
+
             <input style="float: right" type="submit" class="btn btn-primary" value="Make order"/>
             <%}%>
         </form>
@@ -102,6 +103,11 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha256-CjSoeELFOcH0/uxWu6mC/Vlrc1AARqbm/jiiImDGV3s=" crossorigin="anonymous"></script>
 
 <script>
+    $('#countPriceForm').on('submit', function() {
+        document.getElementById("priceId").value = countThePrice();
+        return true;
+    });
+
     function countThePrice() {
         var g = $('#sender').val();
         var idSender = $('#encodings1 option[value=' + g +']').attr('id');
@@ -134,8 +140,11 @@
             price+=0.0015*volume;
             if(packUp.checked)price+=5;
         }
-        document.getElementById("yourPrice").innerHTML = "Your price: " + price.toFixed(2);
-        document.getElementById("priceId").value = price.toFixed(2);
+        return price.toFixed(2);
+    }
+
+    function setYourPrice() {
+        document.getElementById("yourPrice").innerHTML = "Your price: " + countThePrice();
     }
 
     function coefficient(idSender,idReceiver){

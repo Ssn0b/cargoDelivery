@@ -1,5 +1,5 @@
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
-
+<%@ taglib prefix="fmt" uri="jakarta.tags.core" %>
 <%@ include file="header.jsp"%>
 
 <!-- Bootstrap CSS -->
@@ -34,9 +34,14 @@
         <br><br>
 
         <h3 style="display: inline-block; margin-right: 105px">Date:</h3>
-        <input type="text" path="dueDate" class= "date" name = "dueDate" value = "<fmt:formatDate value="${cForm.dueDate}" pattern="MM-dd-yyyy" />"/>
+        <input type="date" name="dateofbirth" id="dateofbirth">
 
-        <input  type="hidden" id="priceId" name="priceName">
+        <input style="border: 1px solid #c4c4c4;
+  border-radius: 5px;
+  background-color: #fff;
+  padding: 3px 5px;
+  box-shadow: inset 0 3px 6px rgba(0,0,0,0.1);
+  width: 190px;" type="hidden" id="priceId" name="priceName">
 
         <%if(userSession == null) {%>
         <a href="controller?action=login"><button style="float: right" type="button" class="btn btn-primary" >Make order</button></a>
