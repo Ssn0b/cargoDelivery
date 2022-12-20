@@ -1,23 +1,34 @@
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <%@ taglib prefix="fmt" uri="jakarta.tags.core" %>
 <%@ include file="header.jsp"%>
+<html lang=en-GB>
 
 <!-- Bootstrap CSS -->
-<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
+<head>
+    <title>Datepicker</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+</head>
 
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/styleForIndex.css">
+
 <br><br><br>
 
-<div class="container" style="background-color: #F8F8FF; padding: 20px; width: 950px; border: 3px solid #000000;">
+<div class="container" style="padding:20px;background: #fff;box-shadow: 0 5px 10px rgba(0,0,0,.1);">
     <h1 style="font-size: 50px"> Receive reports </h1>
     <br><br>
-    <form method="post" id="receiveReportsForm" action="">
-        <h3 style="display: inline-block; margin-right: 105px">Route:</h3>
+    <form method="post" id="receiveReportsForm" action="controller?action=selectReports">
         <p style="display: inline-block; margin-right: 3px; font-size: 20px">City sender:</p>
         <input list="encodings1" value="" name="sender" id="sender" class="col-2   custom-select">
         <datalist id="encodings1">
             <option selected>To..</option>
-            <c:forEach items="${listCategory}" var ="city">
+            <c:forEach items="${listCities}" var ="city">
                 <option id="${city.idRegion}" value="${city.name}"></option>
             </c:forEach>
         </datalist>
@@ -26,100 +37,80 @@
         <input list="encodings" value="" name="receiver" id="receiver" class="col-2    custom-select ">
         <datalist id="encodings">
             <option selected>To..</option>
-            <c:forEach items="${listCategory}" var ="city">
+            <c:forEach items="${listCities}" var ="city">
                 <option id="${city.idRegion}" value="${city.name}"></option>
             </c:forEach>
         </datalist>
 
+        <p style="display: inline-block; margin-right: 3px; margin-left: 25px;font-size: 20px">Order register date:</p>
+        <input type="date" name="dateOfRegister" id="dateOfRegister" lang="en-GB" style="display: inline-block">
         <br><br>
-
-        <h3 style="display: inline-block; margin-right: 105px">Date:</h3>
-        <input type="date" name="dateofbirth" id="dateofbirth">
-
-        <input style="border: 1px solid #c4c4c4;
-  border-radius: 5px;
-  background-color: #fff;
-  padding: 3px 5px;
-  box-shadow: inset 0 3px 6px rgba(0,0,0,0.1);
-  width: 190px;" type="hidden" id="priceId" name="priceName">
-
-        <%if(userSession == null) {%>
-        <a href="controller?action=login"><button style="float: right" type="button" class="btn btn-primary" >Make order</button></a>
-        <%}else {%>
-        <input style="float: right" type="submit" class="btn btn-primary" value="Make order"/>
-        <%}%>
+        <button type="submit" name="statusButton" class="btn btn-primary"style="margin-left: 460px" >Show orders list</button>
     </form>
 </div>
 
+<br><br>
+<div style="text-align:center;">
 
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<!-- Popper Js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<!-- Bootstrap JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha256-CjSoeELFOcH0/uxWu6mC/Vlrc1AARqbm/jiiImDGV3s=" crossorigin="anonymous"></script>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">First name</th>
+        <th scope="col">Last name</th>
+        <th scope="col">Description</th>
+        <th scope="col">Sender city</th>
+        <th scope="col">Receiver city</th>
+        <th scope="col">Date of register</th>
+        <th scope="col">Price</th>
+        <th scope="col">Order status</th>
+    </tr>
+    </thead>
+    <tbody>
+    <c:forEach items="${listOrders}" var ="order">
+        <tr>
+            <th scope="row">${order.id}</th>
+            <td>${order.userName}</td>
+            <td>${order.userLastName}</td>
+            <td>none</td>
+            <td>${order.senderCityName}</td>
+            <td>${order.receiverCityName}</td>
+            <td>${order.dateOfRegister}</td>
+            <td>${order.price}$</td>
+            <c:set var="status" value="${order.orderStatusName}"/>
+            <%
+                String resp = "";
+                resp = resp + String.valueOf(pageContext.getAttribute("status"));
+            %>
+            <%if (resp.equalsIgnoreCase("registered")) {%>
+            <td id="${order.id}">
+                <button type="button" name="statusButton" class="btn btn-secondary" value="${order.orderStatusName}">${order.orderStatusName}</button>
+            </td>
+            <%}else if(resp.equalsIgnoreCase("Waiting for payment")){%>
+            <td>
+                <button type="button" name="statusButton" class="btn btn-warning" value="${order.id}">${order.orderStatusName}</button>
+            </td>
+            <%}else if(resp.equalsIgnoreCase("Paid")){%>
+            <td>
+                <button type="button" name="statusButton" class="btn btn-success" value="${order.orderStatusName}">${order.orderStatusName}</button>
+            </td>
+            <%}else {%>
+            <td>
+                <button type="button" name="statusButton" class="btn btn-danger" value="${order.orderStatusName}" >${order.orderStatusName}</button>
+            </td>
+            <%}%>
 
-<script>
-    function countThePrice() {
-        var g = $('#sender').val();
-        var idSender = $('#encodings1 option[value=' + g +']').attr('id');
-        var q = $('#receiver').val();
-        var idReceiver = $('#encodings option[value=' + q +']').attr('id');
-
-        var weight = document.getElementById('txtWeight').value;
-        var height = document.getElementById('txtHeight').value;
-        var length = document.getElementById('txtLength').value;
-        var width = document.getElementById('txtWidth').value;
-        var volume = height*width&length;
-
-        var price = 0;
-        if (flexRadioDefault2.checked){ // Document
-            price+=5;
-            price*=coefficient(idSender,idReceiver);
-            if(packUp.checked)price+=1;
-        }
-        else if(flexRadioDefault3.checked){
-            price+=10;
-            price*=coefficient(idSender,idReceiver);
-            price+=0.1*weight;
-            price+=0.0015*volume;
-            if(packUp.checked)price+=2;
-        }
-        else if(flexRadioDefault1.checked){
-            price+=20;
-            price*=coefficient(idSender,idReceiver);
-            price+=0.1*weight;
-            price+=0.0015*volume;
-            if(packUp.checked)price+=5;
-        }
-        document.getElementById("yourPrice").innerHTML = "Your price: " + price.toFixed(2);
-        document.getElementById("priceId").value = price.toFixed(2);
-    }
-
-    function coefficient(idSender,idReceiver){
-        if (Math.abs(idSender - idReceiver) === 2){
-            return 1.6;
-        }
-        else if(Math.abs(idSender - idReceiver) === 1 || Math.abs(idSender - idReceiver) === 3){
-            return 1.35;
-        }
-        else return 1;
-    }
-</script>
+        </tr>
+    </c:forEach>
+    </tbody>
+</table>
+</div>
 
 <script type="text/javascript">
-    function ShowHideDiv() {
-        var chkYes = document.getElementById(flexRadioDefault1);
-        var dvParameters = document.getElementById("dvParameters");
-        var dvWidth = document.getElementById("dvWidth");
-        var dvWeight = document.getElementById("dvWeight");
-        var dvHeight=document.getElementById("dvHeight");
-        var dvLength=document.getElementById("dvLength");
-        dvParameters.style.display = (flexRadioDefault1.checked || flexRadioDefault3.checked) ? "inline-block" : "none";
-        dvWidth.style.display = (flexRadioDefault1.checked || flexRadioDefault3.checked) ? "inline-block" : "none";
-        dvWeight.style.display = (flexRadioDefault1.checked || flexRadioDefault3.checked) ? "inline-block" : "none";
-        dvHeight.style.display = (flexRadioDefault1.checked || flexRadioDefault3.checked) ? "inline-block" : "none";
-        dvLength.style.display = (flexRadioDefault1.checked || flexRadioDefault3.checked) ? "inline-block" : "none";
-    }
+    $(function() {
+        $('#datepicker').datepicker();
+    });
 </script>
 
-</html>
+
+

@@ -1,12 +1,18 @@
 package com.example.cargodelivery.model.dao;
 
 import com.example.cargodelivery.db.DBUtil;
-import com.example.cargodelivery.model.entity.City;
 import com.example.cargodelivery.model.entity.Order;
-import com.example.cargodelivery.model.entity.User;
 
 import java.sql.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class OrderDao {
@@ -38,7 +44,7 @@ public class OrderDao {
             newOrder = Order.builder()
                     .id(rs.getInt("id"))
                     .senderCityName(rs.getString("name"))
-                    .senderReceiverName(rs.getString("name1"))
+                    .receiverCityName(rs.getString("name1"))
                     .orderStatusName(rs.getString("orderName"))
                     .dateOfRegister(rs.getTimestamp("dateOfRegister"))
                     .price(rs.getDouble("price"))
@@ -53,7 +59,74 @@ public class OrderDao {
         Connection con = DBUtil.getConnection();
         PreparedStatement pst = con.prepareStatement(query);
         pst.setInt(1,orderId);
-
         pst.executeUpdate();
+    }
+
+    public List<Order> selectByDateAndCities(Order order) throws SQLException {
+        String sQuery = "";
+        if (!order.getSenderCityName().isEmpty()) {
+            sQuery += " and c.name = '" + order.getSenderCityName() + "'";
+        }
+        if (!order.getReceiverCityName().isEmpty()) {
+            sQuery += " and c1.name = '" + order.getReceiverCityName() + "'";
+        }
+        if (order.getDateOfRegister() != null) {
+            Date date = new Date(order.getDateOfRegister().getTime());
+            DateFormat f = new SimpleDateFormat("yyyy-MM-dd");
+            String strDate = f.format(date);
+            String startDate = ""; startDate += strDate + " 00:00:00.0";
+            String endDate = ""; endDate += strDate + " 23:59:59.0";
+
+            sQuery += " and (o.dateOfRegister > '" + startDate +"' and  '"+ endDate + "' > o.dateOfRegister)";
+
+        }
+        String query = "SELECT o.id,o.dateOfRegister,o.price,o.orderStatusId, c.name,c1.name as name1, os.name as orderName,u.name as userName,u.lastname " +
+                "FROM orders o, city c, city c1, order_status os,user u" +
+                " where (c.id = o.senderCityId and c1.id = o.receiverCityId) and orderStatusId = os.id and u.id = o.userId" + sQuery +";";
+        ArrayList<Order> list = new ArrayList<>();
+        Order newOrder = null;
+        Connection con = DBUtil.getConnection();
+        PreparedStatement pst = con.prepareStatement(query);
+
+        ResultSet rs= pst.executeQuery();
+        while (rs.next()) {
+            newOrder = Order.builder()
+                    .id(rs.getInt("id"))
+                    .userName(rs.getString("userName"))
+                    .userLastName(rs.getString("lastname"))
+                    .senderCityName(rs.getString("name"))
+                    .receiverCityName(rs.getString("name1"))
+                    .orderStatusName(rs.getString("orderName"))
+                    .dateOfRegister(rs.getTimestamp("dateOfRegister"))
+                    .price(rs.getDouble("price"))
+                    .build();
+            list.add(newOrder);
+        }
+        return list;
+    }
+
+    public List<Order> listAll() throws SQLException {
+        String query = "SELECT o.id,o.dateOfRegister,o.price,o.orderStatusId, c.name,c1.name as name1, os.name as orderName,u.name as userName,u.lastname\n" +
+                "FROM orders o, city c, city c1, order_status os,user u \n" +
+                "where (c.id = o.senderCityId and c1.id = o.receiverCityId) and orderStatusId = os.id and u.id = o.userId;";
+        ArrayList<Order> list = new ArrayList<>();
+        Order newOrder = null;
+        Connection con = DBUtil.getConnection();
+        PreparedStatement pst = con.prepareStatement(query);
+        ResultSet rs= pst.executeQuery();
+        while (rs.next()) {
+            newOrder = Order.builder()
+                    .id(rs.getInt("id"))
+                    .userName(rs.getString("userName"))
+                    .userLastName(rs.getString("lastname"))
+                    .senderCityName(rs.getString("name"))
+                    .receiverCityName(rs.getString("name1"))
+                    .orderStatusName(rs.getString("orderName"))
+                    .dateOfRegister(rs.getTimestamp("dateOfRegister"))
+                    .price(rs.getDouble("price"))
+                    .build();
+            list.add(newOrder);
+        }
+        return list;
     }
 }

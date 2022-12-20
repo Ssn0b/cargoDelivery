@@ -10,13 +10,16 @@ import java.util.Date;
 public class Order {
     private int id;
     private int cargoId;
+
     private int userId;
+    private String userName;
+    private String userLastName;
 
     private int senderCityId;
     private String senderCityName;
 
     private int receiverCityId;
-    private String senderReceiverName;
+    private String receiverCityName;
 
 
     private int orderStatusId;

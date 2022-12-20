@@ -1,5 +1,6 @@
 package com.example.cargodelivery.controller.command;
 
+import com.example.cargodelivery.controller.command.ManagerCommands.ReceiveReportsCommand;
 import com.example.cargodelivery.controller.command.PageCommands.*;
 import com.example.cargodelivery.controller.command.UserCommands.CountThePriceCommand;
 import com.example.cargodelivery.controller.command.UserCommands.MakeOrderCommand;
@@ -25,6 +26,8 @@ public class CommandContainer {
         commands.put("pay",new PayCommand());
         commands.put("payPage",new PayCommandPage());
         commands.put("reportPage",new ReceiveReportsPage());
+        commands.put("selectReports",new ReceiveReportsCommand());
+
     }
 
     public static Command get(String commandName) {

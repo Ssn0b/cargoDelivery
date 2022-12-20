@@ -22,7 +22,7 @@
             <th scope="row">${order.id}</th>
                 <td>none</td>
                 <td>${order.senderCityName}</td>
-                <td>${order.senderReceiverName}</td>
+                <td>${order.receiverCityName}</td>
                 <td>${order.dateOfRegister}</td>
                 <td>${order.price}$</td>
                 <c:set var="status" value="${order.orderStatusName}"/>
