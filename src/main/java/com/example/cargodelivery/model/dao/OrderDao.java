@@ -28,6 +28,8 @@ public class OrderDao {
         pst.setTimestamp(6, order.getDateOfRegister());
         pst.setDouble(7,order.getPrice());
         pst.executeUpdate();
+        pst.close();
+        con.close();
     }
 
     public List<Order> listSelect(int userId) throws SQLException {
@@ -51,6 +53,8 @@ public class OrderDao {
                     .build();
             list.add(newOrder);
         }
+        rs.close();
+        con.close();
         return list;
     }
 
@@ -60,6 +64,8 @@ public class OrderDao {
         PreparedStatement pst = con.prepareStatement(query);
         pst.setInt(1,orderId);
         pst.executeUpdate();
+        pst.close();
+        con.close();
     }
 
     public List<Order> selectByDateAndCities(Order order) throws SQLException {
@@ -102,6 +108,8 @@ public class OrderDao {
                     .build();
             list.add(newOrder);
         }
+        rs.close();
+        con.close();
         return list;
     }
 
@@ -127,6 +135,8 @@ public class OrderDao {
                     .build();
             list.add(newOrder);
         }
+        rs.close();
+        con.close();
         return list;
     }
 }

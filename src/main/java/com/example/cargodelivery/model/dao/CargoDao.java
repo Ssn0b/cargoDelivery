@@ -21,6 +21,8 @@ public class CargoDao {
         pst.setDouble(4, cargo.getWidth());
         pst.setDouble(5, cargo.getHeight());
         pst.executeUpdate();
+        pst.close();
+        con.close();
     }
 
     public Cargo selectLastCargo() throws SQLException{
@@ -39,6 +41,8 @@ public class CargoDao {
                     .height(rs.getDouble("height"))
                     .length(rs.getDouble("length")).build();
         }
+        rs.close();
+        con.close();
         return newCargo;
     }
 }

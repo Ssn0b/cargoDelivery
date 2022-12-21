@@ -20,6 +20,8 @@ public class UserDao {
         pst.setInt(5, 1);
         pst.setString(6, user.getNumber());
         pst.executeUpdate();
+        pst.close();
+        con.close();
     }
 
     public User findUser(User user) throws SQLException{
@@ -42,6 +44,8 @@ public class UserDao {
                     .number(rs.getString("telNumber"))
                     .build();
         }
+        rs.close();
+        con.close();
         return newUser;
     }
 }

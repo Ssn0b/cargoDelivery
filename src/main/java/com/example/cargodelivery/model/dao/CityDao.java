@@ -27,7 +27,8 @@ public class CityDao{
                         .build();
                 list.add(newCity);
             }
-
+        rs.close();
+        con.close();
         return list;
     }
 
@@ -44,6 +45,8 @@ public class CityDao{
                     .build();
             list.add(newCity);
         }
+        rs.close();
+        con.close();
         return list;
     }
 
@@ -62,6 +65,8 @@ public class CityDao{
                     .idRegion(rs.getInt("idRegion"))
                     .build();
         }
+        rs.close();
+        con.close();
         return newCity;
     }
 }
