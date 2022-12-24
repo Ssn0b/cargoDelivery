@@ -1,4 +1,4 @@
-package com.example.cargodelivery.controller.command.PageCommands;
+package com.example.cargodelivery.controller.command.UserCommands;
 
 import com.example.cargodelivery.controller.command.Command;
 import jakarta.servlet.ServletException;
@@ -11,12 +11,14 @@ import java.sql.SQLException;
 
 import static com.example.cargodelivery.controller.Path.PAGE_PAY;
 
-public class PayCommandPage extends Command {
+public class PayByCardCommand extends Command {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException, SQLException {
         int orderId = Integer.parseInt(request.getParameter("statusButton"));
+
         HttpSession session = request.getSession();
         session.setAttribute("orderId",orderId);
+
         return PAGE_PAY;
     }
 }

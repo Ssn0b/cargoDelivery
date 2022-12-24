@@ -16,10 +16,12 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
-import java.sql.Date;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 public class MakeOrderCommand extends Command {
     @Override
@@ -28,9 +30,15 @@ public class MakeOrderCommand extends Command {
         HttpSession session = request.getSession();
 
         double price = Double.parseDouble(request.getParameter("priceName"));
+        int arrivalDate = Integer.parseInt((request.getParameter("arrivalDate")));
         String citySender = request.getParameter("sender");
         String cityReceiver = request.getParameter("receiver");
         String cargoType = request.getParameter("flexRadioDefault");
+
+        String fullName= request.getParameter("nameReceiver");
+        String idenPackage= request.getParameter("idenPackage");
+
+        String description= "Package identifier: " + idenPackage+"\n"+"Receiver name: " + fullName;
 
         double weight = 0;
         double height = 0;
@@ -89,21 +97,31 @@ public class MakeOrderCommand extends Command {
             }
         }
 
+
+        Timestamp ts = new Timestamp(System.currentTimeMillis());
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(ts);
+        cal.add(Calendar.DAY_OF_WEEK, arrivalDate);
+        Timestamp ts1 = new Timestamp(cal.getTime().getTime());
+
+
         CargoDao cargoDao = new CargoDao();
         Cargo newCargo = cargoDao.selectLastCargo();
 
         Order order = Order.builder()
                 .cargoId(newCargo.getId())
                 .userId((Integer) session.getAttribute("currentUserId"))
+                .description(description)
                 .senderCityId(newCitySender.getId())
                 .receiverCityId(newCityReceiver.getId())
                 .orderStatusId(1)
-                .dateOfRegister(new Timestamp(System.currentTimeMillis()))
+                .dateOfRegister(ts)
+                .daysToDeliver(arrivalDate)
                 .price(price)
                 .build();
         OrderDao orderDao = new OrderDao();
+        System.out.println(order.getDescription());
         orderDao.insert(order);
-
         return Path.PAGE_HOME;
     }
 }

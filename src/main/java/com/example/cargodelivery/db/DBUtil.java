@@ -1,13 +1,8 @@
 package com.example.cargodelivery.db;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.*;
-import java.io.*;
 import java.util.ResourceBundle;
-import java.util.stream.Collectors;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;

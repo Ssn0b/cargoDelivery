@@ -2,10 +2,7 @@
 <%@ taglib prefix="fmt" uri="jakarta.tags.core" %>
 <%@ include file="header.jsp"%>
 <html lang=en-GB>
-
-<!-- Bootstrap CSS -->
 <head>
-    <title>Datepicker</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
@@ -15,7 +12,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
 </head>
-
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/styleForIndex.css">
 
 <br><br><br>
@@ -62,8 +58,10 @@
         <th scope="col">Sender city</th>
         <th scope="col">Receiver city</th>
         <th scope="col">Date of register</th>
+        <th scope="col">Date of arrival</th>
         <th scope="col">Price</th>
         <th scope="col">Order status</th>
+        <th scope="col">Action</th>
     </tr>
     </thead>
     <tbody>
@@ -72,31 +70,75 @@
             <th scope="row">${order.id}</th>
             <td>${order.userName}</td>
             <td>${order.userLastName}</td>
-            <td>none</td>
+            <td style="max-width: 200px">${order.description}</td>
             <td>${order.senderCityName}</td>
             <td>${order.receiverCityName}</td>
             <td>${order.dateOfRegister}</td>
-            <td>${order.price}$</td>
             <c:set var="status" value="${order.orderStatusName}"/>
             <%
                 String resp = "";
                 resp = resp + String.valueOf(pageContext.getAttribute("status"));
             %>
             <%if (resp.equalsIgnoreCase("registered")) {%>
+            <td></td>
+            <td>${order.price}$</td>
+
             <td id="${order.id}">
-                <button type="button" name="statusButton" class="btn btn-secondary" value="${order.orderStatusName}">${order.orderStatusName}</button>
+                <button style="width: 230px;" type="button" name="statusButton" class="btn btn-secondary" value="${order.id}">${order.orderStatusName}</button>
+            </td>
+            <td id="${order.id}">
+                <form method="post" id="formInvoce" action="controller?action=invoiceForPayment">
+                    <button style="width: 230px;" type="submit" name="statusButton" class="btn btn-info btn-sm py-0" value="${order.id}">Form invoice for payment</button>
+                </form>
+                <form method="post" id="rejectOrder" action="controller?action=rejectOrder">
+                    <button style="width: 230px;" type="submit" name="statusButton" class="btn btn-danger btn-sm py-0" style="display: inline-block" value="${order.id}">Reject order</button>
+                </form>
             </td>
             <%}else if(resp.equalsIgnoreCase("Waiting for payment")){%>
+            <td></td>
+
+            <td>${order.price}$</td>
+
             <td>
-                <button type="button" name="statusButton" class="btn btn-warning" value="${order.id}">${order.orderStatusName}</button>
+                <button style="width: 230px;" type="button" name="statusButton" class="btn btn-primary" value="${order.id}">${order.orderStatusName}</button>
+            </td>
+            <td id="${order.id}">
+                <form method="post" id="rejectOrder2" action="controller?action=rejectOrder">
+                    <button style="width: 230px;" type="submit" name="statusButton" class="btn btn-danger btn-sm py-0" value="${order.id}">Reject order</button>
+                </form>
             </td>
             <%}else if(resp.equalsIgnoreCase("Paid")){%>
+            <td>${(order.dateOfArrival).toLocalDateTime().toLocalDate()}</td>
+
+            <td>${order.price}$</td>
+
             <td>
-                <button type="button" name="statusButton" class="btn btn-success" value="${order.orderStatusName}">${order.orderStatusName}</button>
+                <button style="width: 230px;" type="button" name="statusButton" class="btn btn-success" value="${order.orderStatusName}">${order.orderStatusName}</button>
+            </td>
+            <td id="${order.id}">
+            </td>
+            <%}else if(resp.equalsIgnoreCase("Delivered")){%>
+            <td>${(order.dateOfArrival).toLocalDateTime().toLocalDate()}</td>
+
+            <td>${order.price}$</td>
+
+            <td>
+                <button style="width: 230px;" type="button" name="statusButton" class="btn btn-success" value="${order.orderStatusName}" >${order.orderStatusName}</button>
+            </td>
+            <td id="${order.id}">
             </td>
             <%}else {%>
+            <td></td>
+
+            <td>${order.price}$</td>
+
             <td>
-                <button type="button" name="statusButton" class="btn btn-danger" value="${order.orderStatusName}" >${order.orderStatusName}</button>
+                <button style="width: 230px;" type="button" name="statusButton" class="btn btn-danger" value="${order.orderStatusName}" >${order.orderStatusName}</button>
+            </td>
+            <td id="${order.id}">
+                <form method="post" id="restoreOrder" action="controller?action=invoiceForPayment">
+                    <button style="width: 230px;" type="submit" name="statusButton" class="btn btn-success btn-sm py-0" value="${order.id}">Restore order</button>
+                </form>
             </td>
             <%}%>
 

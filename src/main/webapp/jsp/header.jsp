@@ -181,8 +181,10 @@
       <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
         <li><a href="controller?action=home" class="nav-link px-2 text-white">Home</a></li>
         <li><a href="#" class="nav-link px-2 text-white">Coverage</a></li>
-        <li><a href="controller?action=pricePage" class="nav-link px-2 text-white">Count the price</a></li>
-        <li><a href="#" class="nav-link px-2 text-white">About company</a></li>
+        <li><a  href="controller?action=pricePage" class="nav-link px-2 text-white">Count the price</a></li>
+        <%if(userSession != null) {%>
+        <li><a href="controller?action=profilePage" class="nav-link px-2 text-white">My profile</a></li>
+        <%}%>
       </ul>
 
       <div class="text-end">

@@ -7,7 +7,12 @@ public class Path {
     public static final String PAGE_PRICE = "/jsp/countPrice.jsp";
     public static final String PAGE_MY_ORDERS = "/jsp/myOrders.jsp";
     public static final String PAGE_PAY = "/jsp/pay.jsp";
+    public static final String PAGE_REPLENISH_BALANCE = "/jsp/replenishBalance.jsp";
+
     public static final String PAGE_REPORTS = "/jsp/receiveReports.jsp";
+
+    public static final String PAGE_PROFILE = "/jsp/profilePage.jsp";
+
 
 
 }

@@ -1,4 +1,3 @@
-/*
 package com.example.cargodelivery.controller.filters;
 
 import jakarta.servlet.*;
@@ -6,8 +5,8 @@ import jakarta.servlet.annotation.*;
 
 import java.io.IOException;
 
-@WebFilter(filterName = "AuthenticationFilter")
-public class AuthenticationFilter implements Filter {
+@WebFilter(filterName = "SecurityFilter ")
+public class SecurityFilter implements Filter {
     public void init(FilterConfig config) throws ServletException {
     }
 
@@ -19,4 +18,3 @@ public class AuthenticationFilter implements Filter {
         chain.doFilter(request, response);
     }
 }
-*/

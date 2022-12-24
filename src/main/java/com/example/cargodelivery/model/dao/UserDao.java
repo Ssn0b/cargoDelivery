@@ -48,4 +48,40 @@ public class UserDao {
         con.close();
         return newUser;
     }
+
+    public User findUserById(int userId) throws SQLException{
+        String query = "select * from user where id = ?";
+        User newUser = null;
+        Connection con = DBUtil.getConnection();
+        PreparedStatement pst = con.prepareStatement(query);
+        pst.setInt(1,userId);
+        ResultSet rs = pst.executeQuery();
+
+        if(rs.next()){
+            newUser = User.builder()
+                    .id(rs.getInt("id"))
+                    .name(rs.getString("name"))
+                    .lastname(rs.getString("lastName"))
+                    .email(rs.getString("email"))
+                    .password(rs.getString("password"))
+                    .roleId(rs.getInt("roleId"))
+                    .number(rs.getString("telNumber"))
+                    .balance(rs.getDouble("balance"))
+                    .build();
+        }
+        rs.close();
+        con.close();
+        return newUser;
+    }
+
+    public void updateBalance(User currentUser, double addSum) throws SQLException {
+        String query = "update user set balance = (balance + ?) where id = ?";
+        Connection con = DBUtil.getConnection();
+        PreparedStatement pst = con.prepareStatement(query);
+        pst.setDouble(1, addSum);
+        pst.setInt(2,currentUser.getId());
+        pst.executeUpdate();
+        pst.close();
+        con.close();
+    }
 }

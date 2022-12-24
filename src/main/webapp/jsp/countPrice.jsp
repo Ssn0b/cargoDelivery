@@ -30,6 +30,16 @@
                     <option id="${city.idRegion}" value="${city.name}"></option>
                 </c:forEach>
             </datalist>
+            <br><br>
+            <h3 style="display: inline-block;margin-right: 20px">Description:</h3>
+            <div id="dvName" style=" margin-right: 10px;display: inline-block;">
+                <p style="display: inline-block; margin-right: 3px;font-size: 16px">Receiver name:</p>
+                <input style="width: 200px;display: inline-block;" type="text" class="form-control" id="nameReceiver" name="nameReceiver" placeholder="john snow"/>
+            </div>
+            <div id="dvPack" style="margin-right: 5px;display: inline-block;">
+                <p style="display: inline-block; margin-right: 3px;font-size: 16px">Package identifier:</p>
+                <input type="text" name="idenPackage" class="form-control" id="idenPackage" size="15" placeholder="book,table,etc." style = "margin-right: 6px;width: 200px;display: inline-block;"/>
+            </div>
 
 <br><br>
             <h3 style="display: inline-flex;margin-right: 200px">Type:</h3>
@@ -55,24 +65,25 @@
             <div id="dvParameters" style="display: none; ">
                 <h3 style="display: inline-flex;margin-right: 30px">Parameters:</h3>
             </div>
-            <div id="dvWeight" style="display: none;  margin-right: 10px">
+            <div id="dvWeight" style="display: none;  margin-right: 50px">
                 Weight:
-                <input type="text" name="weight" id="txtWeight"  size="8" style = "margin-right: 6px" />
+                <input type="text" class="form-control" name="weight" id="txtWeight"  size="8" style = "margin-right: 6px" />
             </div>
-            <div id="dvWidth" style="display: none;margin-right: 10px;">
+            <div id="dvWidth" style="display: none;margin-right: 50px;">
                 Width:
-                <input type="text" name="width" id="txtWidth" size="8" style = "margin-right: 6px"/>
+                <input type="text" class="form-control" name="width" id="txtWidth" size="8" style = "margin-right: 6px"/>
             </div>
-            <div id="dvHeight" style="display: none;margin-right: 10px">
+            <div id="dvHeight" style="display: none;margin-right: 50px">
                 Height:
-                <input type="text" name="height" id="txtHeight"  size="8" style = "margin-right: 6px"/>
+                <input type="text" class="form-control" name="height" id="txtHeight"  size="8" style = "margin-right: 6px"/>
             </div>
             <div id="dvLength" style="display: none; margin-right: 10px">
                 Length:
-                <input type="text" name="length" id="txtLength"  size="8"/>
+                <input type="text" class="form-control" name="length" id="txtLength"  size="8"/>
             </div>
 
             <input  type="hidden" id="priceId" name="priceName">
+            <input  type="hidden" id="arrivalDate" name="arrivalDate">
 
             <br><br>
             <h3 style="display: inline-flex;margin-right: 300px">Packing:</h3>
@@ -126,14 +137,14 @@
             price*=coefficient(idSender,idReceiver);
             if(packUp.checked)price+=1;
         }
-        else if(flexRadioDefault3.checked){
+        else if(flexRadioDefault3.checked){ //Parcel
             price+=10;
             price*=coefficient(idSender,idReceiver);
             price+=0.1*weight;
             price+=0.0015*volume;
             if(packUp.checked)price+=2;
         }
-        else if(flexRadioDefault1.checked){
+        else if(flexRadioDefault1.checked){ //Cargo
             price+=20;
             price*=coefficient(idSender,idReceiver);
             price+=0.1*weight;
@@ -149,12 +160,18 @@
 
     function coefficient(idSender,idReceiver){
         if (Math.abs(idSender - idReceiver) === 2){
+            document.getElementById("arrivalDate").value = 5;
             return 1.6;
         }
         else if(Math.abs(idSender - idReceiver) === 1 || Math.abs(idSender - idReceiver) === 3){
+            document.getElementById("arrivalDate").value = 4;
             return 1.35;
         }
-        else return 1;
+        else{
+            document.getElementById("arrivalDate").value = 2;
+            return 1;
+        }
+
     }
 </script>
 

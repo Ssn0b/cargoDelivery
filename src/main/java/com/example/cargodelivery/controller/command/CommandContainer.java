@@ -1,11 +1,10 @@
 package com.example.cargodelivery.controller.command;
 
+import com.example.cargodelivery.controller.command.ManagerCommands.ManagerActions.FormInvoiceForPaymentCommand;
+import com.example.cargodelivery.controller.command.ManagerCommands.ManagerActions.RejectOrderCommand;
 import com.example.cargodelivery.controller.command.ManagerCommands.ReceiveReportsCommand;
 import com.example.cargodelivery.controller.command.PageCommands.*;
-import com.example.cargodelivery.controller.command.UserCommands.CountThePriceCommand;
-import com.example.cargodelivery.controller.command.UserCommands.MakeOrderCommand;
-import com.example.cargodelivery.controller.command.UserCommands.MyOrdersCommand;
-import com.example.cargodelivery.controller.command.UserCommands.PayCommand;
+import com.example.cargodelivery.controller.command.UserCommands.*;
 
 import java.util.Map;
 import java.util.TreeMap;
@@ -24,10 +23,17 @@ public class CommandContainer {
         commands.put("myOrders",new MakeOrderCommand());
         commands.put("myOrdersPage",new MyOrdersCommand());
         commands.put("pay",new PayCommand());
-        commands.put("payPage",new PayCommandPage());
         commands.put("reportPage",new ReceiveReportsPage());
         commands.put("selectReports",new ReceiveReportsCommand());
+        commands.put("invoiceForPayment",new FormInvoiceForPaymentCommand());
+        commands.put("rejectOrder",new RejectOrderCommand());
+        commands.put("profilePage",new ProfilePage());
 
+        commands.put("replenishBalance",new ReplenishTheBalanceCommand());
+        commands.put("payPage",new ReplenishTheBalancePageCommand());
+
+        commands.put("payByBalance",new PayByBalanceCommand());
+        commands.put("payByCard",new PayByCardCommand());
     }
 
     public static Command get(String commandName) {

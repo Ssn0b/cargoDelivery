@@ -4,7 +4,8 @@ import lombok.Builder;
 import lombok.Data;
 
 import java.sql.Timestamp;
-import java.util.Date;
+import java.time.LocalDate;
+
 @Data
 @Builder
 public class Order {
@@ -14,6 +15,8 @@ public class Order {
     private int userId;
     private String userName;
     private String userLastName;
+
+    private String description;
 
     private int senderCityId;
     private String senderCityName;
@@ -25,7 +28,9 @@ public class Order {
     private int orderStatusId;
     private String orderStatusName;
 
+    private int daysToDeliver;
     private Timestamp dateOfRegister;
+    private Timestamp dateOfArrival;
     private double price;
 
 }
