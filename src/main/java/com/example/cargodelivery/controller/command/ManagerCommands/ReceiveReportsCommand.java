@@ -26,17 +26,17 @@ public class ReceiveReportsCommand extends Command {
 
         String action= request.getParameter("action1");
 
-
-   int page = 1;
+        int page = 1;
 
         int recordsPerPage = 5;
-       if (request.getParameter("page") != null)
+        if (request.getParameter("page") != null)
             page = Integer.parseInt(
                     request.getParameter("page"));
 
         String citySender = "";
         String cityReceiver = "";
-        String dateOfRegister = ""; String dateOfRegisterForPag = "";
+        String dateOfRegister = "";
+        String dateOfRegisterForPag = "";
         Order order;
 
         if (request.getParameter("sender") != null && !request.getParameter("sender").isEmpty()){
@@ -83,7 +83,6 @@ public class ReceiveReportsCommand extends Command {
         session.setAttribute("senderParameter",citySender);
         session.setAttribute("receiverParameter",cityReceiver);
         session.setAttribute("dateParameter",dateOfRegisterForPag);
-        System.out.println(dateOfRegister);
         if(action == null) {
             listOrders = orderDao.selectByDateAndCities(order, 0,
                     recordsPerPage);

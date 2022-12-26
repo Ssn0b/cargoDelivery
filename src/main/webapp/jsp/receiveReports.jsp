@@ -168,7 +168,7 @@
         <ul class="pagination justify-content-center">
             <c:if test="${currentPage != 1}">
                 <li class="page-item">
-                    <button type="submit" style=" color: black;" formaction="controller?action=selectReports&page=${currentPage - 1}" class="page-link">Previous</button>
+                    <button type="submit" name="action1"  value="${currentPage - 1}" style=" color: black;" formaction="controller?action=selectReports&page=${currentPage - 1}" class="page-link">Previous</button>
 <%--
                     <a style=" color: black;" class="page-link" href="controller?action=selectReports&page=${currentPage - 1}">Previous</a>
 --%>
@@ -207,7 +207,7 @@
 
             <c:if test="${currentPage lt noOfPages}">
                 <li class="page-item">
-                    <button type="submit" style=" color: black;" formaction="controller?action=selectReports&page=${currentPage + 1}" class="page-link">Next</button>
+                    <button type="submit" name="action1"  value="${currentPage + 1}" style=" color: black;" formaction="controller?action=selectReports&page=${currentPage + 1}" class="page-link">Next</button>
 <%--
                     <a style=" color: black;" class="page-link" href="controller?action=selectReports&page=${currentPage + 1}">Next</a>
 --%>
