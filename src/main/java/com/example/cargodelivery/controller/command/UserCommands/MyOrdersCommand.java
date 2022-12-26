@@ -20,9 +20,22 @@ public class MyOrdersCommand extends Command {
     public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException, SQLException {
         HttpSession session = request.getSession();
 
-        OrderDao orderDao = new OrderDao();
-        List<Order> listCategory = orderDao.listSelect((Integer) session.getAttribute("currentUserId"));
+        int page = 1;
+        int recordsPerPage = 7;
+        if (request.getParameter("page") != null)
+            page = Integer.parseInt(
+                    request.getParameter("page"));
 
+        OrderDao orderDao = new OrderDao();
+        List<Order> listCategory = orderDao.listSelect((Integer) session.getAttribute("currentUserId"),(page - 1) * recordsPerPage,
+                recordsPerPage);
+
+        int noOfRecords = orderDao.getNoOfRecords();
+        int noOfPages = (int)Math.ceil(noOfRecords * 1.0
+                / recordsPerPage);
+
+        request.setAttribute("noOfPages", noOfPages);
+        request.setAttribute("currentPage", page);
         request.setAttribute("listCategory", listCategory);
         return Path.PAGE_MY_ORDERS;
     }

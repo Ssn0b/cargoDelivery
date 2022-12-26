@@ -84,4 +84,31 @@ public class UserDao {
         pst.close();
         con.close();
     }
+
+    public void updateInfo(User user)throws SQLException {
+        String sQuery = "";
+        String idUser =  String.valueOf(user.getId());
+        if (!user.getName().isEmpty()) {
+            sQuery += " , name = '" + user.getName() + "'";
+        }
+        if (!user.getLastname().isEmpty()) {
+            sQuery += " , lastname = '" + user.getLastname() + "'";
+        }
+        if (!user.getEmail().isEmpty()) {
+            sQuery += " , email = '" + user.getEmail() + "'";
+        }
+        if (!user.getNumber().isEmpty()) {
+            sQuery += " , telNumber = '" + user.getNumber() + "'";
+        }
+        if (!user.getPassword().isEmpty()) {
+            sQuery += " , password = '" + user.getPassword() + "'";
+        }
+        String query = "update user set id = " +  idUser +  sQuery  + " where id = " + idUser + ";";
+        System.out.println(query);
+        Connection con = DBUtil.getConnection();
+        PreparedStatement pst = con.prepareStatement(query);
+        pst.executeUpdate();
+        pst.close();
+        con.close();
+    }
 }

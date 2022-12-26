@@ -12,7 +12,6 @@ public class Path {
     public static final String PAGE_REPORTS = "/jsp/receiveReports.jsp";
 
     public static final String PAGE_PROFILE = "/jsp/profilePage.jsp";
-
-
+    public static final String PAGE_CHANGE_INFO = "/jsp/changeProfileInfo.jsp";
 
 }

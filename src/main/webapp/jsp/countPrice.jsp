@@ -14,9 +14,9 @@
         <form method="post" id="countPriceForm" action="controller?action=myOrders" class="register-form">
             <h3 style="display: inline-block; margin-right: 105px">Route:</h3>
             <p style="display: inline-block; margin-right: 3px; font-size: 20px">City sender:</p>
-            <input list="encodings1" value="" name="sender" id="sender" class="col-2   custom-select">
-            <datalist id="encodings1">
-                <option selected>To..</option>
+            <input list="encodings" value="" name="sender" id="sender" class="col-2    custom-select ">
+            <datalist id="encodings">
+                <option selected>From..</option>
                 <c:forEach items="${listCategory}" var ="city">
                     <option id="${city.idRegion}" value="${city.name}"></option>
                 </c:forEach>

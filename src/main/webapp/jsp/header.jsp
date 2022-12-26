@@ -193,7 +193,7 @@
           <a href="controller?action=loginpage"><button type="button" class="btn btn-outline-light me-2" >Login</button></a>
           <a href="controller?action=registerpage"><button type="button" class="btn btn-outline-light me-2" >Sign-up</button></a>
           <%}else if(userSession == 2){%>
-          <a href="controller?action=reportPage"><button type="button" class="btn btn-outline-light me-2" >Process orders</button></a>
+          <a href="controller?action=selectReports"><button type="button" class="btn btn-outline-light me-2" >Process orders</button></a>
           <a href="controller?action=logout"><button type="button" class="btn btn-outline-light me-2" >Logout</button></a>
           <%}else {%>
           <a href="controller?action=myOrdersPage"><button type="button" class="btn btn-outline-light me-2" >My orders</button></a>

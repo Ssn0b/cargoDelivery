@@ -17,34 +17,45 @@ import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 
-import static com.example.cargodelivery.controller.Path.PAGE_MY_ORDERS;
-import static com.example.cargodelivery.controller.Path.PAGE_REPORTS;
+import static com.example.cargodelivery.controller.Path.*;
 
 public class ReceiveReportsCommand extends Command {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException, SQLException {
         HttpSession session = request.getSession();
 
+        String action= request.getParameter("action1");
+
+
+   int page = 1;
+
+        int recordsPerPage = 5;
+       if (request.getParameter("page") != null)
+            page = Integer.parseInt(
+                    request.getParameter("page"));
+
         String citySender = "";
         String cityReceiver = "";
-        String dateOfRegister = "";
+        String dateOfRegister = ""; String dateOfRegisterForPag = "";
         Order order;
-        if (!request.getParameter("sender").isEmpty()){
+
+        if (request.getParameter("sender") != null && !request.getParameter("sender").isEmpty()){
             citySender = request.getParameter("sender");
         }
-        if (!request.getParameter("receiver").isEmpty()){
+        if (request.getParameter("sender") != null && !request.getParameter("receiver").isEmpty()){
             cityReceiver = request.getParameter("receiver");
         }
 
-        if (!request.getParameter("dateOfRegister").isEmpty()){
+        if (request.getParameter("sender") != null && !request.getParameter("dateOfRegister").isEmpty()){
             dateOfRegister = request.getParameter("dateOfRegister");
+            dateOfRegisterForPag= request.getParameter("dateOfRegister");
             dateOfRegister += " 00:00:00.0";
-
             order = Order.builder()
                     .senderCityName(citySender)
                     .receiverCityName(cityReceiver)
                     .dateOfRegister(Timestamp.valueOf(dateOfRegister))
                     .build();
+
         }else {
             order = Order.builder()
                     .senderCityName(citySender)
@@ -53,13 +64,40 @@ public class ReceiveReportsCommand extends Command {
         }
 
         OrderDao orderDao = new OrderDao();
-        List<Order> listOrders = orderDao.selectByDateAndCities(order);
+        List<Order> listOrders = orderDao.selectByDateAndCities(order, 0,
+                recordsPerPage);
 
         CityDao cityDao = new CityDao();
         List<City> listCities = cityDao.listSelect();
 
-        request.setAttribute("listCities", listCities);
+        int noOfRecords = orderDao.getNoOfRecords();
+        int noOfPages = (int)Math.ceil(noOfRecords * 1.0
+                / recordsPerPage);
+
+
+        request.setAttribute("noOfPages", noOfPages);
+        request.setAttribute("currentPage", page);
         request.setAttribute("listOrders", listOrders);
-        return PAGE_REPORTS;
+        request.setAttribute("listCities", listCities);
+
+        session.setAttribute("senderParameter",citySender);
+        session.setAttribute("receiverParameter",cityReceiver);
+        session.setAttribute("dateParameter",dateOfRegisterForPag);
+        System.out.println(dateOfRegister);
+        if(action == null) {
+            listOrders = orderDao.selectByDateAndCities(order, 0,
+                    recordsPerPage);
+            request.setAttribute("listOrders", listOrders);
+
+            return PAGE_REPORTS;
+        }
+        else{
+            listOrders = orderDao.selectByDateAndCities(order, (Integer.parseInt(action)-1)*recordsPerPage,
+                    recordsPerPage);
+            request.setAttribute("listOrders", listOrders);
+
+            return PAGE_REPORTS;
+        }
+
     }
 }

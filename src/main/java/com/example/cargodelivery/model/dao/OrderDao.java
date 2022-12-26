@@ -11,6 +11,8 @@ import java.util.Date;
 import java.util.List;
 
 public class OrderDao {
+    private int noOfRecords;
+
     public void insert(Order order) throws SQLException {
         String query = "insert into orders(cargoId,userId,description, senderCityId, receiverCityId,orderStatusId,dateOfRegister,daysToDeliver, price) values (?,?,?,?,?,?,?,?,?)";
         Connection con = DBUtil.getConnection();
@@ -55,10 +57,10 @@ public class OrderDao {
         return newOrder;
     }
 
-    public List<Order> listSelect(int userId) throws SQLException {
-        String query = "SELECT o.id,o.dateOfRegister,o.dateOfArrival,o.description,o.price,o.orderStatusId, c.name,c1.name as name1, os.name as orderName\n" +
+    public List<Order> listSelect(int userId, int offset, int noOfRecords) throws SQLException {
+        String query = "SELECT SQL_CALC_FOUND_ROWS o.id,o.dateOfRegister,o.dateOfArrival,o.description,o.price,o.orderStatusId, c.name,c1.name as name1, os.name as orderName\n" +
                 "FROM orders o, city c, city c1, order_status os\n" +
-                "where userId = ? and (c.id = o.senderCityId and c1.id = o.receiverCityId) and orderStatusId = os.id ORDER BY o.id DESC;";
+                "where userId = ? and (c.id = o.senderCityId and c1.id = o.receiverCityId) and orderStatusId = os.id ORDER BY o.id DESC limit " + offset + ", " + noOfRecords+";";
         ArrayList<Order> list = new ArrayList<>();
         Order newOrder = null;
         Connection con = DBUtil.getConnection();
@@ -79,6 +81,12 @@ public class OrderDao {
             list.add(newOrder);
         }
         rs.close();
+
+        rs = pst.executeQuery("SELECT FOUND_ROWS()");
+
+        if (rs.next())
+            this.noOfRecords = rs.getInt(1);
+
         con.close();
         return list;
     }
@@ -113,7 +121,7 @@ public class OrderDao {
         con.close();
     }
 
-    public List<Order> selectByDateAndCities(Order order) throws SQLException {
+    public List<Order> selectByDateAndCities(Order order,int offset, int noOfRecords) throws SQLException {
         String sQuery = "";
         if (!order.getSenderCityName().isEmpty()) {
             sQuery += " and c.name = '" + order.getSenderCityName() + "'";
@@ -131,9 +139,9 @@ public class OrderDao {
             sQuery += " and (o.dateOfRegister > '" + startDate +"' and  '"+ endDate + "' > o.dateOfRegister)";
 
         }
-        String query = "SELECT o.id,o.dateOfRegister,o.dateOfArrival,o.description,o.price,o.orderStatusId, c.name,c1.name as name1, os.name as orderName,u.name as userName,u.lastname " +
+        String query = "SELECT SQL_CALC_FOUND_ROWS o.id,o.dateOfRegister,o.dateOfArrival,o.description,o.price,o.orderStatusId, c.name,c1.name as name1, os.name as orderName,u.name as userName,u.lastname " +
                 "FROM orders o, city c, city c1, order_status os,user u" +
-                " where (c.id = o.senderCityId and c1.id = o.receiverCityId) and orderStatusId = os.id and u.id = o.userId" + sQuery +" ORDER BY o.id DESC;\n;";
+                " where (c.id = o.senderCityId and c1.id = o.receiverCityId) and orderStatusId = os.id and u.id = o.userId" + sQuery +" ORDER BY o.id DESC limit " + offset + ", " + noOfRecords+";";
         ArrayList<Order> list = new ArrayList<>();
         Order newOrder = null;
         Connection con = DBUtil.getConnection();
@@ -156,6 +164,11 @@ public class OrderDao {
             list.add(newOrder);
         }
         rs.close();
+
+        rs = pst.executeQuery("SELECT FOUND_ROWS()");
+
+        if (rs.next())
+            this.noOfRecords = rs.getInt(1);
         con.close();
         return list;
     }
@@ -209,4 +222,6 @@ public class OrderDao {
         pst.close();
         con.close();
     }
+    public int getNoOfRecords() { return noOfRecords; }
+
 }

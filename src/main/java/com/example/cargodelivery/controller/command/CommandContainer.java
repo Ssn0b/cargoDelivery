@@ -20,20 +20,24 @@ public class CommandContainer {
         commands.put("logout", new LogoutCommand());
         commands.put("loginpage",new LoginPageCommand());
         commands.put("pricePage", new CountThePriceCommand());
+
         commands.put("myOrders",new MakeOrderCommand());
         commands.put("myOrdersPage",new MyOrdersCommand());
         commands.put("pay",new PayCommand());
+        commands.put("profilePage",new ProfilePageCommand());
+        commands.put("changeInfoPage",new ChangeInfoPageCommand());
+        commands.put("changeInfo",new ChangeInfoCommand());
+        commands.put("replenishBalance",new ReplenishTheBalanceCommand());
+        commands.put("payPage",new ReplenishTheBalancePageCommand());
+        commands.put("payByBalance",new PayByBalanceCommand());
+        commands.put("payByCard",new PayByCardCommand());
+
         commands.put("reportPage",new ReceiveReportsPage());
         commands.put("selectReports",new ReceiveReportsCommand());
         commands.put("invoiceForPayment",new FormInvoiceForPaymentCommand());
         commands.put("rejectOrder",new RejectOrderCommand());
-        commands.put("profilePage",new ProfilePage());
 
-        commands.put("replenishBalance",new ReplenishTheBalanceCommand());
-        commands.put("payPage",new ReplenishTheBalancePageCommand());
 
-        commands.put("payByBalance",new PayByBalanceCommand());
-        commands.put("payByCard",new PayByCardCommand());
     }
 
     public static Command get(String commandName) {

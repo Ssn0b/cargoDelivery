@@ -83,6 +83,42 @@
         </tr>
     </c:forEach>
     </tbody>
-        </table>
+    </table>
+    <%--For displaying Previous link except for the 1st page --%>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+    <c:if test="${currentPage != 1}">
+        <li class="page-item"><a style=" color: black;" class="page-link" href="controller?action=myOrdersPage&page=${currentPage - 1}">Previous</a></li>
+    </c:if>
+
+    <%--For displaying Page numbers. The when condition does not display
+                a link for the current page--%>
+
+    <table>
+        <tr>
+            <c:forEach begin="1" end="${noOfPages}" var="i">
+                <c:choose>
+                    <c:when test="${currentPage eq i}">
+                        <li class="page-item"><a  class="page-link">${i}</a></li>
+                    </c:when>
+                    <c:otherwise>
+                        <li class="page-item"><a style=" color: black;" class="page-link" href="controller?action=myOrdersPage&page=${i}">${i}</a></li>
+                    </c:otherwise>
+                </c:choose>
+            </c:forEach>
+        </tr>
+    </table>
+
+    <%--For displaying Next link --%>
+
+    <c:if test="${currentPage lt noOfPages}">
+        <li class="page-item">
+            <a style=" color: black;" class="page-link" href="controller?action=myOrdersPage&page=${currentPage + 1}">Next</a>
+            </li>
+    </c:if>
+
+
+        </ul>
+    </nav>
 </div>
 </html>

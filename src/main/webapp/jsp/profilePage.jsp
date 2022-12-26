@@ -19,16 +19,17 @@
         <%}else if (userSession == 2){%>
         <p class="text-muted mb-1">Best manager</p>
         <%}%>
-        <p class="text-muted mb-4">Bay Area, San Francisco, CA</p>
-
         <p style="font-size: 15px;">Full Name: ${userProfil.name} ${userProfil.lastname}</p>
         <p style="font-size: 15px;">Email: ${userProfil.email}</p>
         <p style="font-size: 15px;">Phone: ${userProfil.number}</p>
-        <p style="font-size: 15px;">Address: Bay Area, San Francisco, CA</p>
         <p style="font-size: 15px;">Balance: ${userProfil.balance}$</p>
         <div class="d-flex justify-content-center mb-2">
-                <button type="submit" class="btn btn-primary">Replenish the balance</button>
+                <button type="submit" class="btn btn-primary" >Replenish the balance</button>
         </div>
         </form>
+        <form method="post" id="formInvoce" action="controller?action=changeInfoPage">
+                <button style="width: 230px;" type="submit" name="statusButton" class="btn btn-info btn-sm py-0">Change account information</button>
+        </form>
+
 </div>
 
