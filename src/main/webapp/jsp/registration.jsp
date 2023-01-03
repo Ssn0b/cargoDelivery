@@ -1,4 +1,5 @@
 <%@ include file="header.jsp"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
 
 <body class="text-center">
 <input type="hidden" id ="status" value="<%=request.getAttribute("status")%>">
@@ -6,34 +7,40 @@
 <main class="form-signin w-100 m-auto">
 	<h1 class="h3 mb-3 fw-normal">Sign up</h1>
 	<form method="post" action="controller?action=register" class="register-form"
-		  id="login-form">
+		  id="login-form" lang="en">
 		<div class="form-floating">
-			<input type="text" class="form-control" id="name" name="name" placeholder="name@example.com"/>
+			<input type="text" class="form-control" id="name" name="name" placeholder="name" />
 			<label for="name">Name</label>
 		</div>
 		<div class="form-floating">
-			<input type="text" class="form-control" id="lastName" name="lastName" placeholder="name@example.com"/>
+			<input type="text" class="form-control" id="lastName" name="lastName" placeholder="name" />
 			<label for="lastName">Last name</label>
 		</div>
 		<div class="form-floating">
-			<input type="email" class="form-control" id="email" name="email" placeholder="Email"/>
+			<input type="text" class="form-control" id="email" name="email" placeholder="Email"/>
 			<label for="email">Email address</label>
 		</div>
 		<div class="form-floating">
-			<input type="password" class="form-control" name="pass" id="pass" placeholder="Password">
+			<input type="password" class="form-control" name="pass" id="pass" placeholder="Password" />
 			<label for="pass">Password</label>
 		</div>
 		<div class="form-floating">
-			<input type="text" class="form-control" name="contact" id="contact" placeholder="Contact number">
+			<input type="password" class="form-control" name="confirm_pass" id="confirm_pass" placeholder="Confirm password" />
+			<label for="confirm_pass">Confirm password</label>
+		</div>
+		<div class="form-floating">
+			<input type="text" class="form-control" name="contact" id="contact" placeholder="Contact number" >
 			<label for="contact">Contact number</label>
 		</div>
-<br>
+		<br>
 		<div class="form-group form-button">
 			<input type="submit" name="signup" id="signup"
 				   class="w-100 btn btn-lg btn-primary" value="Register" />
 		</div>
-
 	</form>
+	<c:set var="message" value="${message}"/>
+	<p style="font-size: 16px;font-style: italic;color: red" id="message">${message}</p>
+
 </main>
 
 

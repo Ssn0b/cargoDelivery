@@ -32,10 +32,12 @@ public class CommandContainer {
         commands.put("payByBalance",new PayByBalanceCommand());
         commands.put("payByCard",new PayByCardCommand());
 
-        commands.put("reportPage",new ReceiveReportsPage());
+
         commands.put("selectReports",new ReceiveReportsCommand());
         commands.put("invoiceForPayment",new FormInvoiceForPaymentCommand());
         commands.put("rejectOrder",new RejectOrderCommand());
+
+        commands.put("changeLanguage", new ChangeLanguageCommand());
 
 
     }

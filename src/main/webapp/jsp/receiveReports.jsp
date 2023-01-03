@@ -23,7 +23,7 @@
   String dateParameter = session.getAttribute("dateParameter").toString();
 %>
 <form method="post" id="receiveReportsForm" action="controller?action=selectReports">
-<div class="container" style="max-width: 1920px;padding:20px;width: 1920px;background: #fff;box-shadow: 0 5px 10px rgba(0,0,0,.1);">
+<div class="container" style="max-width: 1515px;padding:20px;width: 1515px;background: #fff;box-shadow: 0 5px 10px rgba(0,0,0,.1);">
         <p style="display: inline-block; margin-right: 45px; font-size: 30px">Receive reports: </p>
         <p style="display: inline-block; margin-right: 3px; font-size: 20px">City sender:</p>
         <%if(!senderParameter.isEmpty()){%>
@@ -103,7 +103,9 @@
                     <button style="width: 230px;" type="button" name="statusButton" class="btn btn-secondary" value="${order.id}">${order.orderStatusName}</button>
                 </td>
                 <td id="${order.id}">
-                    <form method="post" id="formInvoce" action="controller?action=invoiceForPayment">
+                    <form method="post" id="blank3" action="controller?action=invoiceForPayment">
+                    </form>
+                    <form method="post" id="formInvoice" action="controller?action=invoiceForPayment">
                         <button style="width: 230px;" type="submit" name="statusButton" class="btn btn-info btn-sm py-0" value="${order.id}">Form invoice for payment</button>
                     </form>
                     <form method="post" id="rejectOrder" action="controller?action=rejectOrder">
@@ -119,6 +121,8 @@
                     <button style="width: 230px;" type="button" name="statusButton" class="btn btn-primary" value="${order.id}">${order.orderStatusName}</button>
                 </td>
                 <td id="${order.id}">
+                    <form method="post" id="blank2" action="controller?action=invoiceForPayment">
+                    </form>
                     <form method="post" id="rejectOrder2" action="controller?action=rejectOrder">
                         <button style="width: 230px;" type="submit" name="statusButton" class="btn btn-danger btn-sm py-0" value="${order.id}">Reject order</button>
                     </form>
@@ -152,6 +156,8 @@
                     <button style="width: 230px;" type="button" name="statusButton" class="btn btn-danger" value="${order.orderStatusName}" >${order.orderStatusName}</button>
                 </td>
                 <td id="${order.id}">
+                    <form method="post" id="blank" action="controller?action=rejectOrder">
+                    </form>
                     <form method="post" id="restoreOrder" action="controller?action=invoiceForPayment">
                         <button style="width: 230px;" type="submit" name="statusButton" class="btn btn-success btn-sm py-0" value="${order.id}">Restore order</button>
                     </form>

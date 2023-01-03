@@ -173,10 +173,10 @@ public class OrderDao {
         return list;
     }
 
-    public List<Order> listAll() throws SQLException {
-        String query = "SELECT o.id,o.dateOfRegister,o.dateOfArrival,o.description,o.price,o.orderStatusId, c.name,c1.name as name1, os.name as orderName,u.name as userName,u.lastname\n" +
+    public List<Order> listAll(int offset, int noOfRecords) throws SQLException {
+        String query = "SELECT SQL_CALC_FOUND_ROWS o.id,o.dateOfRegister,o.dateOfArrival,o.description,o.price,o.orderStatusId, c.name,c1.name as name1, os.name as orderName,u.name as userName,u.lastname\n" +
                 "FROM orders o, city c, city c1, order_status os,user u \n" +
-                "where (c.id = o.senderCityId and c1.id = o.receiverCityId) and orderStatusId = os.id and u.id = o.userId ORDER BY o.id DESC;";
+                "where (c.id = o.senderCityId and c1.id = o.receiverCityId) and orderStatusId = os.id and u.id = o.userId ORDER BY o.id DESC limit " + offset + ", " + noOfRecords+";";
         ArrayList<Order> list = new ArrayList<>();
         Order newOrder = null;
         Connection con = DBUtil.getConnection();
@@ -198,6 +198,11 @@ public class OrderDao {
             list.add(newOrder);
         }
         rs.close();
+
+        rs = pst.executeQuery("SELECT FOUND_ROWS()");
+
+        if (rs.next())
+            this.noOfRecords = rs.getInt(1);
         con.close();
         return list;
     }

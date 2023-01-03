@@ -37,7 +37,7 @@
 
     <div id="dvChangePhone" style="text-align: left;margin-left: 15px">
       <p style="display: inline-block; margin-right: 3px;font-size: 16px">New phone number:</p>
-      <input style="width: 200px;display: inline-block;" type="text" class="form-control" id="changePhone" name="changePhone" placeholder="+380690000000"/>
+      <input style="width: 200px;display: inline-block;" type="text" class="form-control" id="changePhone" name="changePhone" placeholder="0690000000"/>
     </div>
     <br>
     <div id="dvChangePassword" style="text-align: left;margin-left: 15px">
@@ -47,10 +47,12 @@
 <br>
     <div id="dvCurrPassword">
         <p style="display: inline-block; margin-right: 3px;font-size: 14px">To confirm the changes you must specify the current password</p>
-        <input style="width: 200px;display: inline-block;" type="text" class="form-control" id="currentPass" name="currentPass" required/>
+        <input style="width: 200px;display: inline-block;" type="text" class="form-control" id="currentPass" name="currentPass"/>
     </div>
     <br>
         <button style="width: 230px;" type="submit" name="statusButton" class="btn btn-info btn-sm py-0">Change account information</button>
     </form>
 </div>
+<c:set var="message" value="${message}"/>
+<p style="font-size: 16px;font-style: italic;color: red;  text-align: center;" id="message">${message}</p>
 

@@ -1,3 +1,9 @@
+<%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>
+
+<fmt:requestEncoding value="UTF-8" />
+<fmt:setLocale value="${sessionScope.lang}" />
+<fmt:setBundle basename="locale" var="lang"/>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -179,29 +185,31 @@
       </a>
 
       <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-        <li><a href="controller?action=home" class="nav-link px-2 text-white">Home</a></li>
-        <li><a href="#" class="nav-link px-2 text-white">Coverage</a></li>
-        <li><a  href="controller?action=pricePage" class="nav-link px-2 text-white">Count the price</a></li>
+        <li><a href="controller?action=home" class="nav-link px-2 text-white"><fmt:message key="header.home" bundle="${lang}"/></a></li>
+        <li><a  href="controller?action=pricePage" class="nav-link px-2 text-white"><fmt:message key="header.countPrice" bundle="${lang}"/></a></li>
         <%if(userSession != null) {%>
-        <li><a href="controller?action=profilePage" class="nav-link px-2 text-white">My profile</a></li>
+        <li><a href="controller?action=profilePage" class="nav-link px-2 text-white"><fmt:message key="header.myProfile" bundle="${lang}"/></a></li>
         <%}%>
       </ul>
 
-      <div class="text-end">
+      <div class="text-end" style="margin-left: 400px">
         <div class="text-end">
           <%if(userSession == null) {%>
-          <a href="controller?action=loginpage"><button type="button" class="btn btn-outline-light me-2" >Login</button></a>
-          <a href="controller?action=registerpage"><button type="button" class="btn btn-outline-light me-2" >Sign-up</button></a>
+          <a href="controller?action=loginpage"><button type="button" class="btn btn-outline-light me-2" ><fmt:message key="header.login" bundle="${lang}"/></button></a>
+          <a href="controller?action=registerpage" style="margin-right: 10px;"><button type="button" class="btn btn-outline-light me-2" ><fmt:message key="header.sign-up" bundle="${lang}"/></button></a>
           <%}else if(userSession == 2){%>
-          <a href="controller?action=selectReports"><button type="button" class="btn btn-outline-light me-2" >Process orders</button></a>
-          <a href="controller?action=logout"><button type="button" class="btn btn-outline-light me-2" >Logout</button></a>
+          <a href="controller?action=selectReports"><button type="button" class="btn btn-outline-light me-2" ><fmt:message key="header.processOrders" bundle="${lang}"/></button></a>
+          <a href="controller?action=logout" style="margin-right: 10px;"><button type="button" class="btn btn-outline-light me-2" ><fmt:message key="header.logout" bundle="${lang}"/></button></a>
           <%}else {%>
-          <a href="controller?action=myOrdersPage"><button type="button" class="btn btn-outline-light me-2" >My orders</button></a>
-          <a href="controller?action=logout"><button type="button" class="btn btn-outline-light me-2" >Logout</button></a>
+          <a href="controller?action=myOrdersPage"><button type="button" class="btn btn-outline-light me-2" ><fmt:message key="header.myOrders" bundle="${lang}"/></button></a>
+          <a href="controller?action=logout" style="margin-right: 10px;"><button type="button" class="btn btn-outline-light me-2" ><fmt:message key="header.logout" bundle="${lang}"/></button></a>
           <%}%>
         </div>
-
       </div>
+      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+        <li><a href="controller?action=changeLanguage&lang=en" class="nav-link px-2 text-white" >en</a></li>
+        <li><a href="controller?action=changeLanguage&lang=ua" class="nav-link px-2 text-white" >ua</a></li>
+      </ul>
     </div>
   </div>
 </header>

@@ -74,6 +74,31 @@ public class UserDao {
         return newUser;
     }
 
+    public User findUserByEmail(String email) throws SQLException{
+        String query = "select * from user where email = ?";
+        User newUser = null;
+        Connection con = DBUtil.getConnection();
+        PreparedStatement pst = con.prepareStatement(query);
+        pst.setString(1,email);
+        ResultSet rs = pst.executeQuery();
+
+        if(rs.next()){
+            newUser = User.builder()
+                    .id(rs.getInt("id"))
+                    .name(rs.getString("name"))
+                    .lastname(rs.getString("lastName"))
+                    .email(rs.getString("email"))
+                    .password(rs.getString("password"))
+                    .roleId(rs.getInt("roleId"))
+                    .number(rs.getString("telNumber"))
+                    .balance(rs.getDouble("balance"))
+                    .build();
+        }
+        rs.close();
+        con.close();
+        return newUser;
+    }
+
     public void updateBalance(User currentUser, double addSum) throws SQLException {
         String query = "update user set balance = (balance + ?) where id = ?";
         Connection con = DBUtil.getConnection();
@@ -110,5 +135,30 @@ public class UserDao {
         pst.executeUpdate();
         pst.close();
         con.close();
+    }
+
+    public User findUserByPhoneNumber(String number)throws SQLException {
+        String query = "select * from user where telNumber = ?";
+        User newUser = null;
+        Connection con = DBUtil.getConnection();
+        PreparedStatement pst = con.prepareStatement(query);
+        pst.setString(1,number);
+        ResultSet rs = pst.executeQuery();
+
+        if(rs.next()){
+            newUser = User.builder()
+                    .id(rs.getInt("id"))
+                    .name(rs.getString("name"))
+                    .lastname(rs.getString("lastName"))
+                    .email(rs.getString("email"))
+                    .password(rs.getString("password"))
+                    .roleId(rs.getInt("roleId"))
+                    .number(rs.getString("telNumber"))
+                    .balance(rs.getDouble("balance"))
+                    .build();
+        }
+        rs.close();
+        con.close();
+        return newUser;
     }
 }

@@ -1,5 +1,6 @@
 package com.example.cargodelivery.controller.command.UserCommands;
 
+import com.example.cargodelivery.controller.Path;
 import com.example.cargodelivery.controller.command.Command;
 import com.example.cargodelivery.model.dao.OrderDao;
 import com.example.cargodelivery.model.dao.UserDao;
@@ -15,6 +16,7 @@ import java.sql.SQLException;
 import java.util.Objects;
 
 import static com.example.cargodelivery.controller.Path.*;
+import static com.example.cargodelivery.controller.Validation.Validation.ChangeInfoValidation;
 
 public class ChangeInfoCommand extends Command {
     @Override
@@ -23,7 +25,6 @@ public class ChangeInfoCommand extends Command {
         int userId = (int) session.getAttribute("currentUserId");
         UserDao userDao = new UserDao();
         User user = userDao.findUserById(userId);
-
         User newUser;
 
         String firstName = request.getParameter("changeName");
@@ -32,22 +33,19 @@ public class ChangeInfoCommand extends Command {
         String number = request.getParameter("changePhone");
         String newPass = request.getParameter("changePassword");
         String oldPass = request.getParameter("currentPass");
-        System.out.println(oldPass + " " + user.getPassword());
-        if (!Objects.equals(oldPass, user.getPassword())) {
-            request.setAttribute("currentUser", user);
-            return PAGE_CHANGE_INFO;
-        }else {
-            request.setAttribute("currentUser", user);
-            newUser = User.builder()
-                    .id(userId)
-                    .name(firstName)
-                    .lastname(lastName)
-                    .email(email)
-                    .number(number)
-                    .password(newPass)
-                    .build();
-            userDao.updateInfo(newUser);
-            return PAGE_HOME;
+        if (ChangeInfoValidation(request,firstName,lastName,email,number,newPass,oldPass,user)) {
+            return Path.PAGE_CHANGE_INFO;
         }
+        request.setAttribute("currentUser", user);
+        newUser = User.builder()
+                .id(userId)
+                .name(firstName)
+                .lastname(lastName)
+                .email(email)
+                .number(number)
+                .password(newPass)
+                .build();
+        userDao.updateInfo(newUser);
+        return PAGE_HOME;
     }
 }

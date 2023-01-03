@@ -1,4 +1,6 @@
 <%@ include file="header.jsp"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
+
 <body class="text-center">
 <main class="form-signin w-100 m-auto">
 <br><br>
@@ -6,22 +8,21 @@
 		<form method="post" action="controller?action=login" class="register-form"
 		  id="login-form">
 		<div class="form-floating">
-			<input type="text" class="form-control" id="email" name="email" placeholder="name@example.com"/>
+			<input type="text" class="form-control" id="email" name="email" placeholder="name@example.com">
 			<label for="email">Email address</label>
 		</div>
 		<div class="form-floating">
 			<input type="password" class="form-control" name="password" id="password" placeholder="Password">
 			<label for="password">Password</label>
 		</div>
-
 			<br>
-
-		</div>
 		<div class="form-group form-button">
 			<input type="submit" name="signin" id="signin"
 				   class="w-100 btn btn-lg btn-primary" value="Log in" />
 		</div>
 	</form>
+	<c:set var="message" value="${message}"/>
+	<p style="font-size: 16px;font-style: italic;color: red" id="message">${message}</p>
 </main>
 
 
