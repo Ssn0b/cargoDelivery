@@ -1,6 +1,5 @@
 package com.example.cargodelivery.controller.command;
 
-import com.example.cargodelivery.controller.Path;
 import com.example.cargodelivery.model.dao.UserDao;
 import com.example.cargodelivery.model.entity.User;
 import jakarta.servlet.ServletException;
@@ -14,7 +13,7 @@ import static com.example.cargodelivery.controller.Path.PAGE_LOGIN;
 import static com.example.cargodelivery.controller.Path.PAGE_REGISTER;
 import static com.example.cargodelivery.controller.Validation.Validation.RegisterValidation;
 
-public class RegisterCommand extends Command{
+public class RegisterCommand extends Command {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException, SQLException {
 
@@ -33,7 +32,7 @@ public class RegisterCommand extends Command{
                 .number(number)
                 .roleId(1)
                 .build();
-        if(RegisterValidation(request,name,lastName,email,password,confirmPassword,number,user)){
+        if (RegisterValidation(request, name, lastName, email, password, confirmPassword, number, user)) {
             return PAGE_REGISTER;
         }
         UserDao userDao = new UserDao();
@@ -46,6 +45,7 @@ public class RegisterCommand extends Command{
             return PAGE_REGISTER;
         }*/
         userDao.insert(user);
+        System.out.println(user);
         return PAGE_LOGIN;
     }
 }

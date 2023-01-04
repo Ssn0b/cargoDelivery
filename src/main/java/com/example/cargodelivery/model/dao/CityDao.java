@@ -10,35 +10,36 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CityDao{
+public class CityDao {
 
-    public  List<City> listSelect() throws SQLException {
+    public List<City> listSelect() throws SQLException {
         String query = "SELECT * FROM city";
         ArrayList<City> list = new ArrayList<>();
         City newCity = null;
         Connection con = DBUtil.getConnection();
         PreparedStatement pst = con.prepareStatement(query);
-        ResultSet rs= pst.executeQuery();
-            while (rs.next()) {
-                newCity = City.builder()
-                        .id(rs.getInt("id"))
-                        .name(rs.getString("name"))
-                        .idRegion(rs.getInt("idRegion"))
-                        .build();
-                list.add(newCity);
-            }
+        ResultSet rs = pst.executeQuery();
+        while (rs.next()) {
+            newCity = City.builder()
+                    .id(rs.getInt("id"))
+                    .name(rs.getString("name"))
+                    .name_ua(rs.getString("name_ua"))
+                    .idRegion(rs.getInt("idRegion"))
+                    .build();
+            list.add(newCity);
+        }
         rs.close();
         con.close();
         return list;
     }
 
-    public  List<City> listSelectSenderCity(int userId) throws SQLException {
+    public List<City> listSelectSenderCity(int userId) throws SQLException {
         String query = "SELECT city.name FROM city, orders where city.id = orders.senderCityId and orders.userId = 1;";
         ArrayList<City> list = new ArrayList<>();
         City newCity = null;
         Connection con = DBUtil.getConnection();
         PreparedStatement pst = con.prepareStatement(query);
-        ResultSet rs= pst.executeQuery();
+        ResultSet rs = pst.executeQuery();
         while (rs.next()) {
             newCity = City.builder()
                     .name(rs.getString("name"))
@@ -50,18 +51,20 @@ public class CityDao{
         return list;
     }
 
-    public City findCity(City city) throws SQLException{
-        String query = "select * from city where name = ?";
+    public City findCity(City city) throws SQLException {
+        String query = "select * from city where name = ? or name_ua = ?";
         City newCity = null;
         Connection con = DBUtil.getConnection();
         PreparedStatement pst = con.prepareStatement(query);
-        pst.setString(1,city.getName());
+        pst.setString(1, city.getName());
+        pst.setString(2, city.getName());
         ResultSet rs = pst.executeQuery();
 
-        if(rs.next()){
+        if (rs.next()) {
             newCity = City.builder()
                     .id(rs.getInt("id"))
                     .name(rs.getString("name"))
+                    .name_ua(rs.getString("name_ua"))
                     .idRegion(rs.getInt("idRegion"))
                     .build();
         }

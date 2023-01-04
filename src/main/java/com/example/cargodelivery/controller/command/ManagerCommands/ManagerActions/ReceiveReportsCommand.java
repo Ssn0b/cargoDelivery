@@ -1,4 +1,4 @@
-package com.example.cargodelivery.controller.command.ManagerCommands;
+package com.example.cargodelivery.controller.command.ManagerCommands.ManagerActions;
 
 import com.example.cargodelivery.controller.command.Command;
 import com.example.cargodelivery.model.dao.CityDao;
@@ -11,20 +11,18 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
-import java.net.Proxy;
 import java.sql.SQLException;
 import java.sql.Timestamp;
-import java.util.Date;
 import java.util.List;
 
-import static com.example.cargodelivery.controller.Path.*;
+import static com.example.cargodelivery.controller.Path.PAGE_REPORTS;
 
 public class ReceiveReportsCommand extends Command {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException, SQLException {
         HttpSession session = request.getSession();
 
-        String action= request.getParameter("action1");
+        String action = request.getParameter("action1");
 
         int page = 1;
 
@@ -39,16 +37,16 @@ public class ReceiveReportsCommand extends Command {
         String dateOfRegisterForPag = "";
         Order order;
 
-        if (request.getParameter("sender") != null && !request.getParameter("sender").isEmpty()){
+        if (request.getParameter("sender") != null && !request.getParameter("sender").isEmpty()) {
             citySender = request.getParameter("sender");
         }
-        if (request.getParameter("sender") != null && !request.getParameter("receiver").isEmpty()){
+        if (request.getParameter("sender") != null && !request.getParameter("receiver").isEmpty()) {
             cityReceiver = request.getParameter("receiver");
         }
 
-        if (request.getParameter("sender") != null && !request.getParameter("dateOfRegister").isEmpty()){
+        if (request.getParameter("sender") != null && !request.getParameter("dateOfRegister").isEmpty()) {
             dateOfRegister = request.getParameter("dateOfRegister");
-            dateOfRegisterForPag= request.getParameter("dateOfRegister");
+            dateOfRegisterForPag = request.getParameter("dateOfRegister");
             dateOfRegister += " 00:00:00.0";
             order = Order.builder()
                     .senderCityName(citySender)
@@ -56,7 +54,7 @@ public class ReceiveReportsCommand extends Command {
                     .dateOfRegister(Timestamp.valueOf(dateOfRegister))
                     .build();
 
-        }else {
+        } else {
             order = Order.builder()
                     .senderCityName(citySender)
                     .receiverCityName(cityReceiver)
@@ -71,7 +69,7 @@ public class ReceiveReportsCommand extends Command {
         List<City> listCities = cityDao.listSelect();
 
         int noOfRecords = orderDao.getNoOfRecords();
-        int noOfPages = (int)Math.ceil(noOfRecords * 1.0
+        int noOfPages = (int) Math.ceil(noOfRecords * 1.0
                 / recordsPerPage);
 
 
@@ -80,18 +78,17 @@ public class ReceiveReportsCommand extends Command {
         request.setAttribute("listOrders", listOrders);
         request.setAttribute("listCities", listCities);
 
-        session.setAttribute("senderParameter",citySender);
-        session.setAttribute("receiverParameter",cityReceiver);
-        session.setAttribute("dateParameter",dateOfRegisterForPag);
-        if(action == null) {
+        session.setAttribute("senderParameter", citySender);
+        session.setAttribute("receiverParameter", cityReceiver);
+        session.setAttribute("dateParameter", dateOfRegisterForPag);
+        if (action == null) {
             listOrders = orderDao.selectByDateAndCities(order, 0,
                     recordsPerPage);
             request.setAttribute("listOrders", listOrders);
 
             return PAGE_REPORTS;
-        }
-        else{
-            listOrders = orderDao.selectByDateAndCities(order, (Integer.parseInt(action)-1)*recordsPerPage,
+        } else {
+            listOrders = orderDao.selectByDateAndCities(order, (Integer.parseInt(action) - 1) * recordsPerPage,
                     recordsPerPage);
             request.setAttribute("listOrders", listOrders);
 

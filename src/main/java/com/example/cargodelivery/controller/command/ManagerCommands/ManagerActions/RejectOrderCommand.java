@@ -24,7 +24,7 @@ public class RejectOrderCommand extends Command {
         OrderDao orderDao = new OrderDao();
         orderDao.updateToDecline(orderId);
 
-        String action= request.getParameter("action1");
+        String action = request.getParameter("action1");
 
         int page = 1;
 
@@ -40,22 +40,21 @@ public class RejectOrderCommand extends Command {
         List<City> listCities = cityDao.listSelect();
 
         int noOfRecords = orderDao.getNoOfRecords();
-        int noOfPages = (int)Math.ceil(noOfRecords * 1.0
+        int noOfPages = (int) Math.ceil(noOfRecords * 1.0
                 / recordsPerPage);
 
         request.setAttribute("noOfPages", noOfPages);
         request.setAttribute("currentPage", page);
         request.setAttribute("listOrders", listOrders);
         request.setAttribute("listCities", listCities);
-        if(action == null) {
+        if (action == null) {
             listOrders = orderDao.listAll(0,
                     recordsPerPage);
             request.setAttribute("listOrders", listOrders);
 
             return PAGE_REPORTS;
-        }
-        else{
-            listOrders = orderDao.listAll((Integer.parseInt(action)-1)*recordsPerPage,
+        } else {
+            listOrders = orderDao.listAll((Integer.parseInt(action) - 1) * recordsPerPage,
                     recordsPerPage);
             request.setAttribute("listOrders", listOrders);
 

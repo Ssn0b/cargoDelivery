@@ -2,7 +2,6 @@ package com.example.cargodelivery.controller.command.UserCommands;
 
 import com.example.cargodelivery.controller.Path;
 import com.example.cargodelivery.controller.command.Command;
-import com.example.cargodelivery.model.dao.OrderDao;
 import com.example.cargodelivery.model.dao.UserDao;
 import com.example.cargodelivery.model.entity.User;
 import jakarta.servlet.ServletException;
@@ -25,10 +24,10 @@ public class ReplenishTheBalanceCommand extends Command {
 
         User newUser = userDao.findUserById(userId);
 
-        if (ReplenishTheBalanceValidation(request,request.getParameter("deposit"),request.getParameter("name"),
-                request.getParameter("email"),request.getParameter("address"),request.getParameter("city"),
-                request.getParameter("state"),request.getParameter("zip"),request.getParameter("nameOnCard"),request.getParameter("card"),
-                request.getParameter("month"),request.getParameter("year"),request.getParameter("cvv"))) {
+        if (ReplenishTheBalanceValidation(request, request.getParameter("deposit"), request.getParameter("name"),
+                request.getParameter("email"), request.getParameter("address"), request.getParameter("city"),
+                request.getParameter("state"), request.getParameter("zip"), request.getParameter("nameOnCard"), request.getParameter("card"),
+                request.getParameter("month"), request.getParameter("year"), request.getParameter("cvv"))) {
             return Path.PAGE_REPLENISH_BALANCE;
         }
 

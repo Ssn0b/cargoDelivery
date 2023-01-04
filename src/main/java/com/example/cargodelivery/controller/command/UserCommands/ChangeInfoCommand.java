@@ -2,9 +2,7 @@ package com.example.cargodelivery.controller.command.UserCommands;
 
 import com.example.cargodelivery.controller.Path;
 import com.example.cargodelivery.controller.command.Command;
-import com.example.cargodelivery.model.dao.OrderDao;
 import com.example.cargodelivery.model.dao.UserDao;
-import com.example.cargodelivery.model.entity.Order;
 import com.example.cargodelivery.model.entity.User;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -13,9 +11,8 @@ import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.Objects;
 
-import static com.example.cargodelivery.controller.Path.*;
+import static com.example.cargodelivery.controller.Path.PAGE_HOME;
 import static com.example.cargodelivery.controller.Validation.Validation.ChangeInfoValidation;
 
 public class ChangeInfoCommand extends Command {
@@ -33,7 +30,8 @@ public class ChangeInfoCommand extends Command {
         String number = request.getParameter("changePhone");
         String newPass = request.getParameter("changePassword");
         String oldPass = request.getParameter("currentPass");
-        if (ChangeInfoValidation(request,firstName,lastName,email,number,newPass,oldPass,user)) {
+
+        if (ChangeInfoValidation(request, firstName, lastName, email, number, newPass, oldPass, user)) {
             return Path.PAGE_CHANGE_INFO;
         }
         request.setAttribute("currentUser", user);

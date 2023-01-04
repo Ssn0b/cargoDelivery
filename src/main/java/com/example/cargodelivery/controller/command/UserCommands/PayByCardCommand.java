@@ -17,7 +17,7 @@ public class PayByCardCommand extends Command {
         int orderId = Integer.parseInt(request.getParameter("statusButton"));
 
         HttpSession session = request.getSession();
-        session.setAttribute("orderId",orderId);
+        session.setAttribute("orderId", orderId);
 
         return PAGE_PAY;
     }

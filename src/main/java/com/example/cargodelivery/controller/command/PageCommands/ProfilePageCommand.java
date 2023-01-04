@@ -22,6 +22,7 @@ public class ProfilePageCommand extends Command {
 
         User newUser = userDao.findUserById(userId);
         request.setAttribute("currentUser", newUser);
+        System.out.println(newUser.getName());
 
         return PAGE_PROFILE;
     }

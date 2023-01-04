@@ -1,7 +1,7 @@
 package com.example.cargodelivery.controller.filters;
 
 import jakarta.servlet.*;
-import jakarta.servlet.annotation.*;
+import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 
@@ -23,12 +23,11 @@ public class LocaleFilter implements Filter {
         String locale = request.getParameter("lang");
         String defaultLocale = "en";
 
-        if(locale != null){
+        if (locale != null) {
             session.setAttribute("lang", locale);
+        } else if (session.getAttribute("lang") == null) {
+            session.setAttribute("lang", defaultLocale);
         }
-        else if (session.getAttribute("lang")==null){
-            session.setAttribute("lang",defaultLocale);
-        }
-        chain.doFilter(servletRequest,servletResponse);
+        chain.doFilter(servletRequest, servletResponse);
     }
 }

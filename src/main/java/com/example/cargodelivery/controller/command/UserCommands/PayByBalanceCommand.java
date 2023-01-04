@@ -15,7 +15,8 @@ import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.Calendar;
 
-import static com.example.cargodelivery.controller.Path.*;
+import static com.example.cargodelivery.controller.Path.PAGE_HOME;
+import static com.example.cargodelivery.controller.Path.PAGE_REPLENISH_BALANCE;
 
 public class PayByBalanceCommand extends Command {
     @Override
@@ -32,7 +33,7 @@ public class PayByBalanceCommand extends Command {
         Order newOrder = orderDao.findOrderById(orderId);
         if (newUser.getBalance() >= newOrder.getPrice()) {
             diff = (-newOrder.getPrice());
-            userDao.updateBalance(newUser,diff);
+            userDao.updateBalance(newUser, diff);
             orderDao.updateToPaid(orderId);
 
             Timestamp ts = new Timestamp(System.currentTimeMillis());
@@ -40,10 +41,10 @@ public class PayByBalanceCommand extends Command {
             cal.setTime(ts);
             cal.add(Calendar.DAY_OF_WEEK, newOrder.getDaysToDeliver());
             Timestamp ts1 = new Timestamp(cal.getTime().getTime());
-            orderDao.updateDateOfArrival(newOrder,ts1);
+            orderDao.updateDateOfArrival(newOrder, ts1);
 
             return PAGE_HOME;
-        }else {
+        } else {
             return PAGE_REPLENISH_BALANCE;
         }
     }

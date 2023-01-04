@@ -1,8 +1,7 @@
 package com.example.cargodelivery.controller.filters;
 
-import com.example.cargodelivery.controller.Path;
 import jakarta.servlet.*;
-import jakarta.servlet.annotation.*;
+import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
@@ -10,29 +9,31 @@ import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 @WebFilter(urlPatterns = "/controller")
 public class SecurityFilter implements Filter {
     private static final ArrayList<String> guestRequired = new ArrayList<>
-            (Arrays.asList("login","logout","home","registerpage","register","loginpage","pricePage","changeLanguage"));
+            (Arrays.asList("login", "logout", "home", "registerpage", "register", "loginpage", "pricePage", "changeLanguage"));
     private static final ArrayList<String> userRequires = new ArrayList<>
-            (Arrays.asList("myOrders",  "myOrdersPage",  "pay",  "profilePage","replenishBalance", "payPage",  "payByBalance","payByCard","changeInfo","changeInfoPage","changeLanguage"));
+            (Arrays.asList("myOrders", "myOrdersPage", "pay", "profilePage", "replenishBalance", "payPage", "payByBalance", "payByCard", "changeInfo", "changeInfoPage", "changeLanguage"));
     private static final ArrayList<String> managerRequired = new ArrayList<>
-            (Arrays.asList("reportPage","selectReports","invoiceForPayment","rejectOrder","profilePage","changeInfo","changeInfoPage","changeLanguage"));
+            (Arrays.asList("reportPage", "selectReports", "invoiceForPayment", "rejectOrder", "profilePage", "changeInfo", "changeInfoPage", "changeLanguage"));
+
+    public SecurityFilter() {
+    }
 
     private boolean isAuthorized(HttpServletRequest req) {
         String command = req.getParameter("action");
-        if (command == null){
+        if (command == null) {
             return true;
         }
         if (guestRequired.contains(command)) {
             return true;
         }
-        if(req.getSession().getAttribute("role") == null){
+        if (req.getSession().getAttribute("role") == null) {
             return false;
         }
-        int role =  (int)req.getSession(false).getAttribute("role");
+        int role = (int) req.getSession(false).getAttribute("role");
 
         if (2 == role && managerRequired.contains(command)) {
             return true;
@@ -40,7 +41,6 @@ public class SecurityFilter implements Filter {
         return (1 == role && userRequires.contains(command));
 
     }
-
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
@@ -51,23 +51,21 @@ public class SecurityFilter implements Filter {
         HttpServletResponse response = (HttpServletResponse) servletResponse;
 
 
-        HttpSession session=((HttpServletRequest) servletRequest).getSession(false);
+        HttpSession session = ((HttpServletRequest) servletRequest).getSession(false);
 
         boolean isLoggedIn = (session != null && session.getAttribute("role") != null);
 
         String loginURL = "login";
         boolean isLoginRequest = httpRequest.getParameter("action").equals(loginURL);
 
-        if(isLoggedIn && isLoginRequest){
-            httpRequest.getRequestDispatcher("/").forward(servletRequest,servletResponse);
-        }else if (isAuthorized(httpRequest)){
-            filterChain.doFilter(servletRequest,servletResponse);
+        if (isLoggedIn && isLoginRequest) {
+            httpRequest.getRequestDispatcher("/").forward(servletRequest, servletResponse);
+        } else if (isAuthorized(httpRequest)) {
+            filterChain.doFilter(servletRequest, servletResponse);
         } else {
             response.sendRedirect("controller?action=home");
         }
         // log.debug("Auth filter finished");
-    }
-    public SecurityFilter() {
     }
 
     public void destroy() {

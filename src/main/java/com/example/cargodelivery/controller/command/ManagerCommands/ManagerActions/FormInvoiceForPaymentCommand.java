@@ -8,13 +8,11 @@ import com.example.cargodelivery.model.entity.Order;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
-import static com.example.cargodelivery.controller.Path.PAGE_HOME;
 import static com.example.cargodelivery.controller.Path.PAGE_REPORTS;
 
 public class FormInvoiceForPaymentCommand extends Command {
@@ -24,7 +22,7 @@ public class FormInvoiceForPaymentCommand extends Command {
         OrderDao orderDao = new OrderDao();
         orderDao.updateToWaitForPaid(orderId);
 
-        String action= request.getParameter("action1");
+        String action = request.getParameter("action1");
 
         int page = 1;
 
@@ -40,22 +38,21 @@ public class FormInvoiceForPaymentCommand extends Command {
         List<City> listCities = cityDao.listSelect();
 
         int noOfRecords = orderDao.getNoOfRecords();
-        int noOfPages = (int)Math.ceil(noOfRecords * 1.0
+        int noOfPages = (int) Math.ceil(noOfRecords * 1.0
                 / recordsPerPage);
 
         request.setAttribute("noOfPages", noOfPages);
         request.setAttribute("currentPage", page);
         request.setAttribute("listOrders", listOrders);
         request.setAttribute("listCities", listCities);
-        if(action == null) {
+        if (action == null) {
             listOrders = orderDao.listAll(0,
                     recordsPerPage);
             request.setAttribute("listOrders", listOrders);
 
             return PAGE_REPORTS;
-        }
-        else{
-            listOrders = orderDao.listAll((Integer.parseInt(action)-1)*recordsPerPage,
+        } else {
+            listOrders = orderDao.listAll((Integer.parseInt(action) - 1) * recordsPerPage,
                     recordsPerPage);
             request.setAttribute("listOrders", listOrders);
 

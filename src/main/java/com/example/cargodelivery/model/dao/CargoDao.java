@@ -2,8 +2,6 @@ package com.example.cargodelivery.model.dao;
 
 import com.example.cargodelivery.db.DBUtil;
 import com.example.cargodelivery.model.entity.Cargo;
-import com.example.cargodelivery.model.entity.City;
-import com.example.cargodelivery.model.entity.User;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -16,7 +14,7 @@ public class CargoDao {
         Connection con = DBUtil.getConnection();
         PreparedStatement pst = con.prepareStatement(query);
         pst.setInt(1, cargo.getType());
-        pst.setDouble(2,cargo.getWeight());
+        pst.setDouble(2, cargo.getWeight());
         pst.setDouble(3, cargo.getLength());
         pst.setDouble(4, cargo.getWidth());
         pst.setDouble(5, cargo.getHeight());
@@ -25,14 +23,14 @@ public class CargoDao {
         con.close();
     }
 
-    public Cargo selectLastCargo() throws SQLException{
+    public Cargo selectLastCargo() throws SQLException {
         String query = "select * from cargo ORDER BY id DESC LIMIT 1";
         Cargo newCargo = null;
         Connection con = DBUtil.getConnection();
         PreparedStatement pst = con.prepareStatement(query);
         ResultSet rs = pst.executeQuery();
 
-        if(rs.next()){
+        if (rs.next()) {
             newCargo = Cargo.builder()
                     .id(rs.getInt("id"))
                     .type(rs.getInt("idCargoType"))

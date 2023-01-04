@@ -32,8 +32,8 @@ public class MakeOrderCommand extends Command {
         request.setAttribute("listCategory", listCategory);
 
         String cargoType = request.getParameter("flexRadioDefault");
-        String fullName= request.getParameter("nameReceiver");
-        String idenPackage= request.getParameter("idenPackage");
+        String numReceiver = request.getParameter("numReceiver");
+        String idenPackage = request.getParameter("idenPackage");
         String citySender = request.getParameter("sender");
         String cityReceiver = request.getParameter("receiver");
         String stringWeight = request.getParameter("weight");
@@ -41,12 +41,12 @@ public class MakeOrderCommand extends Command {
         String stringHeight = request.getParameter("height");
         String stringLength = request.getParameter("length");
 
-        if(MakeOrderValidation(request,cargoType,fullName,idenPackage,citySender,cityReceiver,stringWeight,stringWidth,stringHeight,
-                stringLength)){
+        if (MakeOrderValidation(request, cargoType, numReceiver, idenPackage, citySender, cityReceiver, stringWeight, stringWidth, stringHeight,
+                stringLength)) {
             return Path.PAGE_PRICE;
         }
 
-        double weight =0, height=0,length=0,width=0;
+        double weight = 0, height = 0, length = 0, width = 0;
         if (!Objects.equals(cargoType, "Document")) {
             weight = Double.parseDouble(stringWeight);
             height = Double.parseDouble(stringHeight);
@@ -56,8 +56,6 @@ public class MakeOrderCommand extends Command {
 
         int arrivalDate = Integer.parseInt((request.getParameter("arrivalDate")));
 
-        String description= "Package identifier: " + idenPackage+"\n"+"Receiver name: " + fullName;
-
         City cityS = City.builder()
                 .name(citySender)
                 .build();
@@ -65,8 +63,8 @@ public class MakeOrderCommand extends Command {
         City newCitySender = citySenderDao.findCity(cityS);
 
         City cityR = City.builder()
-                        .name(cityReceiver)
-                        .build();
+                .name(cityReceiver)
+                .build();
         CityDao cityReceiverDao = new CityDao();
         City newCityReceiver = cityReceiverDao.findCity(cityR);
 
@@ -122,7 +120,8 @@ public class MakeOrderCommand extends Command {
         Order order = Order.builder()
                 .cargoId(newCargo.getId())
                 .userId((Integer) session.getAttribute("currentUserId"))
-                .description(description)
+                .receiverNum(numReceiver)
+                .description(idenPackage)
                 .senderCityId(newCitySender.getId())
                 .receiverCityId(newCityReceiver.getId())
                 .orderStatusId(1)
@@ -130,7 +129,7 @@ public class MakeOrderCommand extends Command {
                 .daysToDeliver(arrivalDate)
                 .price(price)
                 .build();
-
+        System.out.println(order.getDescription());
         OrderDao orderDao = new OrderDao();
         orderDao.insert(order);
         return Path.PAGE_HOME;

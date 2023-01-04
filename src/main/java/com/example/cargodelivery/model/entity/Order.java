@@ -4,7 +4,6 @@ import lombok.Builder;
 import lombok.Data;
 
 import java.sql.Timestamp;
-import java.time.LocalDate;
 
 @Data
 @Builder
@@ -16,14 +15,16 @@ public class Order {
     private String userName;
     private String userLastName;
 
+    private String receiverNum;
     private String description;
 
     private int senderCityId;
     private String senderCityName;
+    private String senderCityNameUa;
 
     private int receiverCityId;
     private String receiverCityName;
-
+    private String receiverCityNameUa;
 
     private int orderStatusId;
     private String orderStatusName;

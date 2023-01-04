@@ -2,9 +2,7 @@ package com.example.cargodelivery.controller.command.UserCommands;
 
 import com.example.cargodelivery.controller.Path;
 import com.example.cargodelivery.controller.command.Command;
-import com.example.cargodelivery.model.dao.CityDao;
 import com.example.cargodelivery.model.dao.OrderDao;
-import com.example.cargodelivery.model.entity.City;
 import com.example.cargodelivery.model.entity.Order;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -27,11 +25,11 @@ public class MyOrdersCommand extends Command {
                     request.getParameter("page"));
 
         OrderDao orderDao = new OrderDao();
-        List<Order> listCategory = orderDao.listSelect((Integer) session.getAttribute("currentUserId"),(page - 1) * recordsPerPage,
+        List<Order> listCategory = orderDao.listSelect((Integer) session.getAttribute("currentUserId"), (page - 1) * recordsPerPage,
                 recordsPerPage);
 
         int noOfRecords = orderDao.getNoOfRecords();
-        int noOfPages = (int)Math.ceil(noOfRecords * 1.0
+        int noOfPages = (int) Math.ceil(noOfRecords * 1.0
                 / recordsPerPage);
 
         request.setAttribute("noOfPages", noOfPages);
