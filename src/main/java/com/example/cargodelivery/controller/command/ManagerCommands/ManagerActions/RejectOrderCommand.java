@@ -19,10 +19,12 @@ public class RejectOrderCommand extends Command {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException, SQLException {
         int orderId = Integer.parseInt(request.getParameter("statusButton"));
-        System.out.println(22);
 
         OrderDao orderDao = new OrderDao();
-        orderDao.updateToDecline(orderId);
+        Order order = orderDao.findOrderById(orderId);
+        if (order.getOrderStatusId() != 3) {
+            orderDao.updateToDecline(orderId);
+        }
 
         String action = request.getParameter("action1");
 

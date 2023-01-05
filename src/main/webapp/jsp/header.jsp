@@ -198,11 +198,12 @@
                 <%}%>
             </ul>
 
-            <div class="text-end" style="margin-left: 180px">
+
                 <%--
                         <div class="text-end">
                 --%>
                 <%if (userSession == null) {%>
+            <div class="text-end" style="margin-left: 300px">
                 <a href="controller?action=loginpage">
                     <button type="button" class="btn btn-outline-light me-2"><fmt:message key="header.login"
                                                                                           bundle="${lang}"/></button>
@@ -212,6 +213,7 @@
                                                                                           bundle="${lang}"/></button>
                 </a>
                 <%} else if (userSession == 2) {%>
+                <div class="text-end" style="margin-left: 180px">
                 <a href="controller?action=selectReports">
                     <button type="button" class="btn btn-outline-light me-2"><fmt:message key="header.processOrders"
                                                                                           bundle="${lang}"/></button>
@@ -221,9 +223,14 @@
                                                                                           bundle="${lang}"/></button>
                 </a>
                 <%} else {%>
+                    <div class="text-end" style="margin-left: 50px">
                 <a href="controller?action=myOrdersPage">
                     <button type="button" class="btn btn-outline-light me-2"><fmt:message key="header.myOrders"
                                                                                           bundle="${lang}"/></button>
+                </a>
+                <a href="controller?action=myIncomingsPage">
+                    <button type="button" class="btn btn-outline-light me-2"><fmt:message key="header.myIncomings"
+                                                                                              bundle="${lang}"/></button>
                 </a>
                 <a href="controller?action=logout" style="margin-right: 10px;">
                     <button type="button" class="btn btn-outline-light me-2"><fmt:message key="header.logout"

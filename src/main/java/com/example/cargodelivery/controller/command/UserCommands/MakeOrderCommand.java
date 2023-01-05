@@ -129,7 +129,6 @@ public class MakeOrderCommand extends Command {
                 .daysToDeliver(arrivalDate)
                 .price(price)
                 .build();
-        System.out.println(order.getDescription());
         OrderDao orderDao = new OrderDao();
         orderDao.insert(order);
         return Path.PAGE_HOME;

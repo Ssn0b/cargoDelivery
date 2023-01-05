@@ -8,6 +8,7 @@
         <thead>
         <tr>
             <th scope="col">#</th>
+            <th scope="col"><fmt:message key="myOrders.number" bundle="${lang}"/></th>
             <th scope="col"><fmt:message key="myOrders.description" bundle="${lang}"/></th>
             <th scope="col"><fmt:message key="myOrders.senderCity" bundle="${lang}"/></th>
             <th scope="col"><fmt:message key="myOrders.receiverCity" bundle="${lang}"/></th>
@@ -22,6 +23,7 @@
         <c:forEach items="${listCategory}" var="order">
             <tr>
                 <th scope="row">${order.id}</th>
+                <td style="max-width: 200px">${order.receiverNum}</td>
                 <td style="max-width: 200px">${order.description}</td>
 
                 <%

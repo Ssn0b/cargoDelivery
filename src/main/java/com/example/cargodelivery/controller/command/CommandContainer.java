@@ -23,6 +23,7 @@ public class CommandContainer {
 
         commands.put("myOrders", new MakeOrderCommand());
         commands.put("myOrdersPage", new MyOrdersCommand());
+        commands.put("myIncomingsPage", new MyIncomingsCommandPage());
         commands.put("pay", new PayCommand());
         commands.put("profilePage", new ProfilePageCommand());
         commands.put("changeInfoPage", new ChangeInfoPageCommand());

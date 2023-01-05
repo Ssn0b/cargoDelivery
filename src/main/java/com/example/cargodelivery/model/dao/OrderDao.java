@@ -58,6 +58,44 @@ public class OrderDao {
         return newOrder;
     }
 
+    public List<Order> selectIncomings(String number, int offset, int noOfRecords) throws SQLException{
+        String query = "SELECT SQL_CALC_FOUND_ROWS o.id,o.dateOfRegister,o.dateOfArrival,o.receiverNum,o.description,o.price,o.orderStatusId, c.name,c.name_ua,c1.name as name1,c1.name_ua as name1_ua, os.name as orderName\n" +
+                "FROM orders o, city c, city c1, order_status os\n" +
+                "where receiverNum = ? and (c.id = o.senderCityId and c1.id = o.receiverCityId) and orderStatusId = os.id ORDER BY o.id DESC limit " + offset + ", " + noOfRecords + ";";
+        ArrayList<Order> list = new ArrayList<>();
+        Order newOrder;
+        Connection con = DBUtil.getConnection();
+        PreparedStatement pst = con.prepareStatement(query);
+        pst.setString(1, number);
+        ResultSet rs = pst.executeQuery();
+        while (rs.next()) {
+            newOrder = Order.builder()
+                    .id(rs.getInt("id"))
+                    .receiverNum(rs.getString("receiverNum"))
+                    .description(rs.getString("description"))
+                    .senderCityName(rs.getString("name"))
+                    .senderCityNameUa(rs.getString("name_ua"))
+                    .receiverCityName(rs.getString("name1"))
+                    .receiverCityNameUa(rs.getString("name1_ua"))
+                    .orderStatusName(rs.getString("orderName"))
+                    .dateOfRegister(rs.getTimestamp("dateOfRegister"))
+                    .dateOfArrival(rs.getTimestamp("dateOfArrival"))
+                    .price(rs.getDouble("price"))
+                    .build();
+            list.add(newOrder);
+        }
+        rs.close();
+
+        rs = pst.executeQuery("SELECT FOUND_ROWS()");
+
+        if (rs.next())
+            this.noOfRecords = rs.getInt(1);
+
+        con.close();
+        return list;
+    }
+
+
     public List<Order> listSelect(int userId, int offset, int noOfRecords) throws SQLException {
         String query = "SELECT SQL_CALC_FOUND_ROWS o.id,o.dateOfRegister,o.dateOfArrival,o.receiverNum,o.description,o.price,o.orderStatusId, c.name,c.name_ua,c1.name as name1,c1.name_ua as name1_ua, os.name as orderName\n" +
                 "FROM orders o, city c, city c1, order_status os\n" +
