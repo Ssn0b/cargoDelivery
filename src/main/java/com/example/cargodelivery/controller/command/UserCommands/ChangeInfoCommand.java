@@ -8,16 +8,18 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import lombok.extern.log4j.Log4j;
 
 import java.io.IOException;
 import java.sql.SQLException;
 
 import static com.example.cargodelivery.controller.Path.PAGE_HOME;
 import static com.example.cargodelivery.controller.Validation.Validation.ChangeInfoValidation;
-
+@Log4j
 public class ChangeInfoCommand extends Command {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException, SQLException {
+        log.info("ChangeInfoCommand started");
         HttpSession session = request.getSession();
         int userId = (int) session.getAttribute("currentUserId");
         UserDao userDao = new UserDao();
@@ -32,6 +34,7 @@ public class ChangeInfoCommand extends Command {
         String oldPass = request.getParameter("currentPass");
 
         if (ChangeInfoValidation(request, firstName, lastName, email, number, newPass, oldPass, user)) {
+            log.info("ChangeInfoCommand validation failed");
             return Path.PAGE_CHANGE_INFO;
         }
         request.setAttribute("currentUser", user);
@@ -44,6 +47,8 @@ public class ChangeInfoCommand extends Command {
                 .password(newPass)
                 .build();
         userDao.updateInfo(newUser);
+
+        log.info("ChangeInfoCommand user changed info");
         return PAGE_HOME;
     }
 }

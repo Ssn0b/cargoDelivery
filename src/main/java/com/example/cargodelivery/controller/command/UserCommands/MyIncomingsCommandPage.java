@@ -10,14 +10,16 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import lombok.extern.log4j.Log4j;
 
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
-
+@Log4j
 public class MyIncomingsCommandPage extends Command {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException, SQLException {
+        log.info("MyIncomingsCommandPage page loaded");
         HttpSession session = request.getSession();
         int userId = (int) session.getAttribute("currentUserId");
         UserDao userDao = new UserDao();

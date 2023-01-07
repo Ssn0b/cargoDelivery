@@ -12,6 +12,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import lombok.extern.log4j.Log4j;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -21,10 +22,11 @@ import java.util.List;
 import java.util.Objects;
 
 import static com.example.cargodelivery.controller.Validation.Validation.MakeOrderValidation;
-
+@Log4j
 public class MakeOrderCommand extends Command {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException, SQLException {
+        log.info("MakeOrderCommand started");
         HttpSession session = request.getSession();
 
         CityDao cityDao = new CityDao();
@@ -43,6 +45,7 @@ public class MakeOrderCommand extends Command {
 
         if (MakeOrderValidation(request, cargoType, numReceiver, idenPackage, citySender, cityReceiver, stringWeight, stringWidth, stringHeight,
                 stringLength)) {
+            log.info("MakeOrderCommand validation failed");
             return Path.PAGE_PRICE;
         }
 
@@ -110,9 +113,6 @@ public class MakeOrderCommand extends Command {
         Calendar cal = Calendar.getInstance();
         cal.setTime(ts);
         cal.add(Calendar.DAY_OF_WEEK, arrivalDate);
-/*
-        Timestamp ts1 = new Timestamp(cal.getTime().getTime());
-*/
 
         CargoDao cargoDao = new CargoDao();
         Cargo newCargo = cargoDao.selectLastCargo();
@@ -131,6 +131,7 @@ public class MakeOrderCommand extends Command {
                 .build();
         OrderDao orderDao = new OrderDao();
         orderDao.insert(order);
+        log.info("MakeOrderCommand successfully added");
         return Path.PAGE_HOME;
     }
 }

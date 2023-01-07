@@ -9,6 +9,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import lombok.extern.log4j.Log4j;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -16,10 +17,11 @@ import java.sql.Timestamp;
 import java.util.List;
 
 import static com.example.cargodelivery.controller.Path.PAGE_REPORTS;
-
+@Log4j
 public class ReceiveReportsCommand extends Command {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException, SQLException {
+        log.info("ReceiveReportsCommand started");
         HttpSession session = request.getSession();
 
         String action = request.getParameter("action1");
@@ -81,6 +83,7 @@ public class ReceiveReportsCommand extends Command {
         session.setAttribute("senderParameter", citySender);
         session.setAttribute("receiverParameter", cityReceiver);
         session.setAttribute("dateParameter", dateOfRegisterForPag);
+        log.info("ReceiveReportsCommand reports successfully received");
         if (action == null) {
             listOrders = orderDao.selectByDateAndCities(order, 0,
                     recordsPerPage);

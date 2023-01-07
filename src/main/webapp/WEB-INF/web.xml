@@ -13,4 +13,24 @@
         <welcome-file>home</welcome-file>
         <welcome-file>jsp/index.jsp</welcome-file>
     </welcome-file-list>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/AppExceptionHandler</location>
+    </error-page>
+    <error-page>
+        <error-code>403</error-code>
+        <location>/AppExceptionHandler</location>
+    </error-page>
+    <error-page>
+        <exception-type>jakarta.servlet.ServletException</exception-type>
+        <location>/AppExceptionHandler</location>
+    </error-page>
+    <error-page>
+        <exception-type>java.lang.Throwable</exception-type>
+        <location>/AppExceptionHandler</location>
+    </error-page>
+    <error-page>
+        <exception-type>java.lang.Exception</exception-type>
+        <location>/AppExceptionHandler</location>
+    </error-page>
 </web-app>

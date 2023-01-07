@@ -1,0 +1,11 @@
+2023-01-07 23:50:02 INFO  LoginCommand:45 - User logged in
+2023-01-08 01:54:29 INFO  HomePageCommand:16 - HomePageCommand page loaded
+2023-01-08 01:54:33 INFO  HomePageCommand:16 - HomePageCommand page loaded
+2023-01-08 01:54:36 INFO  LoginPageCommand:16 - LoginPageCommand page loaded
+2023-01-08 01:54:48 INFO  LoginCommand:21 - LoginCommand started
+2023-01-08 01:54:48 INFO  LoginCommand:43 - LoginCommand the user is not logged in
+2023-01-08 01:54:53 INFO  LoginCommand:21 - LoginCommand started
+2023-01-08 01:54:54 INFO  LoginCommand:48 - LoginCommand user successfully logged in
+2023-01-08 01:54:54 INFO  HomePageCommand:16 - HomePageCommand page loaded
+2023-01-08 01:55:03 INFO  MyOrdersCommand:20 - MyOrdersCommand page loaded
+2023-01-08 01:55:06 INFO  CountThePriceCommand:19 - CountThePriceCommand page loaded

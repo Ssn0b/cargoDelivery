@@ -21,7 +21,6 @@ public class DBUtil {
         config.addDataSourceProperty("prepStmtCacheSize", "250");
         config.addDataSourceProperty("prepStmtCacheSqlLimit", "2048");
         dataSource = new HikariDataSource(config);
-
     }
 
     private DBUtil() {

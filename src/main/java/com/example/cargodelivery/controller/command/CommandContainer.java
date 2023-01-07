@@ -15,7 +15,7 @@ public class CommandContainer {
     static {
         commands.put("register", new RegisterCommand());
         commands.put("registerpage", new RegisterPageCommand());
-        commands.put("home", new HomeCommand());
+        commands.put("home", new HomePageCommand());
         commands.put("login", new LoginCommand());
         commands.put("logout", new LogoutCommand());
         commands.put("loginpage", new LoginPageCommand());
@@ -39,7 +39,6 @@ public class CommandContainer {
         commands.put("rejectOrder", new RejectOrderCommand());
 
         commands.put("changeLanguage", new ChangeLanguageCommand());
-
 
     }
 

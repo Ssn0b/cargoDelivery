@@ -9,6 +9,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import lombok.extern.log4j.Log4j;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -17,10 +18,11 @@ import java.util.Calendar;
 
 import static com.example.cargodelivery.controller.Path.PAGE_HOME;
 import static com.example.cargodelivery.controller.Path.PAGE_REPLENISH_BALANCE;
-
+@Log4j
 public class PayByBalanceCommand extends Command {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException, SQLException {
+        log.info("PayByBalanceCommand started");
         HttpSession session = request.getSession();
         int userId = (int) session.getAttribute("currentUserId");
         UserDao userDao = new UserDao();
@@ -42,9 +44,10 @@ public class PayByBalanceCommand extends Command {
             cal.add(Calendar.DAY_OF_WEEK, newOrder.getDaysToDeliver());
             Timestamp ts1 = new Timestamp(cal.getTime().getTime());
             orderDao.updateDateOfArrival(newOrder, ts1);
-
+            log.info("PayByBalanceCommand user successfully payed");
             return PAGE_HOME;
         } else {
+            log.info("PayByBalanceCommand do not have enough in balance to pay");
             return PAGE_REPLENISH_BALANCE;
         }
     }

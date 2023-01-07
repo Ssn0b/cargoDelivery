@@ -7,14 +7,17 @@ import com.example.cargodelivery.model.entity.City;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import lombok.extern.log4j.Log4j;
 
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
-
+@Log4j
 public class CountThePriceCommand extends Command {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException, SQLException {
+        log.info("CountThePriceCommand page loaded");
+
         CityDao cityDao = new CityDao();
         List<City> listCategory = cityDao.listSelect();
         request.setAttribute("listCategory", listCategory);

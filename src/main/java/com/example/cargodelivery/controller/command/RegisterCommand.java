@@ -5,6 +5,7 @@ import com.example.cargodelivery.model.entity.User;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import lombok.extern.log4j.Log4j;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -13,9 +14,11 @@ import static com.example.cargodelivery.controller.Path.PAGE_LOGIN;
 import static com.example.cargodelivery.controller.Path.PAGE_REGISTER;
 import static com.example.cargodelivery.controller.Validation.Validation.RegisterValidation;
 
+@Log4j
 public class RegisterCommand extends Command {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException, SQLException {
+        log.info("RegisterCommand started");
 
         String name = request.getParameter("name");
         String lastName = request.getParameter("lastName");
@@ -33,19 +36,12 @@ public class RegisterCommand extends Command {
                 .roleId(1)
                 .build();
         if (RegisterValidation(request, name, lastName, email, password, confirmPassword, number, user)) {
+            log.info("LoginCommand validation failed");
             return PAGE_REGISTER;
         }
         UserDao userDao = new UserDao();
-        /*if (userDao.findUserByEmail(user.getEmail()) != null) {
-            request.setAttribute("message", "User with same email already exists");
-            return PAGE_REGISTER;
-        }
-        if (userDao.findUserByPhoneNumber(user.getNumber()) != null) {
-            request.setAttribute("message", "User with same telephone number already exists");
-            return PAGE_REGISTER;
-        }*/
         userDao.insert(user);
-        System.out.println(user);
+        log.info("LoginCommand user successfully registered");
         return PAGE_LOGIN;
     }
 }

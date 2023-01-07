@@ -8,16 +8,18 @@ import com.example.cargodelivery.model.entity.Order;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import lombok.extern.log4j.Log4j;
 
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
 import static com.example.cargodelivery.controller.Path.PAGE_REPORTS;
-
+@Log4j
 public class FormInvoiceForPaymentCommand extends Command {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException, SQLException {
+        log.info("FormInvoiceForPaymentCommand started");
         int orderId = Integer.parseInt(request.getParameter("statusButton"));
         OrderDao orderDao = new OrderDao();
         orderDao.updateToWaitForPaid(orderId);
@@ -45,6 +47,7 @@ public class FormInvoiceForPaymentCommand extends Command {
         request.setAttribute("currentPage", page);
         request.setAttribute("listOrders", listOrders);
         request.setAttribute("listCities", listCities);
+        log.info("FormInvoiceForPaymentCommand invoices successfully formed");
         if (action == null) {
             listOrders = orderDao.listAll(0,
                     recordsPerPage);
