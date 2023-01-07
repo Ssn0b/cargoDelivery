@@ -13,3 +13,7 @@ delivery.
 The manager processes orders and forms invoices for payment, and can also receive reports
 on deliveries (by days and destinations).
 An authorized user in his account can pay for the delivery invoice.
+
+
+![image](https://user-images.githubusercontent.com/71599433/211172044-26ce2d55-3758-456f-8567-92364e795382.png)
+
