@@ -11,10 +11,6 @@ public class SchedulerJob implements Job {
     @Override
     public void execute(JobExecutionContext jobExecutionContext) throws JobExecutionException {
         OrderDao orderDao = new OrderDao();
-        try {
-            orderDao.checkStatusDeliver();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+        orderDao.checkStatusDeliver();
     }
 }

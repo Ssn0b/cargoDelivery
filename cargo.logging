@@ -13,3 +13,32 @@
 2023-01-08 02:00:51 INFO  MyOrdersCommand:20 - MyOrdersCommand page loaded
 2023-01-08 02:00:53 INFO  MyIncomingsCommandPage:22 - MyIncomingsCommandPage page loaded
 2023-01-08 02:00:56 INFO  MyOrdersCommand:20 - MyOrdersCommand page loaded
+2023-01-08 13:35:04 INFO  HomePageCommand:16 - page loaded
+2023-01-08 13:35:06 INFO  HomePageCommand:16 - page loaded
+2023-01-08 13:35:08 INFO  LoginPageCommand:16 - page loaded
+2023-01-08 13:35:12 INFO  LoginCommand:21 - started
+2023-01-08 13:35:12 INFO  LoginCommand:48 - user successfully logged in
+2023-01-08 13:35:12 INFO  HomePageCommand:16 - page loaded
+2023-01-08 13:55:27 INFO  HomePageCommand:16 - page loaded
+2023-01-08 13:55:29 INFO  HomePageCommand:16 - page loaded
+2023-01-08 13:55:31 INFO  ChangeLanguageCommand:26 - started
+2023-01-08 13:55:31 INFO  ChangeLanguageCommand:36 - language changed
+2023-01-08 13:55:31 INFO  HomePageCommand:16 - page loaded
+2023-01-08 13:55:32 INFO  LoginPageCommand:16 - page loaded
+2023-01-08 13:55:42 INFO  HomePageCommand:16 - page loaded
+2023-01-08 13:55:44 INFO  LoginPageCommand:16 - page loaded
+2023-01-08 13:55:47 INFO  LoginCommand:21 - started
+2023-01-08 13:55:48 INFO  LoginCommand:48 - user successfully logged in
+2023-01-08 13:55:48 INFO  HomePageCommand:16 - page loaded
+2023-01-08 13:55:50 INFO  LogoutCommand:21 - user log out
+2023-01-08 13:55:58 INFO  LoginCommand:21 - started
+2023-01-08 13:55:58 INFO  LoginCommand:48 - user successfully logged in
+2023-01-08 13:55:58 INFO  HomePageCommand:16 - page loaded
+2023-01-08 13:56:04 INFO  ReceiveReportsCommand:24 - started
+2023-01-08 13:56:04 INFO  ReceiveReportsCommand:86 - reports successfully received
+2023-01-08 13:56:10 INFO  ReceiveReportsCommand:24 - started
+2023-01-08 13:56:10 INFO  ReceiveReportsCommand:86 - reports successfully received
+2023-01-08 13:56:12 INFO  ReceiveReportsCommand:24 - started
+2023-01-08 13:56:12 INFO  ReceiveReportsCommand:86 - reports successfully received
+2023-01-08 13:56:15 INFO  ReceiveReportsCommand:24 - started
+2023-01-08 13:56:15 INFO  ReceiveReportsCommand:86 - reports successfully received

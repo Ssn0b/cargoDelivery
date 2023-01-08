@@ -7,7 +7,6 @@
 
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/styleForIndex.css">
 <br><br>
-
 <div class="container" style="background-color: #F8F8FF; padding: 20px; width: 950px; border: 3px solid #000000;">
     <h1 style="font-size: 50px"><fmt:message key="count.deliveryCost" bundle="${lang}"/></h1>
     <br><br>
