@@ -18,7 +18,7 @@ import static com.example.cargodelivery.controller.Validation.Validation.Registe
 public class RegisterCommand extends Command {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException, SQLException {
-        log.info("RegisterCommand started");
+        log.info("started");
 
         String name = request.getParameter("name");
         String lastName = request.getParameter("lastName");
@@ -36,12 +36,12 @@ public class RegisterCommand extends Command {
                 .roleId(1)
                 .build();
         if (RegisterValidation(request, name, lastName, email, password, confirmPassword, number, user)) {
-            log.info("LoginCommand validation failed");
+            log.info("validation failed");
             return PAGE_REGISTER;
         }
         UserDao userDao = new UserDao();
         userDao.insert(user);
-        log.info("LoginCommand user successfully registered");
+        log.info("user successfully registered");
         return PAGE_LOGIN;
     }
 }

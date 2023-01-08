@@ -14,7 +14,7 @@ import static com.example.cargodelivery.controller.Path.PAGE_REPLENISH_BALANCE;
 public class ReplenishTheBalancePageCommand extends Command {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException, SQLException {
-        log.info("ReplenishTheBalancePageCommand page loaded");
+        log.info("page loaded");
         return PAGE_REPLENISH_BALANCE;
     }
 }

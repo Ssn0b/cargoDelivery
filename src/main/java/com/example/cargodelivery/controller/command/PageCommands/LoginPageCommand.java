@@ -13,7 +13,7 @@ import java.sql.SQLException;
 public class LoginPageCommand extends Command {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException, SQLException {
-        log.info("LoginPageCommand page loaded");
+        log.info("page loaded");
         return Path.PAGE_LOGIN;
     }
 }

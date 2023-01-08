@@ -14,7 +14,7 @@ import static com.example.cargodelivery.controller.Path.PAGE_REGISTER;
 public class RegisterPageCommand extends Command {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException, SQLException {
-        log.info("RegisterPageCommand page loaded");
+        log.info("page loaded");
         return PAGE_REGISTER;
     }
 }

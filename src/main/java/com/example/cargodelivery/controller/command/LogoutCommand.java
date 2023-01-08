@@ -18,7 +18,7 @@ public class LogoutCommand extends Command {
             session.setAttribute("currentUserId", null);
             session.setAttribute("role", null);
         }
-        log.info("LogoutCommand user log out");
+        log.info("user log out");
         return Path.PAGE_LOGIN;
     }
 }

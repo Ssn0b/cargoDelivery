@@ -19,7 +19,7 @@ import static com.example.cargodelivery.controller.Path.PAGE_REPORTS;
 public class FormInvoiceForPaymentCommand extends Command {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException, SQLException {
-        log.info("FormInvoiceForPaymentCommand started");
+        log.info("started");
         int orderId = Integer.parseInt(request.getParameter("statusButton"));
         OrderDao orderDao = new OrderDao();
         orderDao.updateToWaitForPaid(orderId);
@@ -47,7 +47,7 @@ public class FormInvoiceForPaymentCommand extends Command {
         request.setAttribute("currentPage", page);
         request.setAttribute("listOrders", listOrders);
         request.setAttribute("listCities", listCities);
-        log.info("FormInvoiceForPaymentCommand invoices successfully formed");
+        log.info("invoices successfully formed");
         if (action == null) {
             listOrders = orderDao.listAll(0,
                     recordsPerPage);

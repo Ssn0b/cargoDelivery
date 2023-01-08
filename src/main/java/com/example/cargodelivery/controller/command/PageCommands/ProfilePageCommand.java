@@ -17,7 +17,7 @@ import static com.example.cargodelivery.controller.Path.PAGE_PROFILE;
 public class ProfilePageCommand extends Command {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException, SQLException {
-        log.info("ProfilePageCommand page loaded");
+        log.info("page loaded");
         HttpSession session = request.getSession();
         int userId = (int) session.getAttribute("currentUserId");
         UserDao userDao = new UserDao();

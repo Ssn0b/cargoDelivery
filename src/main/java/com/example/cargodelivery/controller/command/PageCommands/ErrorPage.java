@@ -14,7 +14,7 @@ import static com.example.cargodelivery.controller.Path.PAGE_ERROR;
 public class ErrorPage extends Command {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException, SQLException {
-        log.error("ErrorPage page loaded");
+        log.error("page loaded");
         return PAGE_ERROR;
     }
 }

@@ -21,7 +21,7 @@ import static com.example.cargodelivery.controller.Path.PAGE_REPORTS;
 public class ReceiveReportsCommand extends Command {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException, SQLException {
-        log.info("ReceiveReportsCommand started");
+        log.info("started");
         HttpSession session = request.getSession();
 
         String action = request.getParameter("action1");
@@ -83,7 +83,7 @@ public class ReceiveReportsCommand extends Command {
         session.setAttribute("senderParameter", citySender);
         session.setAttribute("receiverParameter", cityReceiver);
         session.setAttribute("dateParameter", dateOfRegisterForPag);
-        log.info("ReceiveReportsCommand reports successfully received");
+        log.info("reports successfully received");
         if (action == null) {
             listOrders = orderDao.selectByDateAndCities(order, 0,
                     recordsPerPage);

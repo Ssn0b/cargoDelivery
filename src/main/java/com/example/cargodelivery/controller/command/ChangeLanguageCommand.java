@@ -23,7 +23,7 @@ public class ChangeLanguageCommand extends Command {
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        log.info("ChangeLanguageCommand started");
+        log.info("started");
         String locale = request.getParameter(LOCALE);
         HttpSession session = request.getSession(false);
         if (locale != null) {
@@ -33,7 +33,7 @@ public class ChangeLanguageCommand extends Command {
             session.setAttribute(SESSION_LOCALE, locale);
         }
         String url = request.getHeader("Referer");
-        log.info("LoginCommand language changed");
+        log.info("language changed");
         return "redirect:" + url.replace("http://localhost:8080/CargoDelivery/", "");
     }
 }

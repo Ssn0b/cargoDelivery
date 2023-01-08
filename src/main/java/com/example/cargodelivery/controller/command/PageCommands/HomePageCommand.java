@@ -13,7 +13,7 @@ import java.sql.SQLException;
 public class HomePageCommand extends Command {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException, SQLException {
-        log.info("HomePageCommand page loaded");
+        log.info("page loaded");
         return Path.PAGE_HOME;
     }
 }

@@ -18,7 +18,7 @@ import static com.example.cargodelivery.controller.Validation.Validation.LoginVa
 public class LoginCommand extends Command {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException, SQLException {
-        log.info("LoginCommand started");
+        log.info("started");
 
         String email = request.getParameter("email");
         String password = request.getParameter("password");
@@ -40,12 +40,12 @@ public class LoginCommand extends Command {
 
         if (newUser == null) {
             request.setAttribute("message", "Incorrect password or email");
-            log.info("LoginCommand the user is not logged in");
+            log.info("the user is not logged in");
             return Path.PAGE_LOGIN;
         } else {
             session.setAttribute("currentUserId", newUser.getId());
             session.setAttribute("role", newUser.getRoleId());
-            log.info("LoginCommand user successfully logged in");
+            log.info("user successfully logged in");
             return "redirect:controller?action=home";
         }
 

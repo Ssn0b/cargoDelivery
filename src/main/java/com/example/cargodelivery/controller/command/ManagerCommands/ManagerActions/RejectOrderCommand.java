@@ -19,7 +19,7 @@ import static com.example.cargodelivery.controller.Path.PAGE_REPORTS;
 public class RejectOrderCommand extends Command {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException, SQLException {
-        log.info("RejectOrderCommand started");
+        log.info("started");
         int orderId = Integer.parseInt(request.getParameter("statusButton"));
 
         OrderDao orderDao = new OrderDao();
@@ -52,7 +52,7 @@ public class RejectOrderCommand extends Command {
         request.setAttribute("listOrders", listOrders);
         request.setAttribute("listCities", listCities);
 
-        log.info("RejectOrderCommand order successfully rejected");
+        log.info("order successfully rejected");
         if (action == null) {
             listOrders = orderDao.listAll(0,
                     recordsPerPage);
