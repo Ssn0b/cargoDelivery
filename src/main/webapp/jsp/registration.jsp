@@ -1,6 +1,8 @@
 <%@ include file="header.jsp" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>
+<%@ taglib prefix="tf" tagdir="/WEB-INF/tags"%>
+<tf:title titleName="Registration"/>
 
 <body class="text-center">
 <input type="hidden" id="status" value="<%=request.getAttribute("status")%>">

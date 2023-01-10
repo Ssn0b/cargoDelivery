@@ -1,5 +1,7 @@
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <%@ include file="header.jsp" %>
+<%@ taglib prefix="tf" tagdir="/WEB-INF/tags"%>
+<tf:title titleName="Reports"/>
 <html lang=en-GB>
 <head>
     <meta charset="utf-8">
@@ -144,12 +146,12 @@
                     <td id="${order.id}">
                         <form method="post" id="blank3" action="controller?action=invoiceForPayment">
                         </form>
-                        <form method="post" id="formInvoice" action="controller?action=invoiceForPayment">
+                        <form method="post" id="formInvoice" action="controller?action=invoiceForPayment&page=${currentPage}&sender=${senderParameter}&receiver=${receiverParameter}&dateOfRegister=${dateParameter}">
                             <button style="width: 230px;" type="submit" name="statusButton"
                                     class="btn btn-info btn-sm py-0" value="${order.id}"><fmt:message
                                     key="processOrders.formInvoice" bundle="${lang}"/></button>
                         </form>
-                        <form method="post" id="rejectOrder" action="controller?action=rejectOrder">
+                        <form method="post" id="rejectOrder" action="controller?action=rejectOrder&page=${currentPage}&sender=${senderParameter}&receiver=${receiverParameter}&dateOfRegister=${dateParameter}">
                             <button style="width: 230px;" type="submit" name="statusButton"
                                     class="btn btn-danger btn-sm py-0" style="display: inline-block"
                                     value="${order.id}"><fmt:message key="processOrders.reject"
@@ -169,7 +171,7 @@
                     <td id="${order.id}">
                         <form method="post" id="blank2" action="controller?action=invoiceForPayment">
                         </form>
-                        <form method="post" id="rejectOrder2" action="controller?action=rejectOrder">
+                        <form method="post" id="rejectOrder2" action="controller?action=rejectOrder&page=${currentPage}&sender=${senderParameter}&receiver=${receiverParameter}&dateOfRegister=${dateParameter}">
                             <button style="width: 230px;" type="submit" name="statusButton"
                                     class="btn btn-danger btn-sm py-0" value="${order.id}"><fmt:message
                                     key="processOrders.reject" bundle="${lang}"/></button>
@@ -212,7 +214,7 @@
                     <td id="${order.id}">
                         <form method="post" id="blank" action="controller?action=rejectOrder">
                         </form>
-                        <form method="post" id="restoreOrder" action="controller?action=invoiceForPayment">
+                        <form method="post" id="restoreOrder" action="controller?action=invoiceForPayment&page=${currentPage}&sender=${senderParameter}&receiver=${receiverParameter}&dateOfRegister=${dateParameter}">
                             <button style="width: 230px;" type="submit" name="statusButton"
                                     class="btn btn-success btn-sm py-0" value="${order.id}"><fmt:message
                                     key="processOrders.restore" bundle="${lang}"/></button>
@@ -233,9 +235,6 @@
                         <button type="submit" name="action1" value="${currentPage - 1}" style=" color: black;"
                                 formaction="controller?action=selectReports&page=${currentPage - 1}" class="page-link">
                             <fmt:message key="pagination.previous" bundle="${lang}"/></button>
-                            <%--
-                                                <a style=" color: black;" class="page-link" href="controller?action=selectReports&page=${currentPage - 1}">Previous</a>
-                            --%>
                     </li>
                 </c:if>
 
@@ -247,19 +246,12 @@
                             <c:choose>
                                 <c:when test="${currentPage eq i}">
                                     <li class="page-item">
-                                            <%--
-                                                                                <a  class="page-link">${i}</a>
-                                            --%>
                                         <button type="submit" name="action1" value="${i}"
                                                 class="page-link">${i}</button>
                                     </li>
                                 </c:when>
                                 <c:otherwise>
                                     <li class="page-item">
-                                            <%--
-                                                                                <a style=" color: black;" class="page-link" href="controller?action=selectReports&page=${i}">${i}</a>
-
-                                            --%>
                                         <button type="submit" name="action1" value="${i}" style=" color: black;"
                                                 formaction="controller?action=selectReports&page=${i}"
                                                 class="page-link">${i}</button>
@@ -277,9 +269,6 @@
                         <button type="submit" name="action1" value="${currentPage + 1}" style=" color: black;"
                                 formaction="controller?action=selectReports&page=${currentPage + 1}" class="page-link">
                             <fmt:message key="pagination.next" bundle="${lang}"/></button>
-                            <%--
-                                                <a style=" color: black;" class="page-link" href="controller?action=selectReports&page=${currentPage + 1}">Next</a>
-                            --%>
                     </li>
                 </c:if>
             </ul>

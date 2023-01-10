@@ -3,6 +3,7 @@
 <fmt:setLocale value="${sessionScope.lang}"/>
 <fmt:setBundle basename="locale" var="lang"/>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="/WEB-INF/tlds/message.tld" prefix="customtag" %>  <%--custom tag--%>
 
 <!doctype html>
 <html>
@@ -12,8 +13,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.104.2">
-    <title>CargoDelivery</title>
-
+    <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/img/logo.png">
     <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/headers/">
 
 
@@ -238,13 +238,12 @@
                 </a>
                 <%}%>
             </div>
-            <%--
-                  </div>
-            --%>
-            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+
+            <%--<ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                 <li><a href="controller?action=changeLanguage&lang=en" class="nav-link px-2 text-white">en</a></li>
                 <li><a href="controller?action=changeLanguage&lang=ua" class="nav-link px-2 text-white">ua</a></li>
-            </ul>
+            </ul>--%>
+            <customtag:message/>
         </div>
     </div>
 </header>

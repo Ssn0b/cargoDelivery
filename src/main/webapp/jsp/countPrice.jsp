@@ -1,12 +1,13 @@
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
-
 <%@ include file="header.jsp" %>
+<%@ taglib prefix="tf" tagdir="/WEB-INF/tags"%> <%--file tag--%>
+
 
 <!-- Bootstrap CSS -->
 <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
-
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/styleForIndex.css">
 <br><br>
+<tf:title titleName="Create order"/>
 <div class="container" style="background-color: #F8F8FF; padding: 20px; width: 950px; border: 3px solid #000000;">
     <h1 style="font-size: 50px"><fmt:message key="count.deliveryCost" bundle="${lang}"/></h1>
     <br><br>
@@ -90,8 +91,7 @@
         </div>
         <br><br>
         <div id="dvParameters" style="display: none; ">
-            <h3 style="display: inline-flex;margin-right: 20px"><fmt:message key="count.parameters"
-                                                                             bundle="${lang}"/></h3>
+            <h3 style="display: inline-flex;margin-right: 20px"><fmt:message key="count.parameters" bundle="${lang}"/></h3>
         </div>
 
         <div id="dvWeight" class="form-inline" style="display: none;  margin-right: 10px">
@@ -146,6 +146,7 @@
 </div>
 <c:set var="message" value="${message}"/>
 <p style="font-size: 16px;font-style: italic;color: red;  text-align: center;" id="message">${message}</p>
+
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <!-- Popper Js -->

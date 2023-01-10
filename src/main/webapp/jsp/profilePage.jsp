@@ -1,6 +1,8 @@
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <%@ include file="header.jsp" %>
 <%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>
+<%@ taglib prefix="tf" tagdir="/WEB-INF/tags"%>
+<tf:title titleName="Profile"/>
 
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/styleForIndex.css">
 

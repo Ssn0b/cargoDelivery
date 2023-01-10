@@ -35,18 +35,18 @@ public class ReceiveReportsCommand extends Command {
 
         String citySender = "";
         String cityReceiver = "";
-        String dateOfRegister = "";
+        String dateOfRegister;
         String dateOfRegisterForPag = "";
         Order order;
 
         if (request.getParameter("sender") != null && !request.getParameter("sender").isEmpty()) {
             citySender = request.getParameter("sender");
         }
-        if (request.getParameter("sender") != null && !request.getParameter("receiver").isEmpty()) {
+        if (request.getParameter("receiver") != null && !request.getParameter("receiver").isEmpty()) {
             cityReceiver = request.getParameter("receiver");
         }
 
-        if (request.getParameter("sender") != null && !request.getParameter("dateOfRegister").isEmpty()) {
+        if (request.getParameter("dateOfRegister") != null && !request.getParameter("dateOfRegister").isEmpty()) {
             dateOfRegister = request.getParameter("dateOfRegister");
             dateOfRegisterForPag = request.getParameter("dateOfRegister");
             dateOfRegister += " 00:00:00.0";

@@ -44,6 +44,7 @@ public class LoginCommand extends Command {
             return Path.PAGE_LOGIN;
         } else {
             session.setAttribute("currentUserId", newUser.getId());
+            session.setAttribute("currentUserNumber", newUser.getNumber());
             session.setAttribute("role", newUser.getRoleId());
             log.info("user successfully logged in");
             return "redirect:controller?action=home";

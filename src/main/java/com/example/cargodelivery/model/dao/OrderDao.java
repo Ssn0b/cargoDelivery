@@ -74,7 +74,7 @@ public class OrderDao {
         String query = "SELECT SQL_CALC_FOUND_ROWS o.id,o.dateOfRegister,o.dateOfArrival,o.receiverNum,o.description,o.price," +
                 "o.orderStatusId, c.name,c.name_ua,c1.name as name1,c1.name_ua as name1_ua, os.name as orderName\n" +
                 "FROM orders o, city c, city c1, order_status os\n" +
-                "where receiverNum = ? and (c.id = o.senderCityId and c1.id = o.receiverCityId) and orderStatusId = os.id " +
+                "where o.receiverNum = ? and (c.id = o.senderCityId and c1.id = o.receiverCityId) and orderStatusId = os.id " +
                 "ORDER BY o.id DESC limit " + offset + ", " + noOfRecords + ";";
         ArrayList<Order> list = new ArrayList<>();
         Order newOrder;
@@ -115,7 +115,7 @@ public class OrderDao {
     }
 
 
-    public List<Order> listSelect(int userId, int offset, int noOfRecords) {
+    public List<Order> orderSelect(int userId, int offset, int noOfRecords) {
         String query = "SELECT SQL_CALC_FOUND_ROWS o.id,o.dateOfRegister,o.dateOfArrival,o.receiverNum,o.description," +
                 "o.price,o.orderStatusId, c.name,c.name_ua,c1.name as name1,c1.name_ua as name1_ua, os.name as orderName\n" +
                 "FROM orders o, city c, city c1, order_status os\n" +
@@ -153,7 +153,7 @@ public class OrderDao {
 
             con.close();
         } catch (SQLException e) {
-            log.error("order listSelect error");
+            log.error("order orderSelect error");
             e.printStackTrace();
         }
         return list;
@@ -268,49 +268,6 @@ public class OrderDao {
         return list;
     }
 
-    public List<Order> listAll(int offset, int noOfRecords) {
-        String query = "SELECT SQL_CALC_FOUND_ROWS o.id,o.dateOfRegister,o.dateOfArrival,o.receiverNum,o.description,o.price," +
-                "o.orderStatusId, c.name,c1.name as name1, os.name as orderName,u.name as userName,u.lastname\n" +
-                "FROM orders o, city c, city c1, order_status os,user u \n" +
-                "where (c.id = o.senderCityId and c1.id = o.receiverCityId) and orderStatusId = os.id and u.id = o.userId " +
-                "ORDER BY o.id DESC limit " + offset + ", " + noOfRecords + ";";
-        ArrayList<Order> list = new ArrayList<>();
-        Order newOrder = null;
-        try {
-            Connection con = DBUtil.getConnection();
-            PreparedStatement pst = con.prepareStatement(query);
-            ResultSet rs = pst.executeQuery();
-            while (rs.next()) {
-                newOrder = Order.builder()
-                        .id(rs.getInt("id"))
-                        .userName(rs.getString("userName"))
-                        .userLastName(rs.getString("lastname"))
-                        .receiverNum(rs.getString("receiverNum"))
-                        .description(rs.getString("description"))
-                        .senderCityName(rs.getString("name"))
-                        .receiverCityName(rs.getString("name1"))
-                        .orderStatusName(rs.getString("orderName"))
-                        .dateOfRegister(rs.getTimestamp("dateOfRegister"))
-                        .dateOfArrival(rs.getTimestamp("dateOfArrival"))
-                        .price(rs.getDouble("price"))
-                        .build();
-                list.add(newOrder);
-            }
-            rs.close();
-
-            rs = pst.executeQuery("SELECT FOUND_ROWS()");
-
-            if (rs.next())
-                this.noOfRecords = rs.getInt(1);
-            con.close();
-        } catch (SQLException e) {
-            log.error("order listAll error");
-            e.printStackTrace();
-        }
-        return list;
-    }
-
-
     public void checkStatusDeliver() {
         String query = "update orders set orderStatusId = 6 where dateOfArrival = CURDATE()";
         try {
@@ -340,6 +297,20 @@ public class OrderDao {
             e.printStackTrace();
         }
 
+    }
+
+    public void deleteOrder(Order order){
+        String query = "DELETE FROM `cargo_delivery`.`orders` WHERE (`id` = ?);";
+        try {
+            Connection con = DBUtil.getConnection();
+            PreparedStatement pst = con.prepareStatement(query);
+            pst.setInt(1, order.getId());
+            pst.executeUpdate();
+            pst.close();
+            con.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public int getNoOfRecords() {

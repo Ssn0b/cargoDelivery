@@ -1,7 +1,8 @@
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <%@ include file="header.jsp" %>
 <%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>
-
+<%@ taglib prefix="tf" tagdir="/WEB-INF/tags"%>
+<tf:title titleName="My orders"/>
 
 <div style="text-align:center;">
     <table class="table table-striped">

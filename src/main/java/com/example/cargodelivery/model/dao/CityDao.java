@@ -33,7 +33,7 @@ public class CityDao {
             rs.close();
             con.close();
         } catch (SQLException e) {
-            log.error("city listSelect error");
+            log.error("city orderSelect error");
             e.printStackTrace();
         }
         return list;

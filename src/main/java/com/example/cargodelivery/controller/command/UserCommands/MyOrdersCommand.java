@@ -28,7 +28,7 @@ public class MyOrdersCommand extends Command {
                     request.getParameter("page"));
 
         OrderDao orderDao = new OrderDao();
-        List<Order> listCategory = orderDao.listSelect((Integer) session.getAttribute("currentUserId"), (page - 1) * recordsPerPage,
+        List<Order> listCategory = orderDao.orderSelect((Integer) session.getAttribute("currentUserId"), (page - 1) * recordsPerPage,
                 recordsPerPage);
 
         int noOfRecords = orderDao.getNoOfRecords();

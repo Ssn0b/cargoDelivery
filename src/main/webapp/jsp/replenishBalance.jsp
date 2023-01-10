@@ -5,7 +5,9 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/pay.css">
 
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/styleForIndex.css">
+<%@ taglib prefix="tf" tagdir="/WEB-INF/tags"%>
 
+<tf:title titleName="Replenish balance"/>
 
 <body>
 

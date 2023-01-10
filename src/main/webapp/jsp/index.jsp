@@ -1,6 +1,7 @@
 <%@ include file="header.jsp" %>
 <%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>
-
+<%@ taglib prefix="tf" tagdir="/WEB-INF/tags"%>
+<tf:title titleName="Home"/>
 <body>
 <div class="intro">
     <div class="container">
@@ -114,8 +115,7 @@
                 <hr>
         --%>
 
-        <div class="services"
-        ">
+        <div class="services">
         <div class="services__item">
             <img class="services__icon" src="${pageContext.request.contextPath}/img/services/seo.png" alt="">
 
@@ -136,7 +136,7 @@
         </div>
     </div>
 
-    </div><!-- /.container -->
+    </div>
 </section>
 
 </body>

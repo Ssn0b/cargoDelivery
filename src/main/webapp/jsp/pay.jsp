@@ -1,6 +1,7 @@
 <%@ include file="header.jsp" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
-
+<%@ taglib prefix="tf" tagdir="/WEB-INF/tags"%>
+<tf:title titleName="Pay"/>
 
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/pay.css">
 

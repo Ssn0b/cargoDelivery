@@ -14,5 +14,5 @@ public class Path {
     public static final String PAGE_ERROR = "/jsp/error.jsp";
 
 
-
+    public static final String PAGE_MY_INCOMES = "/jsp/myIncomes.jsp";
 }

@@ -17,6 +17,7 @@ public class UserDao {
         {
             Connection con = DBUtil.getConnection();
             PreparedStatement pst = con.prepareStatement(query);
+
             pst.setString(1, user.getName());
             pst.setString(2, user.getLastname());
             pst.setString(3, user.getEmail());
@@ -28,6 +29,20 @@ public class UserDao {
             con.close();
         } catch (SQLException e) {
             log.error("user insert error");
+            e.printStackTrace();
+        }
+    }
+
+    public void deleteUser(User user){
+        String query = "DELETE FROM `cargo_delivery`.`user` WHERE (`id` = ?);";
+        try {
+            Connection con = DBUtil.getConnection();
+            PreparedStatement pst = con.prepareStatement(query);
+            pst.setInt(1, user.getId());
+            pst.executeUpdate();
+            pst.close();
+            con.close();
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }

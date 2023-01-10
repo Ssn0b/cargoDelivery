@@ -2,6 +2,7 @@ package com.example.cargodelivery.model.dao;
 
 import com.example.cargodelivery.db.DBUtil;
 import com.example.cargodelivery.model.entity.Cargo;
+import com.example.cargodelivery.model.entity.User;
 import lombok.extern.log4j.Log4j;
 
 import java.sql.Connection;
@@ -54,5 +55,19 @@ public class CargoDao {
             e.printStackTrace();
         }
         return newCargo;
+    }
+
+    public void deleteCargo(Cargo cargo){
+        String query = "DELETE FROM `cargo_delivery`.`cargo` WHERE (`id` = ?);";
+        try {
+            Connection con = DBUtil.getConnection();
+            PreparedStatement pst = con.prepareStatement(query);
+            pst.setInt(1, cargo.getId());
+            pst.executeUpdate();
+            pst.close();
+            con.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }
