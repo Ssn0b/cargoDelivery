@@ -33,19 +33,6 @@ public class UserDao {
         }
     }
 
-    public void deleteUser(User user){
-        String query = "DELETE FROM `cargo_delivery`.`user` WHERE (`id` = ?);";
-        try {
-            Connection con = DBUtil.getConnection();
-            PreparedStatement pst = con.prepareStatement(query);
-            pst.setInt(1, user.getId());
-            pst.executeUpdate();
-            pst.close();
-            con.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
 
     public User findUser(User user){
         String query = "select * from user where email = ?";
@@ -65,6 +52,7 @@ public class UserDao {
                         .password(rs.getString("password"))
                         .roleId(rs.getInt("roleId"))
                         .number(rs.getString("telNumber"))
+                        .balance(rs.getDouble("balance"))
                         .build();
                 rs.close();
                 con.close();
@@ -78,7 +66,19 @@ public class UserDao {
         if (newUser != null && BCrypt.checkpw(user.getPassword(), newUser.getPassword()))
             return newUser;
         return null;
+    }
 
+    public void deleteUser(User user){
+        String query = "delete from user where id = ?";
+        try {
+            Connection con = DBUtil.getConnection();
+            PreparedStatement pst = con.prepareStatement(query);
+            pst.setInt(1, user.getId());
+            pst.executeUpdate();
+            con.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public User findUserById(int userId) {

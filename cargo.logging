@@ -771,3 +771,402 @@
 2023-01-10 01:13:20 ERROR UserDao:31 - user insert error
 2023-01-10 03:19:06 ERROR UserDao:31 - user insert error
 2023-01-10 03:19:20 ERROR UserDao:31 - user insert error
+2023-01-10 14:27:59 INFO  HomePageCommand:16 - page loaded
+2023-01-10 14:28:02 INFO  HomePageCommand:16 - page loaded
+2023-01-10 14:28:04 INFO  RegisterPageCommand:17 - page loaded
+2023-01-10 14:28:06 INFO  RegisterCommand:21 - started
+2023-01-10 14:28:06 INFO  RegisterCommand:39 - validation failed
+2023-01-10 14:28:10 INFO  ChangeLanguageCommand:26 - started
+2023-01-10 14:28:10 INFO  ChangeLanguageCommand:36 - language changed
+2023-01-10 14:28:10 INFO  RegisterCommand:21 - started
+2023-01-10 14:28:10 INFO  RegisterCommand:39 - validation failed
+2023-01-10 14:28:12 INFO  ChangeLanguageCommand:26 - started
+2023-01-10 14:28:12 INFO  ChangeLanguageCommand:36 - language changed
+2023-01-10 14:28:12 INFO  RegisterCommand:21 - started
+2023-01-10 14:28:12 INFO  RegisterCommand:39 - validation failed
+2023-01-10 14:28:18 INFO  RegisterCommand:21 - started
+2023-01-10 14:28:18 INFO  RegisterCommand:39 - validation failed
+2023-01-10 14:28:19 INFO  ChangeLanguageCommand:26 - started
+2023-01-10 14:28:19 INFO  ChangeLanguageCommand:36 - language changed
+2023-01-10 14:28:19 INFO  RegisterCommand:21 - started
+2023-01-10 14:28:19 INFO  RegisterCommand:39 - validation failed
+2023-01-10 14:28:22 INFO  ChangeLanguageCommand:26 - started
+2023-01-10 14:28:22 INFO  ChangeLanguageCommand:36 - language changed
+2023-01-10 14:28:22 INFO  RegisterCommand:21 - started
+2023-01-10 14:28:22 INFO  RegisterCommand:39 - validation failed
+2023-01-10 14:28:44 INFO  RegisterCommand:21 - started
+2023-01-10 14:28:44 INFO  RegisterCommand:44 - user successfully registered
+2023-01-10 14:28:52 INFO  LoginCommand:21 - started
+2023-01-10 14:28:52 INFO  LoginCommand:49 - user successfully logged in
+2023-01-10 14:28:52 INFO  HomePageCommand:16 - page loaded
+2023-01-10 14:28:55 INFO  MyIncomingsCommandPage:20 - MyIncomingsCommandPage page loaded
+2023-01-10 14:28:56 INFO  MyOrdersCommand:20 - MyOrdersCommand page loaded
+2023-01-10 14:28:58 INFO  CountThePriceCommand:19 - CountThePriceCommand page loaded
+2023-01-10 14:29:01 INFO  ChangeLanguageCommand:26 - started
+2023-01-10 14:29:01 INFO  ChangeLanguageCommand:36 - language changed
+2023-01-10 14:29:01 INFO  CountThePriceCommand:19 - CountThePriceCommand page loaded
+2023-01-10 14:29:30 INFO  MakeOrderCommand:29 - MakeOrderCommand started
+2023-01-10 14:29:30 INFO  MakeOrderCommand:48 - MakeOrderCommand validation failed
+2023-01-10 14:30:00 INFO  MakeOrderCommand:29 - MakeOrderCommand started
+2023-01-10 14:30:00 INFO  MakeOrderCommand:134 - MakeOrderCommand successfully added
+2023-01-10 14:30:01 INFO  MyOrdersCommand:20 - MyOrdersCommand page loaded
+2023-01-10 14:30:02 INFO  MyIncomingsCommandPage:20 - MyIncomingsCommandPage page loaded
+2023-01-10 14:30:05 INFO  MyOrdersCommand:20 - MyOrdersCommand page loaded
+2023-01-10 14:30:06 INFO  MyIncomingsCommandPage:20 - MyIncomingsCommandPage page loaded
+2023-01-10 14:30:07 INFO  MyOrdersCommand:20 - MyOrdersCommand page loaded
+2023-01-10 14:30:09 INFO  ChangeLanguageCommand:26 - started
+2023-01-10 14:30:09 INFO  ChangeLanguageCommand:36 - language changed
+2023-01-10 14:30:09 INFO  MyOrdersCommand:20 - MyOrdersCommand page loaded
+2023-01-10 14:30:24 INFO  ProfilePageCommand:20 - page loaded
+2023-01-10 14:30:30 INFO  ReplenishTheBalancePageCommand:17 - page loaded
+2023-01-10 14:31:44 INFO  ReplenishTheBalanceCommand:22 - ReplenishTheBalanceCommand started
+2023-01-10 14:31:44 INFO  ReplenishTheBalanceCommand:39 - ReplenishTheBalanceCommand balance replenished
+2023-01-10 14:31:45 INFO  MyOrdersCommand:20 - MyOrdersCommand page loaded
+2023-01-10 14:31:48 INFO  ProfilePageCommand:20 - page loaded
+2023-01-10 14:31:51 INFO  ChangeInfoPageCommand:20 - page loaded
+2023-01-10 14:31:56 INFO  MyOrdersCommand:20 - MyOrdersCommand page loaded
+2023-01-10 14:31:57 INFO  ProfilePageCommand:20 - page loaded
+2023-01-10 14:31:58 INFO  ChangeInfoPageCommand:20 - page loaded
+2023-01-10 14:32:41 INFO  LogoutCommand:21 - user log out
+2023-01-10 14:32:43 INFO  LoginCommand:21 - started
+2023-01-10 14:32:43 INFO  LoginCommand:49 - user successfully logged in
+2023-01-10 14:32:43 INFO  HomePageCommand:16 - page loaded
+2023-01-10 14:32:50 INFO  ReceiveReportsCommand:24 - started
+2023-01-10 14:32:50 INFO  ReceiveReportsCommand:86 - reports successfully received
+2023-01-10 18:58:10 INFO  HomePageCommand:16 - page loaded
+2023-01-10 18:58:13 INFO  HomePageCommand:16 - page loaded
+2023-01-10 19:07:53 INFO  ChangeLanguageCommand:26 - started
+2023-01-10 19:07:53 INFO  ChangeLanguageCommand:36 - language changed
+2023-01-10 19:07:53 INFO  HomePageCommand:16 - page loaded
+2023-01-10 19:08:01 INFO  CountThePriceCommand:19 - CountThePriceCommand page loaded
+2023-01-10 19:09:27 INFO  LoginPageCommand:16 - page loaded
+2023-01-10 19:09:36 INFO  LoginCommand:21 - started
+2023-01-10 19:09:36 INFO  LoginCommand:49 - user successfully logged in
+2023-01-10 19:09:36 INFO  HomePageCommand:16 - page loaded
+2023-01-10 19:09:40 INFO  CountThePriceCommand:19 - CountThePriceCommand page loaded
+2023-01-10 19:09:43 INFO  MakeOrderCommand:29 - MakeOrderCommand started
+2023-01-10 19:09:43 INFO  MakeOrderCommand:48 - MakeOrderCommand validation failed
+2023-01-10 19:09:48 INFO  MakeOrderCommand:29 - MakeOrderCommand started
+2023-01-10 19:09:48 INFO  MakeOrderCommand:48 - MakeOrderCommand validation failed
+2023-01-10 19:10:17 INFO  MakeOrderCommand:29 - MakeOrderCommand started
+2023-01-10 19:10:18 INFO  MakeOrderCommand:134 - MakeOrderCommand successfully added
+2023-01-10 19:10:25 INFO  MyOrdersCommand:20 - MyOrdersCommand page loaded
+2023-01-10 19:10:54 INFO  HomePageCommand:16 - page loaded
+2023-01-10 19:10:55 INFO  LoginPageCommand:16 - page loaded
+2023-01-10 19:10:58 INFO  LoginCommand:21 - started
+2023-01-10 19:10:58 INFO  LoginCommand:49 - user successfully logged in
+2023-01-10 19:10:58 INFO  HomePageCommand:16 - page loaded
+2023-01-10 19:11:01 INFO  ChangeLanguageCommand:26 - started
+2023-01-10 19:11:01 INFO  ChangeLanguageCommand:36 - language changed
+2023-01-10 19:11:01 INFO  HomePageCommand:16 - page loaded
+2023-01-10 19:11:02 INFO  ReceiveReportsCommand:24 - started
+2023-01-10 19:11:02 INFO  ReceiveReportsCommand:86 - reports successfully received
+2023-01-10 19:11:12 INFO  RejectOrderCommand:26 - started
+2023-01-10 19:11:12 INFO  RejectOrderCommand:80 - order successfully rejected
+2023-01-10 19:11:18 INFO  FormInvoiceForPaymentCommand:25 - started
+2023-01-10 19:11:18 INFO  FormInvoiceForPaymentCommand:75 - invoices successfully formed
+2023-01-10 19:11:23 INFO  MyOrdersCommand:20 - MyOrdersCommand page loaded
+2023-01-10 19:11:32 INFO  MyIncomingsCommandPage:20 - MyIncomingsCommandPage page loaded
+2023-01-10 19:11:49 INFO  MyOrdersCommand:20 - MyOrdersCommand page loaded
+2023-01-10 19:11:51 INFO  PayByCardCommand:18 - PayByCardCommand page loaded
+2023-01-10 19:12:00 INFO  ProfilePageCommand:20 - page loaded
+2023-01-10 19:12:12 INFO  ChangeInfoPageCommand:20 - page loaded
+2023-01-10 19:12:34 INFO  ChangeInfoCommand:22 - ChangeInfoCommand started
+2023-01-10 19:12:34 INFO  ChangeInfoCommand:37 - ChangeInfoCommand validation failed
+2023-01-10 19:12:51 INFO  ChangeInfoCommand:22 - ChangeInfoCommand started
+2023-01-10 19:12:51 INFO  ChangeInfoCommand:37 - ChangeInfoCommand validation failed
+2023-01-10 19:12:55 INFO  ProfilePageCommand:20 - page loaded
+2023-01-10 19:13:00 INFO  ReplenishTheBalancePageCommand:17 - page loaded
+2023-01-10 19:13:08 INFO  ProfilePageCommand:20 - page loaded
+2023-01-10 19:13:10 INFO  ReplenishTheBalancePageCommand:17 - page loaded
+2023-01-10 19:13:32 INFO  ReplenishTheBalanceCommand:22 - ReplenishTheBalanceCommand started
+2023-01-10 19:13:32 INFO  ReplenishTheBalanceCommand:33 - ReplenishTheBalanceCommand validation failed
+2023-01-10 19:13:56 INFO  ReplenishTheBalanceCommand:22 - ReplenishTheBalanceCommand started
+2023-01-10 19:13:56 INFO  ReplenishTheBalanceCommand:39 - ReplenishTheBalanceCommand balance replenished
+2023-01-10 19:13:57 INFO  ProfilePageCommand:20 - page loaded
+2023-01-10 19:14:02 INFO  MyOrdersCommand:20 - MyOrdersCommand page loaded
+2023-01-10 19:14:07 INFO  PayByBalanceCommand:25 - PayByBalanceCommand started
+2023-01-10 19:14:07 INFO  PayByBalanceCommand:47 - PayByBalanceCommand user successfully payed
+2023-01-10 19:14:08 INFO  MyOrdersCommand:20 - MyOrdersCommand page loaded
+2023-01-10 19:14:49 INFO  ProfilePageCommand:20 - page loaded
+2023-01-10 19:14:55 INFO  ReceiveReportsCommand:24 - started
+2023-01-10 19:14:55 INFO  ReceiveReportsCommand:86 - reports successfully received
+2023-01-10 19:14:57 INFO  ReceiveReportsCommand:24 - started
+2023-01-10 19:14:57 INFO  ReceiveReportsCommand:86 - reports successfully received
+2023-01-10 19:15:00 INFO  ReceiveReportsCommand:24 - started
+2023-01-10 19:15:00 INFO  ReceiveReportsCommand:86 - reports successfully received
+2023-01-10 19:15:10 INFO  ReceiveReportsCommand:24 - started
+2023-01-10 19:15:10 INFO  ReceiveReportsCommand:86 - reports successfully received
+2023-01-10 19:15:13 INFO  ReceiveReportsCommand:24 - started
+2023-01-10 19:15:13 INFO  ReceiveReportsCommand:86 - reports successfully received
+2023-01-10 19:15:23 INFO  FormInvoiceForPaymentCommand:25 - started
+2023-01-10 19:15:23 INFO  FormInvoiceForPaymentCommand:75 - invoices successfully formed
+2023-01-10 19:15:24 INFO  RejectOrderCommand:26 - started
+2023-01-10 19:15:24 INFO  RejectOrderCommand:80 - order successfully rejected
+2023-01-10 19:15:37 INFO  ReceiveReportsCommand:24 - started
+2023-01-10 19:15:37 INFO  ReceiveReportsCommand:86 - reports successfully received
+2023-01-10 19:15:47 INFO  ReceiveReportsCommand:24 - started
+2023-01-10 19:15:47 INFO  ReceiveReportsCommand:86 - reports successfully received
+2023-01-10 19:15:50 INFO  ReceiveReportsCommand:24 - started
+2023-01-10 19:15:50 INFO  ReceiveReportsCommand:86 - reports successfully received
+2023-01-10 19:15:51 INFO  ReceiveReportsCommand:24 - started
+2023-01-10 19:15:51 INFO  ReceiveReportsCommand:86 - reports successfully received
+2023-01-10 19:15:52 INFO  ReceiveReportsCommand:24 - started
+2023-01-10 19:15:52 INFO  ReceiveReportsCommand:86 - reports successfully received
+2023-01-10 19:15:59 INFO  ReceiveReportsCommand:24 - started
+2023-01-10 19:15:59 INFO  ReceiveReportsCommand:86 - reports successfully received
+2023-01-10 19:16:08 INFO  FormInvoiceForPaymentCommand:25 - started
+2023-01-10 19:16:08 INFO  FormInvoiceForPaymentCommand:75 - invoices successfully formed
+2023-01-10 19:16:12 INFO  RejectOrderCommand:26 - started
+2023-01-10 19:16:12 INFO  RejectOrderCommand:80 - order successfully rejected
+2023-01-10 19:16:33 INFO  ChangeLanguageCommand:26 - started
+2023-01-10 19:16:33 INFO  ChangeLanguageCommand:36 - language changed
+2023-01-10 19:16:33 INFO  RejectOrderCommand:26 - started
+2023-01-10 19:16:43 INFO  ReceiveReportsCommand:24 - started
+2023-01-10 19:16:43 INFO  ReceiveReportsCommand:86 - reports successfully received
+2023-01-10 19:16:45 INFO  ChangeLanguageCommand:26 - started
+2023-01-10 19:16:45 INFO  ChangeLanguageCommand:36 - language changed
+2023-01-10 19:16:45 INFO  ReceiveReportsCommand:24 - started
+2023-01-10 19:16:45 INFO  ReceiveReportsCommand:86 - reports successfully received
+2023-01-10 19:16:48 INFO  ChangeLanguageCommand:26 - started
+2023-01-10 19:16:48 INFO  ChangeLanguageCommand:36 - language changed
+2023-01-10 19:16:48 INFO  ReceiveReportsCommand:24 - started
+2023-01-10 19:16:48 INFO  ReceiveReportsCommand:86 - reports successfully received
+2023-01-10 19:16:50 INFO  ChangeLanguageCommand:26 - started
+2023-01-10 19:16:50 INFO  ChangeLanguageCommand:36 - language changed
+2023-01-10 19:16:50 INFO  ReceiveReportsCommand:24 - started
+2023-01-10 19:16:50 INFO  ReceiveReportsCommand:86 - reports successfully received
+2023-01-10 19:16:53 INFO  ChangeLanguageCommand:26 - started
+2023-01-10 19:16:53 INFO  ChangeLanguageCommand:36 - language changed
+2023-01-10 19:16:53 INFO  ReceiveReportsCommand:24 - started
+2023-01-10 19:16:53 INFO  ReceiveReportsCommand:86 - reports successfully received
+2023-01-10 19:16:58 INFO  ChangeLanguageCommand:26 - started
+2023-01-10 19:16:58 INFO  ChangeLanguageCommand:36 - language changed
+2023-01-10 19:16:58 INFO  ProfilePageCommand:20 - page loaded
+2023-01-10 19:17:00 INFO  MyIncomingsCommandPage:20 - MyIncomingsCommandPage page loaded
+2023-01-10 19:17:01 INFO  ChangeLanguageCommand:26 - started
+2023-01-10 19:17:01 INFO  ChangeLanguageCommand:36 - language changed
+2023-01-10 19:17:01 INFO  MyIncomingsCommandPage:20 - MyIncomingsCommandPage page loaded
+2023-01-10 19:17:02 INFO  LogoutCommand:21 - user log out
+2023-01-10 19:17:14 INFO  LoginCommand:21 - started
+2023-01-10 19:17:14 INFO  LoginCommand:49 - user successfully logged in
+2023-01-10 19:17:14 INFO  HomePageCommand:16 - page loaded
+2023-01-10 19:17:17 INFO  MyIncomingsCommandPage:20 - MyIncomingsCommandPage page loaded
+2023-01-10 19:17:18 INFO  ChangeLanguageCommand:26 - started
+2023-01-10 19:17:18 INFO  ChangeLanguageCommand:36 - language changed
+2023-01-10 19:17:18 INFO  MyIncomingsCommandPage:20 - MyIncomingsCommandPage page loaded
+2023-01-10 19:17:20 INFO  ChangeLanguageCommand:26 - started
+2023-01-10 19:17:20 INFO  ChangeLanguageCommand:36 - language changed
+2023-01-10 19:17:20 INFO  MyIncomingsCommandPage:20 - MyIncomingsCommandPage page loaded
+2023-01-10 19:17:21 INFO  MyOrdersCommand:20 - MyOrdersCommand page loaded
+2023-01-10 19:17:22 INFO  ChangeLanguageCommand:26 - started
+2023-01-10 19:17:22 INFO  ChangeLanguageCommand:36 - language changed
+2023-01-10 19:17:22 INFO  MyOrdersCommand:20 - MyOrdersCommand page loaded
+2023-01-10 19:17:23 INFO  ChangeLanguageCommand:26 - started
+2023-01-10 19:17:23 INFO  ChangeLanguageCommand:36 - language changed
+2023-01-10 19:17:23 INFO  MyOrdersCommand:20 - MyOrdersCommand page loaded
+2023-01-10 19:17:24 INFO  LogoutCommand:21 - user log out
+2023-01-10 19:23:00 INFO  LoginCommand:21 - started
+2023-01-10 19:23:00 INFO  LoginCommand:49 - user successfully logged in
+2023-01-10 19:23:00 INFO  HomePageCommand:16 - page loaded
+2023-01-10 19:23:02 INFO  ProfilePageCommand:20 - page loaded
+2023-01-10 19:23:05 INFO  ChangeLanguageCommand:26 - started
+2023-01-10 19:23:05 INFO  ChangeLanguageCommand:36 - language changed
+2023-01-10 19:23:05 INFO  ProfilePageCommand:20 - page loaded
+2023-01-10 19:23:06 INFO  ChangeInfoPageCommand:20 - page loaded
+2023-01-10 19:23:09 INFO  ChangeInfoCommand:22 - ChangeInfoCommand started
+2023-01-10 19:23:09 INFO  ChangeInfoCommand:37 - ChangeInfoCommand validation failed
+2023-01-10 19:24:22 INFO  LogoutCommand:21 - user log out
+2023-01-10 19:24:27 INFO  LoginCommand:21 - started
+2023-01-10 19:24:27 INFO  LoginCommand:49 - user successfully logged in
+2023-01-10 19:24:27 INFO  HomePageCommand:16 - page loaded
+2023-01-10 19:24:29 INFO  CountThePriceCommand:19 - CountThePriceCommand page loaded
+2023-01-10 19:24:29 INFO  ProfilePageCommand:20 - page loaded
+2023-01-10 19:24:30 INFO  ChangeInfoPageCommand:20 - page loaded
+2023-01-10 19:24:32 INFO  ChangeLanguageCommand:26 - started
+2023-01-10 19:24:32 INFO  ChangeLanguageCommand:36 - language changed
+2023-01-10 19:24:32 INFO  ChangeInfoPageCommand:20 - page loaded
+2023-01-10 19:24:37 INFO  ChangeInfoCommand:22 - ChangeInfoCommand started
+2023-01-10 19:24:37 INFO  ChangeInfoCommand:37 - ChangeInfoCommand validation failed
+2023-01-10 19:24:40 INFO  ChangeLanguageCommand:26 - started
+2023-01-10 19:24:40 INFO  ChangeLanguageCommand:36 - language changed
+2023-01-10 19:24:40 INFO  ChangeInfoCommand:22 - ChangeInfoCommand started
+2023-01-10 19:24:41 INFO  HomePageCommand:16 - page loaded
+2023-01-10 19:24:43 INFO  ProfilePageCommand:20 - page loaded
+2023-01-10 19:24:46 INFO  ChangeInfoPageCommand:20 - page loaded
+2023-01-10 19:24:50 INFO  ChangeInfoCommand:22 - ChangeInfoCommand started
+2023-01-10 19:24:50 INFO  ChangeInfoCommand:37 - ChangeInfoCommand validation failed
+2023-01-10 19:24:52 INFO  ChangeInfoCommand:22 - ChangeInfoCommand started
+2023-01-10 19:24:52 INFO  ChangeInfoCommand:37 - ChangeInfoCommand validation failed
+2023-01-10 19:24:59 INFO  ChangeInfoCommand:22 - ChangeInfoCommand started
+2023-01-10 19:24:59 INFO  ChangeInfoCommand:37 - ChangeInfoCommand validation failed
+2023-01-10 19:49:21 INFO  MyOrdersCommand:20 - MyOrdersCommand page loaded
+2023-01-10 20:05:25 INFO  MyOrdersCommand:20 - MyOrdersCommand page loaded
+2023-01-10 20:05:26 INFO  MyOrdersCommand:20 - MyOrdersCommand page loaded
+2023-01-10 20:05:27 INFO  MyOrdersCommand:20 - MyOrdersCommand page loaded
+2023-01-10 20:05:29 INFO  MyIncomingsCommandPage:20 - MyIncomingsCommandPage page loaded
+2023-01-10 20:05:30 INFO  MyOrdersCommand:20 - MyOrdersCommand page loaded
+2023-01-10 20:09:59 INFO  MyIncomingsCommandPage:20 - MyIncomingsCommandPage page loaded
+2023-01-10 20:10:00 INFO  MyOrdersCommand:20 - MyOrdersCommand page loaded
+2023-01-10 20:10:01 INFO  CountThePriceCommand:19 - CountThePriceCommand page loaded
+2023-01-10 20:10:03 INFO  ProfilePageCommand:20 - page loaded2023-01-11 23:12:51 INFO  HomePageCommand:16 - page loaded
+2023-01-11 23:12:56 INFO  HomePageCommand:16 - page loaded
+2023-01-11 23:12:59 INFO  LoginPageCommand:16 - page loaded
+2023-01-11 23:13:06 INFO  LoginCommand:21 - started
+2023-01-11 23:13:06 INFO  LoginCommand:49 - user successfully logged in
+2023-01-11 23:13:06 INFO  HomePageCommand:16 - page loaded
+2023-01-11 23:13:14 INFO  CountThePriceCommand:19 - CountThePriceCommand page loaded
+2023-01-11 23:13:14 INFO  ProfilePageCommand:20 - page loaded
+2023-01-11 23:13:18 INFO  ChangeInfoPageCommand:20 - page loaded
+2023-01-11 23:13:28 INFO  ChangeInfoCommand:22 - ChangeInfoCommand started
+2023-01-11 23:13:28 INFO  ChangeInfoCommand:37 - ChangeInfoCommand validation failed
+2023-01-11 23:20:49 INFO  LogoutCommand:21 - user log out
+2023-01-11 23:20:56 INFO  LoginCommand:21 - started
+2023-01-11 23:20:56 INFO  LoginCommand:49 - user successfully logged in
+2023-01-11 23:20:56 INFO  HomePageCommand:16 - page loaded
+2023-01-11 23:20:59 INFO  ProfilePageCommand:20 - page loaded
+2023-01-11 23:21:01 INFO  ChangeInfoPageCommand:20 - page loaded
+2023-01-11 23:21:09 INFO  ChangeInfoCommand:22 - ChangeInfoCommand started
+2023-01-11 23:21:09 INFO  ChangeInfoCommand:51 - ChangeInfoCommand user changed info
+2023-01-11 23:21:11 INFO  ProfilePageCommand:20 - page loaded
+2023-01-11 23:21:13 INFO  ChangeInfoPageCommand:20 - page loaded
+2023-01-11 23:21:24 INFO  ChangeInfoCommand:22 - ChangeInfoCommand started
+2023-01-11 23:21:25 INFO  ChangeInfoCommand:37 - ChangeInfoCommand validation failed
+2023-01-11 23:22:35 INFO  LogoutCommand:21 - user log out
+2023-01-11 23:22:43 INFO  LoginCommand:21 - started
+2023-01-11 23:22:43 INFO  LoginCommand:49 - user successfully logged in
+2023-01-11 23:22:43 INFO  HomePageCommand:16 - page loaded
+2023-01-11 23:22:45 INFO  CountThePriceCommand:19 - CountThePriceCommand page loaded
+2023-01-11 23:22:45 INFO  ProfilePageCommand:20 - page loaded
+2023-01-11 23:22:47 INFO  ChangeInfoPageCommand:20 - page loaded
+2023-01-11 23:23:02 INFO  ChangeInfoCommand:22 - ChangeInfoCommand started
+2023-01-11 23:23:02 INFO  ChangeInfoCommand:51 - ChangeInfoCommand user changed info
+2023-01-11 23:23:03 INFO  ProfilePageCommand:20 - page loaded
+2023-01-12 19:12:07 INFO  LogoutCommand:21 - user log out
+2023-01-12 19:12:30 INFO  LogoutCommand:21 - user log out
+2023-01-12 19:17:20 INFO  LogoutCommand:21 - user log out
+2023-01-12 19:18:25 INFO  LogoutCommand:21 - user log out
+2023-01-12 19:28:25 ERROR UserDao:31 - user insert error
+2023-01-12 19:28:53 ERROR UserDao:31 - user insert error
+2023-01-12 21:10:33 INFO  LogoutCommand:21 - user log out
+2023-01-12 21:10:58 INFO  LoginCommand:21 - started
+2023-01-12 21:10:59 INFO  LoginCommand:43 - the user is not logged in
+2023-01-12 21:15:36 INFO  LoginCommand:21 - started
+2023-01-12 21:15:37 INFO  LoginCommand:43 - the user is not logged in
+2023-01-12 21:16:18 INFO  LoginCommand:21 - started
+2023-01-12 21:16:19 INFO  LoginCommand:43 - the user is not logged in
+2023-01-12 21:16:34 INFO  LoginCommand:21 - started
+2023-01-12 21:16:36 INFO  LoginCommand:43 - the user is not logged in
+2023-01-12 21:16:37 ERROR UserDao:31 - user insert error
+2023-01-12 21:16:38 ERROR UserDao:31 - user insert error
+2023-01-12 21:16:38 ERROR UserDao:31 - user insert error
+2023-01-12 21:16:39 ERROR UserDao:31 - user insert error
+2023-01-12 21:16:40 ERROR UserDao:31 - user insert error
+2023-01-12 21:17:10 ERROR UserDao:62 - user find user error
+2023-01-12 21:19:15 INFO  LoginCommand:21 - started
+2023-01-12 21:19:17 INFO  LoginCommand:43 - the user is not logged in
+2023-01-12 21:19:18 ERROR UserDao:31 - user insert error
+2023-01-12 21:19:18 ERROR UserDao:31 - user insert error
+2023-01-12 21:19:19 ERROR UserDao:31 - user insert error
+2023-01-12 21:19:19 ERROR UserDao:31 - user insert error
+2023-01-12 21:19:20 ERROR UserDao:31 - user insert error
+2023-01-13 00:55:12 INFO  LoginCommand:21 - started
+2023-01-13 00:55:14 INFO  LoginCommand:43 - the user is not logged in
+2023-01-13 00:55:15 ERROR UserDao:31 - user insert error
+2023-01-13 00:55:15 ERROR UserDao:31 - user insert error
+2023-01-13 00:55:15 ERROR UserDao:31 - user insert error
+2023-01-13 00:55:16 ERROR UserDao:31 - user insert error
+2023-01-13 00:55:16 ERROR UserDao:31 - user insert error
+2023-01-13 00:58:39 INFO  LoginCommand:21 - started
+2023-01-13 00:58:41 INFO  LoginCommand:43 - the user is not logged in
+2023-01-13 00:58:43 INFO  LoginCommand:21 - started
+2023-01-13 01:00:11 INFO  LoginCommand:21 - started
+2023-01-13 01:00:14 INFO  LoginCommand:43 - the user is not logged in
+2023-01-13 01:00:18 INFO  LogoutCommand:21 - user log out
+2023-01-13 01:23:46 INFO  LoginCommand:21 - started
+2023-01-13 01:23:48 INFO  LoginCommand:43 - the user is not logged in
+2023-01-13 01:24:26 INFO  LoginCommand:21 - started
+2023-01-13 01:24:28 INFO  LoginCommand:43 - the user is not logged in
+2023-01-13 01:24:31 INFO  LogoutCommand:21 - user log out
+2023-01-13 01:24:33 INFO  LoginCommand:21 - started
+2023-01-13 01:24:33 INFO  LoginCommand:43 - the user is not logged in
+2023-01-13 01:25:12 INFO  LoginCommand:21 - started
+2023-01-13 01:25:14 INFO  LoginCommand:43 - the user is not logged in
+2023-01-13 01:25:17 INFO  LogoutCommand:21 - user log out
+2023-01-13 01:25:19 INFO  RegisterCommand:21 - started
+2023-01-13 01:25:19 INFO  RegisterCommand:44 - user successfully registered
+2023-01-13 01:31:14 INFO  RegisterCommand:21 - started
+2023-01-13 01:31:15 INFO  RegisterCommand:44 - user successfully registered
+2023-01-13 13:59:36 INFO  LoginCommand:21 - started
+2023-01-13 13:59:39 INFO  LoginCommand:43 - the user is not logged in
+2023-01-13 13:59:42 INFO  LogoutCommand:21 - user log out
+2023-01-13 13:59:44 INFO  RegisterCommand:21 - started
+2023-01-13 13:59:44 INFO  RegisterCommand:44 - user successfully registered
+2023-01-13 14:01:38 INFO  LoginCommand:21 - started
+2023-01-13 14:01:40 INFO  LoginCommand:43 - the user is not logged in
+2023-01-13 14:01:43 INFO  LogoutCommand:21 - user log out
+2023-01-13 14:01:44 INFO  RegisterCommand:21 - started
+2023-01-13 14:05:04 INFO  LoginCommand:21 - started
+2023-01-13 14:05:05 INFO  LoginCommand:43 - the user is not logged in
+2023-01-13 14:05:07 INFO  LogoutCommand:21 - user log out
+2023-01-13 14:05:08 INFO  RegisterCommand:21 - started
+2023-01-13 14:09:39 INFO  LoginCommand:21 - started
+2023-01-13 14:09:40 INFO  LoginCommand:43 - the user is not logged in
+2023-01-13 14:09:43 INFO  LogoutCommand:21 - user log out
+2023-01-13 14:12:55 INFO  LoginCommand:21 - started
+2023-01-13 14:12:57 INFO  LoginCommand:43 - the user is not logged in
+2023-01-13 14:12:59 INFO  LogoutCommand:21 - user log out
+2023-01-13 14:13:00 INFO  RegisterCommand:21 - started
+2023-01-13 14:13:00 INFO  RegisterCommand:44 - user successfully registered
+2023-01-13 14:14:21 INFO  LoginCommand:21 - started
+2023-01-13 14:14:22 INFO  LoginCommand:43 - the user is not logged in
+2023-01-13 14:14:24 INFO  LogoutCommand:21 - user log out
+2023-01-13 14:14:26 INFO  RegisterCommand:21 - started
+2023-01-13 14:14:26 INFO  RegisterCommand:44 - user successfully registered
+2023-01-13 14:15:10 INFO  LoginCommand:21 - started
+2023-01-13 14:15:12 INFO  LoginCommand:43 - the user is not logged in
+2023-01-13 14:15:14 INFO  LogoutCommand:21 - user log out
+2023-01-13 14:15:15 INFO  RegisterCommand:21 - started
+2023-01-13 14:15:15 INFO  RegisterCommand:44 - user successfully registered
+2023-01-13 14:15:47 INFO  RegisterCommand:21 - started
+2023-01-13 14:15:47 INFO  RegisterCommand:44 - user successfully registered
+2023-01-13 14:17:33 INFO  RegisterCommand:21 - started
+2023-01-13 14:17:52 INFO  RegisterCommand:21 - started
+2023-01-13 14:17:53 INFO  RegisterCommand:44 - user successfully registered
+2023-01-13 14:19:32 INFO  RegisterCommand:21 - started
+2023-01-13 14:19:50 INFO  RegisterCommand:21 - started
+2023-01-13 14:19:51 INFO  RegisterCommand:44 - user successfully registered
+2023-01-13 14:24:10 INFO  RegisterCommand:21 - started
+2023-01-13 14:24:11 INFO  RegisterCommand:44 - user successfully registered
+2023-01-13 14:25:40 INFO  RegisterCommand:21 - started
+2023-01-13 14:25:40 INFO  RegisterCommand:44 - user successfully registered
+2023-01-13 14:26:20 INFO  RegisterCommand:21 - started
+2023-01-13 14:26:20 INFO  RegisterCommand:44 - user successfully registered
+2023-01-13 14:27:23 INFO  RegisterCommand:21 - started
+2023-01-13 14:28:10 INFO  RegisterCommand:21 - started
+2023-01-13 14:29:49 INFO  RegisterCommand:21 - started
+2023-01-13 14:31:14 INFO  RegisterCommand:21 - started
+2023-01-13 14:47:58 INFO  RegisterCommand:21 - started
+2023-01-13 14:47:59 INFO  RegisterCommand:44 - user successfully registered
+2023-01-13 14:48:06 INFO  RegisterCommand:21 - started
+2023-01-13 14:48:06 INFO  RegisterCommand:44 - user successfully registered
+2023-01-13 14:48:20 INFO  LoginCommand:21 - started
+2023-01-13 14:48:21 INFO  LoginCommand:43 - the user is not logged in
+2023-01-13 14:48:24 INFO  LogoutCommand:21 - user log out
+2023-01-13 14:48:24 INFO  RegisterCommand:21 - started
+2023-01-13 14:48:24 INFO  RegisterCommand:44 - user successfully registered
+2023-01-13 14:50:31 INFO  LoginPageCommand:16 - page loaded
+2023-01-13 14:50:46 INFO  LoginCommand:21 - started
+2023-01-13 14:50:48 INFO  LoginCommand:43 - the user is not logged in
+2023-01-13 14:50:50 INFO  LogoutCommand:21 - user log out
+2023-01-13 14:50:50 INFO  RegisterCommand:21 - started
+2023-01-13 14:50:50 INFO  RegisterCommand:44 - user successfully registered
+2023-01-13 14:50:52 INFO  LoginPageCommand:16 - page loaded
+2023-01-13 14:52:26 INFO  RegisterPageCommand:17 - page loaded
+2023-01-13 14:52:59 INFO  LoginCommand:21 - started
+2023-01-13 14:53:00 INFO  LoginCommand:43 - the user is not logged in
+2023-01-13 14:53:03 INFO  LogoutCommand:21 - user log out
+2023-01-13 14:53:03 INFO  RegisterPageCommand:17 - page loaded
+2023-01-13 14:53:03 INFO  RegisterCommand:21 - started
+2023-01-13 14:53:03 INFO  RegisterCommand:44 - user successfully registered
+2023-01-13 14:53:04 INFO  LoginPageCommand:16 - page loaded

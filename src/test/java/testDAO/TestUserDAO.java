@@ -1,3 +1,5 @@
+package testDAO;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.example.cargodelivery.model.dao.UserDao;
@@ -39,6 +41,7 @@ public class TestUserDAO {
     public void newUserRegistrationTest(){
         UserDao userDao = new UserDao();
         User newUser = user;
+
         userDao.insert(newUser);
         User userFromDB = userDao.findUser(newUser);
         assertEquals(newUser.getName(), userFromDB.getName());

@@ -20,14 +20,14 @@ public class Validation {
 
     public static boolean ChangeInfoValidation(HttpServletRequest request, String changeName, String changeLastName,
                                                String changeEmail, String changePhone, String changePassword,
-                                               String currentPass, User user) throws SQLException {
+                                               String currentPass, User user)  {
         UserDao userDao = new UserDao();
 
-        if (!(changeName.isEmpty()) && ((!changeName.matches("\"^[a-zA-Z\\\\u0430-\\\\u044f\\\\u0410-\\\\u042f\\\\u0456\\\\u0457\\\\u0406\\\\u0407\\\\s]+\"")))) {
+        if (!(changeName.isEmpty()) && ((!changeName.matches("^[a-zA-Za-åa-ö-w-я]+$")))) {
             request.setAttribute("message", localeText("invalid.registerName", request.getSession().getAttribute("lang")));
             return true;
         }
-        if (!(changeLastName.isEmpty()) && (!changeLastName.matches("\"^[a-zA-Z\\\\u0430-\\\\u044f\\\\u0410-\\\\u042f\\\\u0456\\\\u0457\\\\u0406\\\\u0407\\\\s]+\""))) {
+        if (!(changeLastName.isEmpty()) && (!changeLastName.matches("^[a-zA-Za-åa-ö-w-я]+$"))) {
             request.setAttribute("message", localeText("invalid.registerLastName", request.getSession().getAttribute("lang")));
             return true;
         }
@@ -107,7 +107,7 @@ public class Validation {
             request.setAttribute("message", localeText("invalid.cardNameOnCard", request.getSession().getAttribute("lang")));
             return true;
         }
-        if (card == null || card.isEmpty() || !card.matches("^\\d{15}$")) {
+        if (card == null || card.isEmpty() || !card.matches("^\\d{16}$")) {
             request.setAttribute("message", localeText("invalid.cardNumber", request.getSession().getAttribute("lang")));
             return true;
         }
@@ -115,7 +115,7 @@ public class Validation {
             request.setAttribute("message", localeText("invalid.cardMonth", request.getSession().getAttribute("lang")));
             return true;
         }
-        if (year == null || year.isEmpty() || !year.matches("^[2][0][2]\\d{1}$")) {
+        if (year == null || year.isEmpty() || !year.matches("^[2][0]\\d{2}$")) {
             request.setAttribute("message", localeText("invalid.cardYear", request.getSession().getAttribute("lang")));
             return true;
         }

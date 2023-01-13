@@ -1,3 +1,5 @@
+package testDAO;
+
 import com.example.cargodelivery.model.dao.CargoDao;
 import com.example.cargodelivery.model.dao.CityDao;
 import com.example.cargodelivery.model.dao.OrderDao;

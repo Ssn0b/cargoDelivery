@@ -1,6 +1,9 @@
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <%@ include file="header.jsp" %>
+<%@ taglib prefix="tf" tagdir="/WEB-INF/tags"%> <%--file tag--%>
+
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/styleForIndex.css">
+<tf:title titleName="Change info"/>
 
 <div class="container"
      style="padding:20px;background: #fff;box-shadow: 0 5px 10px rgba(0,0,0,.1);  width: 500px; text-align: center;">
