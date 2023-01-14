@@ -1170,3 +1170,123 @@
 2023-01-13 14:53:03 INFO  RegisterCommand:21 - started
 2023-01-13 14:53:03 INFO  RegisterCommand:44 - user successfully registered
 2023-01-13 14:53:04 INFO  LoginPageCommand:16 - page loaded
+2023-01-14 00:50:35 INFO  LoginCommand:21 - started
+2023-01-14 00:50:37 INFO  LoginCommand:43 - the user is not logged in
+2023-01-14 00:50:39 INFO  LogoutCommand:21 - user log out
+2023-01-14 00:50:39 INFO  RegisterPageCommand:17 - page loaded
+2023-01-14 00:50:39 INFO  RegisterCommand:21 - started
+2023-01-14 00:50:39 INFO  LoginPageCommand:16 - page loaded
+2023-01-14 01:50:23 INFO  LoginCommand:21 - started
+2023-01-14 01:50:25 INFO  LoginCommand:43 - the user is not logged in
+2023-01-14 01:50:28 INFO  LogoutCommand:21 - user log out
+2023-01-14 01:50:28 INFO  RegisterPageCommand:17 - page loaded
+2023-01-14 01:50:28 INFO  RegisterCommand:21 - started
+2023-01-14 01:50:28 INFO  LoginPageCommand:16 - page loaded
+2023-01-14 01:51:21 INFO  LoginCommand:21 - started
+2023-01-14 01:51:22 INFO  LoginCommand:43 - the user is not logged in
+2023-01-14 01:51:25 INFO  LogoutCommand:21 - user log out
+2023-01-14 01:51:25 INFO  RegisterPageCommand:17 - page loaded
+2023-01-14 01:51:25 INFO  RegisterCommand:21 - started
+2023-01-14 01:51:25 INFO  LoginPageCommand:16 - page loaded
+2023-01-14 01:52:09 INFO  LoginCommand:21 - started
+2023-01-14 01:52:11 INFO  LoginCommand:43 - the user is not logged in
+2023-01-14 01:52:14 INFO  LogoutCommand:21 - user log out
+2023-01-14 01:52:14 INFO  RegisterPageCommand:17 - page loaded
+2023-01-14 01:52:14 INFO  RegisterCommand:21 - started
+2023-01-14 01:52:14 INFO  LoginPageCommand:16 - page loaded
+2023-01-14 02:00:54 INFO  LoginCommand:21 - started
+2023-01-14 02:00:56 INFO  LoginCommand:43 - the user is not logged in
+2023-01-14 02:00:59 INFO  LogoutCommand:21 - user log out
+2023-01-14 02:00:59 INFO  RegisterPageCommand:17 - page loaded
+2023-01-14 02:00:59 INFO  RegisterCommand:21 - started
+2023-01-14 02:00:59 INFO  LoginPageCommand:16 - page loaded
+2023-01-14 23:18:52 INFO  HomePageCommand:16 - page loaded
+2023-01-14 23:18:54 INFO  HomePageCommand:16 - page loaded
+2023-01-14 23:18:58 INFO  LoginPageCommand:16 - page loaded
+2023-01-14 23:19:03 INFO  LoginCommand:21 - started
+2023-01-14 23:19:03 INFO  LoginCommand:49 - user successfully logged in
+2023-01-14 23:19:03 INFO  HomePageCommand:16 - page loaded
+2023-01-14 23:19:04 INFO  MyIncomingsCommandPage:20 - MyIncomingsCommandPage page loaded
+2023-01-14 23:19:06 INFO  MyIncomingsCommandPage:20 - MyIncomingsCommandPage page loaded
+2023-01-14 23:19:08 INFO  MyIncomingsCommandPage:20 - MyIncomingsCommandPage page loaded
+2023-01-14 23:19:39 INFO  LogoutCommand:21 - user log out
+2023-01-14 23:51:44 INFO  LoginCommand:21 - started
+2023-01-14 23:51:44 INFO  LogoutCommand:21 - user log out
+2023-01-14 23:51:44 INFO  RegisterPageCommand:17 - page loaded
+2023-01-14 23:51:44 INFO  RegisterCommand:21 - started
+2023-01-14 23:51:44 INFO  LoginPageCommand:16 - page loaded
+2023-01-14 23:56:16 INFO  LoginCommand:21 - started
+2023-01-14 23:56:16 INFO  LoginCommand:43 - the user is not logged in
+2023-01-14 23:56:17 INFO  LogoutCommand:21 - user log out
+2023-01-14 23:56:17 INFO  RegisterPageCommand:17 - page loaded
+2023-01-14 23:56:17 INFO  RegisterCommand:21 - started
+2023-01-14 23:56:17 INFO  RegisterCommand:44 - user successfully registered
+2023-01-14 23:56:17 INFO  LoginPageCommand:16 - page loaded
+2023-01-14 23:59:50 INFO  LoginCommand:21 - started
+2023-01-14 23:59:50 INFO  LoginCommand:43 - the user is not logged in
+2023-01-14 23:59:51 INFO  LogoutCommand:21 - user log out
+2023-01-14 23:59:51 INFO  RegisterPageCommand:17 - page loaded
+2023-01-14 23:59:51 INFO  RegisterCommand:21 - started
+2023-01-14 23:59:51 INFO  RegisterCommand:44 - user successfully registered
+2023-01-14 23:59:51 INFO  LoginPageCommand:16 - page loaded
+2023-01-15 00:59:18 INFO  RegisterCommand:21 - started
+2023-01-15 00:59:19 INFO  RegisterCommand:45 - user successfully registered
+2023-01-15 01:06:59 INFO  LoginCommand:21 - started
+2023-01-15 01:07:00 INFO  LoginCommand:43 - the user is not logged in
+2023-01-15 01:07:34 INFO  LoginCommand:21 - started
+2023-01-15 01:07:34 INFO  LoginCommand:43 - the user is not logged in
+2023-01-15 01:07:34 INFO  LogoutCommand:21 - user log out
+2023-01-15 01:07:34 INFO  RegisterPageCommand:17 - page loaded
+2023-01-15 01:07:34 INFO  RegisterCommand:21 - started
+2023-01-15 01:07:34 INFO  RegisterCommand:45 - user successfully registered
+2023-01-15 01:07:34 INFO  LoginPageCommand:16 - page loaded
+2023-01-15 01:11:26 INFO  LoginPageCommand:16 - page loaded
+2023-01-15 01:11:57 ERROR ErrorPage:17 - page loaded
+2023-01-15 01:12:15 ERROR ErrorPage:17 - page loaded
+2023-01-15 01:17:48 INFO  HomePageCommand:16 - page loaded
+2023-01-15 01:18:13 INFO  HomePageCommand:16 - page loaded
+2023-01-15 01:18:13 INFO  LoginCommand:21 - started
+2023-01-15 01:18:13 INFO  LoginCommand:43 - the user is not logged in
+2023-01-15 01:18:13 ERROR ErrorPage:17 - page loaded
+2023-01-15 01:18:13 INFO  LogoutCommand:21 - user log out
+2023-01-15 01:18:14 INFO  RegisterPageCommand:17 - page loaded
+2023-01-15 01:18:14 INFO  RegisterCommand:21 - started
+2023-01-15 01:18:14 INFO  RegisterCommand:45 - user successfully registered
+2023-01-15 01:18:14 INFO  LoginPageCommand:16 - page loaded
+2023-01-15 01:20:40 INFO  ReplenishTheBalancePageCommand:17 - page loaded
+2023-01-15 01:25:24 INFO  ChangeInfoPageCommand:20 - page loaded
+2023-01-15 01:26:04 INFO  ChangeInfoPageCommand:20 - page loaded
+2023-01-15 01:26:42 INFO  ChangeInfoPageCommand:20 - page loaded
+2023-01-15 01:26:57 INFO  RegisterPageCommand:17 - page loaded
+2023-01-15 01:26:57 INFO  LoginPageCommand:16 - page loaded
+2023-01-15 01:26:57 INFO  ReplenishTheBalancePageCommand:17 - page loaded
+2023-01-15 01:26:57 INFO  ChangeInfoPageCommand:20 - page loaded
+2023-01-15 01:26:57 INFO  HomePageCommand:16 - page loaded
+2023-01-15 01:26:57 INFO  LoginCommand:21 - started
+2023-01-15 01:26:57 INFO  LoginCommand:43 - the user is not logged in
+2023-01-15 01:26:57 ERROR ErrorPage:17 - page loaded
+2023-01-15 01:26:57 INFO  LogoutCommand:21 - user log out
+2023-01-15 01:26:57 INFO  RegisterCommand:21 - started
+2023-01-15 01:26:57 INFO  RegisterCommand:45 - user successfully registered
+2023-01-15 01:38:09 INFO  RegisterPageCommand:17 - page loaded
+2023-01-15 01:38:09 INFO  LoginPageCommand:16 - page loaded
+2023-01-15 01:38:09 INFO  ReplenishTheBalancePageCommand:17 - page loaded
+2023-01-15 01:38:09 INFO  ChangeInfoPageCommand:20 - page loaded
+2023-01-15 01:38:09 INFO  HomePageCommand:16 - page loaded
+2023-01-15 01:38:09 INFO  LoginCommand:21 - started
+2023-01-15 01:38:09 INFO  LoginCommand:43 - the user is not logged in
+2023-01-15 01:38:09 ERROR ErrorPage:17 - page loaded
+2023-01-15 01:38:09 INFO  LogoutCommand:21 - user log out
+2023-01-15 01:38:10 INFO  RegisterCommand:21 - started
+2023-01-15 01:38:10 INFO  RegisterCommand:45 - user successfully registered
+2023-01-15 01:42:39 INFO  RegisterPageCommand:17 - page loaded
+2023-01-15 01:42:39 INFO  LoginPageCommand:16 - page loaded
+2023-01-15 01:42:39 INFO  ReplenishTheBalancePageCommand:17 - page loaded
+2023-01-15 01:42:39 INFO  ChangeInfoPageCommand:20 - page loaded
+2023-01-15 01:42:39 INFO  HomePageCommand:16 - page loaded
+2023-01-15 01:42:39 INFO  LoginCommand:21 - started
+2023-01-15 01:42:39 INFO  LoginCommand:43 - the user is not logged in
+2023-01-15 01:42:39 ERROR ErrorPage:17 - page loaded
+2023-01-15 01:42:39 INFO  LogoutCommand:21 - user log out
+2023-01-15 01:42:39 INFO  RegisterCommand:21 - started
+2023-01-15 01:42:39 INFO  RegisterCommand:45 - user successfully registered

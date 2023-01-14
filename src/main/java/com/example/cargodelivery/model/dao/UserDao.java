@@ -155,7 +155,6 @@ public class UserDao {
             log.error("user update balance error");
             e.printStackTrace();
         }
-
     }
 
     public void updateInfo(User user) {

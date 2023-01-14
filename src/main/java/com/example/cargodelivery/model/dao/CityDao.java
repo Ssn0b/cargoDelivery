@@ -16,7 +16,7 @@ public class CityDao {
     public List<City> listSelect() {
         String query = "SELECT * FROM city";
         ArrayList<City> list = new ArrayList<>();
-        City newCity = null;
+        City newCity;
         try{
             Connection con = DBUtil.getConnection();
             PreparedStatement pst = con.prepareStatement(query);

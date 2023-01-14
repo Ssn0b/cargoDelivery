@@ -1,7 +1,7 @@
 package testCommands;
 
-import com.example.cargodelivery.controller.command.LoginCommand;
-import com.example.cargodelivery.controller.command.LogoutCommand;
+import com.example.cargodelivery.controller.command.PageCommands.ChangeInfoPageCommand;
+import com.example.cargodelivery.controller.command.PageCommands.ReplenishTheBalancePageCommand;
 import com.example.cargodelivery.model.dao.UserDao;
 import com.example.cargodelivery.model.entity.User;
 import jakarta.servlet.ServletException;
@@ -15,21 +15,23 @@ import java.sql.SQLException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
-public class TestLoginCommand {
+public class TestChangeInfoPageCommand {
     private final HttpServletRequest request = mock(HttpServletRequest.class);
     private final HttpServletResponse response = mock(HttpServletResponse.class);
     private final HttpSession session = mock(HttpSession.class);
 
+
     @Test
     void testExecute() throws ServletException, SQLException, IOException {
-        when(request.getParameter("email")).thenReturn("v@gmail.com");
-        when(request.getParameter("password")).thenReturn("1234");
-        UserDao userDao = mock(UserDao.class);
         User user = mock(User.class);
-        when(userDao.findUser(any(User.class))).thenReturn(user);
+        UserDao userDao = mock(UserDao.class);
+        when(userDao.findUserById(any(Integer.class))).thenReturn(user);
+        when(request.getSession()).thenReturn(session);
+        when(session.getAttribute("currentUserId")).thenReturn(1);
 
-        assertEquals("/jsp/login.jsp", new LoginCommand().execute(request, response));
+        assertEquals("/jsp/changeProfileInfo.jsp", new ChangeInfoPageCommand().execute(request, response));
     }
 }

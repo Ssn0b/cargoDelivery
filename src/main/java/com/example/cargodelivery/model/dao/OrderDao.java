@@ -53,6 +53,8 @@ public class OrderDao {
                         .id(rs.getInt("id"))
                         .cargoId(rs.getInt("cargoId"))
                         .userId(rs.getInt("userId"))
+                        .receiverNum(rs.getString("receiverNum"))
+                        .description(rs.getString("description"))
                         .senderCityId(rs.getInt("senderCityId"))
                         .receiverCityId(rs.getInt("receiverCityId"))
                         .orderStatusId(rs.getInt("orderStatusId"))
@@ -100,12 +102,10 @@ public class OrderDao {
                 list.add(newOrder);
             }
             rs.close();
-
             rs = pst.executeQuery("SELECT FOUND_ROWS()");
 
             if (rs.next())
                 this.noOfRecords = rs.getInt(1);
-
             con.close();
         } catch (SQLException e) {
             log.error("order select incomings error");
@@ -297,20 +297,6 @@ public class OrderDao {
             e.printStackTrace();
         }
 
-    }
-
-    public void deleteOrder(Order order){
-        String query = "DELETE FROM `cargo_delivery`.`orders` WHERE (`id` = ?);";
-        try {
-            Connection con = DBUtil.getConnection();
-            PreparedStatement pst = con.prepareStatement(query);
-            pst.setInt(1, order.getId());
-            pst.executeUpdate();
-            pst.close();
-            con.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
     }
 
     public int getNoOfRecords() {

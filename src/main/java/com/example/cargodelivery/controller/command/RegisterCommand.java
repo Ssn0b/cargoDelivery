@@ -35,6 +35,7 @@ public class RegisterCommand extends Command {
                 .number(number)
                 .roleId(1)
                 .build();
+
         if (RegisterValidation(request, name, lastName, email, password, confirmPassword, number, user)) {
             log.info("validation failed");
             return PAGE_REGISTER;
