@@ -1290,3 +1290,14 @@
 2023-01-15 01:42:39 INFO  LogoutCommand:21 - user log out
 2023-01-15 01:42:39 INFO  RegisterCommand:21 - started
 2023-01-15 01:42:39 INFO  RegisterCommand:45 - user successfully registered
+2023-01-16 13:28:52 INFO  RegisterPageCommand:17 - page loaded
+2023-01-16 13:28:52 INFO  LoginPageCommand:16 - page loaded
+2023-01-16 13:28:52 INFO  ReplenishTheBalancePageCommand:17 - page loaded
+2023-01-16 13:28:52 INFO  ChangeInfoPageCommand:20 - page loaded
+2023-01-16 13:28:52 INFO  HomePageCommand:16 - page loaded
+2023-01-16 13:28:52 INFO  LoginCommand:21 - started
+2023-01-16 13:28:52 INFO  LoginCommand:43 - the user is not logged in
+2023-01-16 13:28:53 ERROR ErrorPage:17 - page loaded
+2023-01-16 13:28:53 INFO  LogoutCommand:21 - user log out
+2023-01-16 13:28:53 INFO  RegisterCommand:21 - started
+2023-01-16 13:28:53 INFO  RegisterCommand:45 - user successfully registered

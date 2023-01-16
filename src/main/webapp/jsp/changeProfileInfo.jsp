@@ -62,14 +62,14 @@
         <div id="dvChangePassword" style="text-align: left;margin-left: 15px">
             <p style="display: inline-block; margin-right: 3px;font-size: 16px"><fmt:message
                     key="changeProfile.newPassword" bundle="${lang}"/></p>
-            <input style="width: 200px;display: inline-block;" type="text" class="form-control" id="changePassword"
+            <input style="width: 200px;display: inline-block;" type="password" class="form-control" id="changePassword"
                    name="changePassword"/>
         </div>
         <br>
         <div id="dvCurrPassword">
             <p style="display: inline-block; margin-right: 3px;font-size: 14px"><fmt:message
                     key="changeProfile.textInfo" bundle="${lang}"/></p>
-            <input style="width: 200px;display: inline-block;" type="text" class="form-control" id="currentPass"
+            <input style="width: 200px;display: inline-block;" type="password" class="form-control" id="currentPass"
                    name="currentPass"/>
         </div>
         <br>
