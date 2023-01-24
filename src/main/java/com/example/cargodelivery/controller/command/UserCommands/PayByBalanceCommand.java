@@ -33,22 +33,26 @@ public class PayByBalanceCommand extends Command {
         double diff;
         OrderDao orderDao = new OrderDao();
         Order newOrder = orderDao.findOrderById(orderId);
-        if (newUser.getBalance() >= newOrder.getPrice()) {
-            diff = (-newOrder.getPrice());
-            userDao.updateBalance(newUser, diff);
-            orderDao.updateToPaid(orderId);
+        if (newOrder.getOrderStatusId() != 3) {
+            if (newUser.getBalance() >= newOrder.getPrice()) {
+                diff = (-newOrder.getPrice());
+                userDao.updateBalance(newUser, diff);
+                orderDao.updateToPaid(orderId);
 
-            Timestamp ts = new Timestamp(System.currentTimeMillis());
-            Calendar cal = Calendar.getInstance();
-            cal.setTime(ts);
-            cal.add(Calendar.DAY_OF_WEEK, newOrder.getDaysToDeliver());
-            Timestamp ts1 = new Timestamp(cal.getTime().getTime());
-            orderDao.updateDateOfArrival(newOrder, ts1);
-            log.info("PayByBalanceCommand user successfully payed");
+                Timestamp ts = new Timestamp(System.currentTimeMillis());
+                Calendar cal = Calendar.getInstance();
+                cal.setTime(ts);
+                cal.add(Calendar.DAY_OF_WEEK, newOrder.getDaysToDeliver());
+                Timestamp ts1 = new Timestamp(cal.getTime().getTime());
+                orderDao.updateDateOfArrival(newOrder, ts1);
+                log.info("PayByBalanceCommand user successfully payed");
+                return PAGE_HOME;
+            } else {
+                log.info("PayByBalanceCommand do not have enough in balance to pay");
+                return PAGE_REPLENISH_BALANCE;
+            }
+        }else {
             return PAGE_HOME;
-        } else {
-            log.info("PayByBalanceCommand do not have enough in balance to pay");
-            return PAGE_REPLENISH_BALANCE;
         }
     }
 }

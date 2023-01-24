@@ -38,7 +38,9 @@ public class PayCommand extends Command {
 
         OrderDao orderDao = new OrderDao();
         Order newOrder = orderDao.findOrderById(orderId);
-        orderDao.updateToPaid(orderId);
+        if (newOrder.getOrderStatusId() != 3) {
+            orderDao.updateToPaid(orderId);
+        }
 
         Timestamp ts = new Timestamp(System.currentTimeMillis());
         Calendar cal = Calendar.getInstance();

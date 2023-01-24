@@ -1301,3 +1301,238 @@
 2023-01-16 13:28:53 INFO  LogoutCommand:21 - user log out
 2023-01-16 13:28:53 INFO  RegisterCommand:21 - started
 2023-01-16 13:28:53 INFO  RegisterCommand:45 - user successfully registered
+2023-01-16 13:29:26 INFO  HomePageCommand:16 - page loaded
+2023-01-16 13:29:29 INFO  HomePageCommand:16 - page loaded
+2023-01-16 13:29:36 INFO  LoginPageCommand:16 - page loaded
+2023-01-16 13:29:41 INFO  LoginCommand:21 - started
+2023-01-16 13:29:41 INFO  LoginCommand:49 - user successfully logged in
+2023-01-16 13:29:41 INFO  HomePageCommand:16 - page loaded
+2023-01-16 13:29:42 INFO  CountThePriceCommand:19 - CountThePriceCommand page loaded
+2023-01-16 13:29:44 INFO  ProfilePageCommand:20 - page loaded
+2023-01-16 13:29:46 INFO  ChangeInfoPageCommand:20 - page loaded
+2023-01-16 13:30:04 INFO  ChangeInfoCommand:22 - ChangeInfoCommand started
+2023-01-16 13:30:04 INFO  ChangeInfoCommand:51 - ChangeInfoCommand user changed info
+2023-01-16 13:30:05 INFO  ProfilePageCommand:20 - page loaded
+2023-01-17 19:16:52 INFO  RegisterPageCommand:17 - page loaded
+2023-01-17 19:16:52 INFO  LoginPageCommand:16 - page loaded
+2023-01-17 19:16:52 INFO  ReplenishTheBalancePageCommand:17 - page loaded
+2023-01-17 19:16:53 INFO  ChangeInfoPageCommand:20 - page loaded
+2023-01-17 19:16:53 INFO  HomePageCommand:16 - page loaded
+2023-01-17 19:16:53 INFO  LoginCommand:21 - started
+2023-01-17 19:16:53 INFO  LoginCommand:43 - the user is not logged in
+2023-01-17 19:16:53 ERROR ErrorPage:17 - page loaded
+2023-01-17 19:16:53 INFO  LogoutCommand:21 - user log out
+2023-01-17 19:16:53 INFO  RegisterCommand:21 - started
+2023-01-17 19:16:53 INFO  RegisterCommand:45 - user successfully registered
+2023-01-17 19:17:26 INFO  HomePageCommand:16 - page loaded
+2023-01-17 19:17:35 INFO  HomePageCommand:16 - page loaded
+2023-01-17 19:17:37 INFO  LoginPageCommand:16 - page loaded
+2023-01-17 19:17:48 INFO  LoginCommand:21 - started
+2023-01-17 19:17:48 INFO  LoginCommand:49 - user successfully logged in
+2023-01-17 19:17:48 INFO  HomePageCommand:16 - page loaded
+2023-01-17 19:17:50 INFO  ProfilePageCommand:20 - page loaded
+2023-01-17 19:17:52 INFO  ChangeInfoPageCommand:20 - page loaded
+2023-01-17 19:18:07 INFO  ChangeInfoCommand:22 - ChangeInfoCommand started
+2023-01-17 19:18:07 INFO  ChangeInfoCommand:51 - ChangeInfoCommand user changed info
+2023-01-17 19:18:08 INFO  ProfilePageCommand:20 - page loaded
+2023-01-17 19:18:10 INFO  ChangeInfoPageCommand:20 - page loaded
+2023-01-17 19:18:19 INFO  ChangeInfoCommand:22 - ChangeInfoCommand started
+2023-01-17 19:18:20 INFO  ChangeInfoCommand:51 - ChangeInfoCommand user changed info
+2023-01-17 19:18:21 INFO  ProfilePageCommand:20 - page loaded
+2023-01-17 20:31:45 INFO  HomePageCommand:16 - page loaded
+2023-01-17 20:31:48 INFO  LoginPageCommand:16 - page loaded
+2023-01-17 20:31:54 INFO  LoginCommand:21 - started
+2023-01-17 20:31:54 INFO  LoginCommand:49 - user successfully logged in
+2023-01-17 20:31:54 INFO  HomePageCommand:16 - page loaded
+2023-01-17 20:31:56 INFO  ProfilePageCommand:20 - page loaded
+2023-01-17 20:31:57 INFO  ChangeInfoPageCommand:20 - page loaded
+2023-01-17 20:32:17 INFO  ChangeInfoCommand:22 - ChangeInfoCommand started
+2023-01-17 20:32:18 INFO  ChangeInfoCommand:51 - ChangeInfoCommand user changed info
+2023-01-17 20:32:19 INFO  ProfilePageCommand:20 - page loaded
+2023-01-17 22:54:22 INFO  HomePageCommand:16 - page loaded
+2023-01-17 22:54:25 INFO  HomePageCommand:16 - page loaded
+2023-01-17 22:54:27 INFO  LoginPageCommand:16 - page loaded
+2023-01-17 22:54:31 INFO  LoginCommand:21 - started
+2023-01-17 22:54:31 INFO  LoginCommand:49 - user successfully logged in
+2023-01-17 22:54:31 INFO  HomePageCommand:16 - page loaded
+2023-01-17 22:54:34 INFO  ReceiveReportsCommand:24 - started
+2023-01-17 22:54:34 INFO  ReceiveReportsCommand:86 - reports successfully received
+2023-01-17 22:54:41 INFO  ReceiveReportsCommand:24 - started
+2023-01-17 22:54:41 INFO  ReceiveReportsCommand:86 - reports successfully received
+2023-01-17 22:54:51 INFO  ReceiveReportsCommand:24 - started
+2023-01-17 22:54:51 INFO  ReceiveReportsCommand:86 - reports successfully received
+2023-01-17 22:54:53 INFO  ReceiveReportsCommand:24 - started
+2023-01-17 22:54:53 INFO  ReceiveReportsCommand:86 - reports successfully received
+2023-01-17 22:54:55 INFO  ReceiveReportsCommand:24 - started
+2023-01-17 22:54:55 INFO  ReceiveReportsCommand:86 - reports successfully received
+2023-01-17 22:55:00 INFO  ReceiveReportsCommand:24 - started
+2023-01-17 22:55:00 INFO  ReceiveReportsCommand:86 - reports successfully received
+2023-01-17 22:55:02 INFO  ReceiveReportsCommand:24 - started
+2023-01-17 22:55:02 INFO  ReceiveReportsCommand:86 - reports successfully received
+2023-01-17 22:55:02 INFO  ReceiveReportsCommand:24 - started
+2023-01-17 22:55:02 INFO  ReceiveReportsCommand:86 - reports successfully received
+2023-01-17 22:55:03 INFO  ReceiveReportsCommand:24 - started
+2023-01-17 22:55:03 INFO  ReceiveReportsCommand:86 - reports successfully received
+2023-01-17 22:55:10 INFO  ReceiveReportsCommand:24 - started
+2023-01-17 22:55:10 INFO  ReceiveReportsCommand:86 - reports successfully received
+2023-01-17 22:55:14 INFO  ReceiveReportsCommand:24 - started
+2023-01-17 22:55:14 INFO  ReceiveReportsCommand:86 - reports successfully received
+2023-01-17 22:55:26 INFO  ReceiveReportsCommand:24 - started
+2023-01-17 22:55:26 INFO  ReceiveReportsCommand:86 - reports successfully received
+2023-01-17 22:55:46 INFO  ReceiveReportsCommand:24 - started
+2023-01-17 22:55:46 INFO  ReceiveReportsCommand:86 - reports successfully received
+2023-01-17 22:55:52 INFO  ReceiveReportsCommand:24 - started
+2023-01-17 22:55:52 INFO  ReceiveReportsCommand:86 - reports successfully received
+2023-01-24 02:07:30 INFO  HomePageCommand:16 - page loaded
+2023-01-24 02:07:33 INFO  HomePageCommand:16 - page loaded
+2023-01-24 02:07:49 INFO  HomePageCommand:16 - page loaded
+2023-01-24 02:07:51 INFO  LoginPageCommand:16 - page loaded
+2023-01-24 02:07:55 INFO  LoginCommand:21 - started
+2023-01-24 02:07:55 INFO  LoginCommand:49 - user successfully logged in
+2023-01-24 02:07:55 INFO  HomePageCommand:16 - page loaded
+2023-01-24 02:07:59 INFO  LoginPageCommand:16 - page loaded
+2023-01-24 02:08:15 INFO  LoginCommand:21 - started
+2023-01-24 02:08:15 INFO  LoginCommand:49 - user successfully logged in
+2023-01-24 02:08:15 INFO  HomePageCommand:16 - page loaded
+2023-01-24 02:08:21 INFO  ProfilePageCommand:20 - page loaded
+2023-01-24 02:08:25 INFO  ReplenishTheBalancePageCommand:17 - page loaded
+2023-01-24 02:08:50 INFO  ReplenishTheBalanceCommand:22 - ReplenishTheBalanceCommand started
+2023-01-24 02:08:50 INFO  ReplenishTheBalanceCommand:39 - ReplenishTheBalanceCommand balance replenished
+2023-01-24 02:08:52 INFO  ProfilePageCommand:20 - page loaded
+2023-01-24 02:08:57 INFO  ChangeLanguageCommand:26 - started
+2023-01-24 02:08:57 INFO  ChangeLanguageCommand:36 - language changed
+2023-01-24 02:08:57 INFO  ProfilePageCommand:20 - page loaded
+2023-01-24 02:08:59 INFO  ChangeLanguageCommand:26 - started
+2023-01-24 02:08:59 INFO  ChangeLanguageCommand:36 - language changed
+2023-01-24 02:08:59 INFO  ProfilePageCommand:20 - page loaded
+2023-01-24 02:09:02 INFO  ChangeLanguageCommand:26 - started
+2023-01-24 02:09:02 INFO  ChangeLanguageCommand:36 - language changed
+2023-01-24 02:09:02 INFO  ProfilePageCommand:20 - page loaded
+2023-01-24 02:09:03 INFO  ChangeLanguageCommand:26 - started
+2023-01-24 02:09:03 INFO  ChangeLanguageCommand:36 - language changed
+2023-01-24 02:09:03 INFO  ProfilePageCommand:20 - page loaded
+2023-01-24 02:09:10 INFO  CountThePriceCommand:19 - CountThePriceCommand page loaded
+2023-01-24 02:09:28 INFO  MakeOrderCommand:29 - MakeOrderCommand started
+2023-01-24 02:09:28 INFO  MakeOrderCommand:134 - MakeOrderCommand successfully added
+2023-01-24 02:09:30 INFO  MyOrdersCommand:20 - MyOrdersCommand page loaded
+2023-01-24 02:09:32 INFO  MyIncomingsCommandPage:20 - MyIncomingsCommandPage page loaded
+2023-01-24 02:09:33 INFO  MyOrdersCommand:20 - MyOrdersCommand page loaded
+2023-01-24 02:09:41 INFO  LogoutCommand:21 - user log out
+2023-01-24 02:09:44 INFO  LoginCommand:21 - started
+2023-01-24 02:09:44 INFO  LoginCommand:49 - user successfully logged in
+2023-01-24 02:09:44 INFO  HomePageCommand:16 - page loaded
+2023-01-24 02:09:45 INFO  ReceiveReportsCommand:24 - started
+2023-01-24 02:09:45 INFO  ReceiveReportsCommand:86 - reports successfully received
+2023-01-24 02:09:47 INFO  FormInvoiceForPaymentCommand:25 - started
+2023-01-24 02:09:47 INFO  FormInvoiceForPaymentCommand:75 - invoices successfully formed
+2023-01-24 02:09:48 INFO  LogoutCommand:21 - user log out
+2023-01-24 02:09:52 INFO  LoginCommand:21 - started
+2023-01-24 02:09:52 INFO  LoginCommand:49 - user successfully logged in
+2023-01-24 02:09:52 INFO  HomePageCommand:16 - page loaded
+2023-01-24 02:09:53 INFO  MyIncomingsCommandPage:20 - MyIncomingsCommandPage page loaded
+2023-01-24 02:09:56 INFO  MyOrdersCommand:20 - MyOrdersCommand page loaded
+2023-01-24 02:09:57 INFO  MyIncomingsCommandPage:20 - MyIncomingsCommandPage page loaded
+2023-01-24 02:10:05 INFO  MyIncomingsCommandPage:20 - MyIncomingsCommandPage page loaded
+2023-01-24 02:10:05 INFO  MyOrdersCommand:20 - MyOrdersCommand page loaded
+2023-01-24 02:10:09 INFO  ProfilePageCommand:20 - page loaded
+2023-01-24 02:10:12 INFO  ProfilePageCommand:20 - page loaded
+2023-01-24 02:10:15 INFO  MyIncomingsCommandPage:20 - MyIncomingsCommandPage page loaded
+2023-01-24 02:10:17 INFO  MyOrdersCommand:20 - MyOrdersCommand page loaded
+2023-01-24 02:10:19 INFO  PayByBalanceCommand:25 - PayByBalanceCommand started
+2023-01-24 02:10:19 INFO  PayByBalanceCommand:47 - PayByBalanceCommand user successfully payed
+2023-01-24 02:10:21 INFO  MyOrdersCommand:20 - MyOrdersCommand page loaded
+2023-01-24 02:10:26 INFO  PayByBalanceCommand:25 - PayByBalanceCommand started
+2023-01-24 02:10:26 INFO  PayByBalanceCommand:47 - PayByBalanceCommand user successfully payed
+2023-01-24 02:10:27 INFO  ProfilePageCommand:20 - page loaded
+2023-01-24 02:10:29 INFO  MyIncomingsCommandPage:20 - MyIncomingsCommandPage page loaded
+2023-01-24 02:10:30 INFO  ProfilePageCommand:20 - page loaded
+2023-01-24 02:10:31 INFO  ProfilePageCommand:20 - page loaded
+2023-01-24 02:10:35 INFO  ProfilePageCommand:20 - page loaded
+2023-01-24 02:16:29 INFO  HomePageCommand:16 - page loaded
+2023-01-24 02:16:32 INFO  LoginPageCommand:16 - page loaded
+2023-01-24 02:16:42 INFO  LoginCommand:21 - started
+2023-01-24 02:16:43 INFO  LoginCommand:49 - user successfully logged in
+2023-01-24 02:16:43 INFO  HomePageCommand:16 - page loaded
+2023-01-24 02:16:46 INFO  CountThePriceCommand:19 - CountThePriceCommand page loaded
+2023-01-24 02:16:57 INFO  MakeOrderCommand:29 - MakeOrderCommand started
+2023-01-24 02:16:57 INFO  MakeOrderCommand:134 - MakeOrderCommand successfully added
+2023-01-24 02:16:59 INFO  MyOrdersCommand:20 - MyOrdersCommand page loaded
+2023-01-24 02:17:03 INFO  LogoutCommand:21 - user log out
+2023-01-24 02:17:05 INFO  LoginCommand:21 - started
+2023-01-24 02:17:05 INFO  LoginCommand:49 - user successfully logged in
+2023-01-24 02:17:05 INFO  HomePageCommand:16 - page loaded
+2023-01-24 02:17:05 INFO  ReceiveReportsCommand:24 - started
+2023-01-24 02:17:05 INFO  ReceiveReportsCommand:86 - reports successfully received
+2023-01-24 02:17:07 INFO  FormInvoiceForPaymentCommand:25 - started
+2023-01-24 02:17:07 INFO  FormInvoiceForPaymentCommand:75 - invoices successfully formed
+2023-01-24 02:17:08 INFO  LogoutCommand:21 - user log out
+2023-01-24 02:17:13 INFO  LoginCommand:21 - started
+2023-01-24 02:17:13 INFO  LoginCommand:49 - user successfully logged in
+2023-01-24 02:17:13 INFO  HomePageCommand:16 - page loaded
+2023-01-24 02:17:14 INFO  MyOrdersCommand:20 - MyOrdersCommand page loaded
+2023-01-24 02:17:18 INFO  HomePageCommand:16 - page loaded
+2023-01-24 02:17:19 INFO  LoginPageCommand:16 - page loaded
+2023-01-24 02:17:25 INFO  LoginCommand:21 - started
+2023-01-24 02:17:25 INFO  LoginCommand:49 - user successfully logged in
+2023-01-24 02:17:25 INFO  HomePageCommand:16 - page loaded
+2023-01-24 02:17:26 INFO  MyOrdersCommand:20 - MyOrdersCommand page loaded
+2023-01-24 02:17:27 INFO  MyIncomingsCommandPage:20 - MyIncomingsCommandPage page loaded
+2023-01-24 02:17:40 INFO  ProfilePageCommand:20 - page loaded
+2023-01-24 02:17:43 INFO  ProfilePageCommand:20 - page loaded
+2023-01-24 02:17:47 INFO  PayByBalanceCommand:25 - PayByBalanceCommand started
+2023-01-24 02:17:47 INFO  PayByBalanceCommand:47 - PayByBalanceCommand user successfully payed
+2023-01-24 02:17:51 INFO  PayByBalanceCommand:25 - PayByBalanceCommand started
+2023-01-24 02:17:51 INFO  PayByBalanceCommand:50 - PayByBalanceCommand do not have enough in balance to pay
+2023-01-24 02:18:01 INFO  PayByBalanceCommand:25 - PayByBalanceCommand started
+2023-01-24 02:18:01 INFO  PayByBalanceCommand:50 - PayByBalanceCommand do not have enough in balance to pay
+2023-01-24 02:18:02 INFO  ProfilePageCommand:20 - page loaded
+2023-01-24 02:18:06 INFO  PayByCardCommand:18 - PayByCardCommand page loaded
+2023-01-24 02:18:07 INFO  PayByBalanceCommand:25 - PayByBalanceCommand started
+2023-01-24 02:18:07 INFO  PayByBalanceCommand:50 - PayByBalanceCommand do not have enough in balance to pay
+2023-01-24 02:20:19 INFO  CountThePriceCommand:19 - CountThePriceCommand page loaded
+2023-01-24 02:20:21 INFO  MyIncomingsCommandPage:20 - MyIncomingsCommandPage page loaded
+2023-01-24 02:20:22 INFO  CountThePriceCommand:19 - CountThePriceCommand page loaded
+2023-01-24 02:20:31 INFO  MakeOrderCommand:29 - MakeOrderCommand started
+2023-01-24 02:20:31 INFO  MakeOrderCommand:134 - MakeOrderCommand successfully added
+2023-01-24 02:20:36 INFO  MyOrdersCommand:20 - MyOrdersCommand page loaded
+2023-01-24 02:20:40 INFO  MyOrdersCommand:20 - MyOrdersCommand page loaded
+2023-01-24 02:20:53 INFO  LogoutCommand:21 - user log out
+2023-01-24 02:20:57 INFO  LoginCommand:21 - started
+2023-01-24 02:20:57 INFO  LoginCommand:49 - user successfully logged in
+2023-01-24 02:20:57 INFO  HomePageCommand:16 - page loaded
+2023-01-24 02:20:59 INFO  ReceiveReportsCommand:24 - started
+2023-01-24 02:20:59 INFO  ReceiveReportsCommand:86 - reports successfully received
+2023-01-24 02:21:01 INFO  FormInvoiceForPaymentCommand:25 - started
+2023-01-24 02:21:01 INFO  FormInvoiceForPaymentCommand:75 - invoices successfully formed
+2023-01-24 02:21:02 INFO  ReceiveReportsCommand:24 - started
+2023-01-24 02:21:02 INFO  ReceiveReportsCommand:86 - reports successfully received
+2023-01-24 02:21:03 INFO  LogoutCommand:21 - user log out
+2023-01-24 02:21:15 INFO  ChangeLanguageCommand:26 - started
+2023-01-24 02:21:15 INFO  ChangeLanguageCommand:36 - language changed
+2023-01-24 02:21:15 INFO  LogoutCommand:21 - user log out
+2023-01-24 02:21:16 INFO  ChangeLanguageCommand:26 - started
+2023-01-24 02:21:16 INFO  ChangeLanguageCommand:36 - language changed
+2023-01-24 02:21:16 INFO  LogoutCommand:21 - user log out
+2023-01-24 02:21:23 INFO  LoginCommand:21 - started
+2023-01-24 02:21:23 INFO  LoginCommand:49 - user successfully logged in
+2023-01-24 02:21:23 INFO  HomePageCommand:16 - page loaded
+2023-01-24 02:21:24 INFO  MyIncomingsCommandPage:20 - MyIncomingsCommandPage page loaded
+2023-01-24 02:21:25 INFO  MyOrdersCommand:20 - MyOrdersCommand page loaded
+2023-01-24 02:21:27 INFO  ProfilePageCommand:20 - page loaded
+2023-01-24 02:21:28 INFO  MyOrdersCommand:20 - MyOrdersCommand page loaded
+2023-01-24 02:21:32 INFO  HomePageCommand:16 - page loaded
+2023-01-24 02:21:34 INFO  LoginPageCommand:16 - page loaded
+2023-01-24 02:21:39 INFO  LoginCommand:21 - started
+2023-01-24 02:21:39 INFO  LoginCommand:49 - user successfully logged in
+2023-01-24 02:21:39 INFO  HomePageCommand:16 - page loaded
+2023-01-24 02:21:42 INFO  MyIncomingsCommandPage:20 - MyIncomingsCommandPage page loaded
+2023-01-24 02:21:44 INFO  ProfilePageCommand:20 - page loaded
+2023-01-24 02:21:45 INFO  MyIncomingsCommandPage:20 - MyIncomingsCommandPage page loaded
+2023-01-24 02:21:47 INFO  ProfilePageCommand:20 - page loaded
+2023-01-24 02:21:49 INFO  MyOrdersCommand:20 - MyOrdersCommand page loaded
+2023-01-24 02:21:55 INFO  PayByBalanceCommand:25 - PayByBalanceCommand started
+2023-01-24 02:21:55 INFO  PayByBalanceCommand:48 - PayByBalanceCommand user successfully payed
+2023-01-24 02:22:14 INFO  PayByBalanceCommand:25 - PayByBalanceCommand started
+2023-01-24 02:22:15 INFO  ProfilePageCommand:20 - page loaded
+2023-01-24 02:22:17 INFO  MyIncomingsCommandPage:20 - MyIncomingsCommandPage page loaded
+2023-01-24 02:22:17 INFO  MyOrdersCommand:20 - MyOrdersCommand page loaded
